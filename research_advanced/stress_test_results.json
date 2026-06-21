@@ -1,0 +1,266 @@
+{
+  "digital_acc": 0.876,
+  "individual": [
+    {
+      "parameter": "resistor_mismatch",
+      "value": 0.01,
+      "analog_acc": 0.835,
+      "drop": 0.041,
+      "severity": "MILD"
+    },
+    {
+      "parameter": "resistor_mismatch",
+      "value": 0.1,
+      "analog_acc": 0.824,
+      "drop": 0.052,
+      "severity": "MODERATE"
+    },
+    {
+      "parameter": "resistor_mismatch",
+      "value": 0.2,
+      "analog_acc": 0.761,
+      "drop": 0.115,
+      "severity": "SEVERE"
+    },
+    {
+      "parameter": "resistor_mismatch",
+      "value": 0.5,
+      "analog_acc": 0.133,
+      "drop": 0.743,
+      "severity": "CRITICAL"
+    },
+    {
+      "parameter": "resistor_mismatch",
+      "value": 1.0,
+      "analog_acc": 0.131,
+      "drop": 0.745,
+      "severity": "CRITICAL"
+    },
+    {
+      "parameter": "noise_sigma",
+      "value": 0.01,
+      "analog_acc": 0.835,
+      "drop": 0.041,
+      "severity": "MILD"
+    },
+    {
+      "parameter": "noise_sigma",
+      "value": 0.05,
+      "analog_acc": 0.848,
+      "drop": 0.028,
+      "severity": "MILD"
+    },
+    {
+      "parameter": "noise_sigma",
+      "value": 0.1,
+      "analog_acc": 0.802,
+      "drop": 0.074,
+      "severity": "MODERATE"
+    },
+    {
+      "parameter": "noise_sigma",
+      "value": 0.2,
+      "analog_acc": 0.572,
+      "drop": 0.304,
+      "severity": "CRITICAL"
+    },
+    {
+      "parameter": "noise_sigma",
+      "value": 0.5,
+      "analog_acc": 0.213,
+      "drop": 0.663,
+      "severity": "CRITICAL"
+    },
+    {
+      "parameter": "quantization_bits",
+      "value": 8,
+      "analog_acc": 0.845,
+      "drop": 0.031,
+      "severity": "MILD"
+    },
+    {
+      "parameter": "quantization_bits",
+      "value": 6,
+      "analog_acc": 0.832,
+      "drop": 0.044,
+      "severity": "MILD"
+    },
+    {
+      "parameter": "quantization_bits",
+      "value": 4,
+      "analog_acc": 0.841,
+      "drop": 0.035,
+      "severity": "MILD"
+    },
+    {
+      "parameter": "quantization_bits",
+      "value": 3,
+      "analog_acc": 0.738,
+      "drop": 0.138,
+      "severity": "SEVERE"
+    },
+    {
+      "parameter": "quantization_bits",
+      "value": 2,
+      "analog_acc": 0.104,
+      "drop": 0.772,
+      "severity": "CRITICAL"
+    },
+    {
+      "parameter": "saturation_vmax",
+      "value": 5.0,
+      "analog_acc": 0.871,
+      "drop": 0.005,
+      "severity": "MILD"
+    },
+    {
+      "parameter": "saturation_vmax",
+      "value": 2.5,
+      "analog_acc": 0.833,
+      "drop": 0.043,
+      "severity": "MILD"
+    },
+    {
+      "parameter": "saturation_vmax",
+      "value": 1.0,
+      "analog_acc": 0.804,
+      "drop": 0.072,
+      "severity": "MODERATE"
+    },
+    {
+      "parameter": "saturation_vmax",
+      "value": 0.5,
+      "analog_acc": 0.717,
+      "drop": 0.159,
+      "severity": "SEVERE"
+    },
+    {
+      "parameter": "saturation_vmax",
+      "value": 0.25,
+      "analog_acc": 0.579,
+      "drop": 0.297,
+      "severity": "SEVERE"
+    },
+    {
+      "parameter": "opamp_offset",
+      "value": 0.002,
+      "analog_acc": 0.836,
+      "drop": 0.04,
+      "severity": "MILD"
+    },
+    {
+      "parameter": "opamp_offset",
+      "value": 0.01,
+      "analog_acc": 0.8,
+      "drop": 0.076,
+      "severity": "MODERATE"
+    },
+    {
+      "parameter": "opamp_offset",
+      "value": 0.05,
+      "analog_acc": 0.277,
+      "drop": 0.599,
+      "severity": "CRITICAL"
+    },
+    {
+      "parameter": "opamp_offset",
+      "value": 0.1,
+      "analog_acc": 0.109,
+      "drop": 0.767,
+      "severity": "CRITICAL"
+    },
+    {
+      "parameter": "opamp_offset",
+      "value": 0.5,
+      "analog_acc": 0.087,
+      "drop": 0.789,
+      "severity": "CRITICAL"
+    }
+  ],
+  "combined": [
+    {
+      "stress_level": "benign",
+      "config": {
+        "resistor_mismatch": 0.01,
+        "noise_sigma": 0.01,
+        "opamp_offset": 0.002,
+        "quantization_bits": 8,
+        "saturation_vmax": 2.5,
+        "seed": 42
+      },
+      "analog_acc": 0.837,
+      "drop": 0.039,
+      "severity": "MILD"
+    },
+    {
+      "stress_level": "mild",
+      "config": {
+        "resistor_mismatch": 0.05,
+        "noise_sigma": 0.02,
+        "opamp_offset": 0.005,
+        "quantization_bits": 6,
+        "saturation_vmax": 2.0,
+        "seed": 42
+      },
+      "analog_acc": 0.836,
+      "drop": 0.04,
+      "severity": "MILD"
+    },
+    {
+      "stress_level": "moderate",
+      "config": {
+        "resistor_mismatch": 0.1,
+        "noise_sigma": 0.05,
+        "opamp_offset": 0.01,
+        "quantization_bits": 5,
+        "saturation_vmax": 1.5,
+        "seed": 42
+      },
+      "analog_acc": 0.795,
+      "drop": 0.081,
+      "severity": "MODERATE"
+    },
+    {
+      "stress_level": "severe",
+      "config": {
+        "resistor_mismatch": 0.2,
+        "noise_sigma": 0.1,
+        "opamp_offset": 0.02,
+        "quantization_bits": 4,
+        "saturation_vmax": 1.0,
+        "seed": 42
+      },
+      "analog_acc": 0.322,
+      "drop": 0.554,
+      "severity": "CATASTROPHIC"
+    },
+    {
+      "stress_level": "extreme",
+      "config": {
+        "resistor_mismatch": 0.5,
+        "noise_sigma": 0.2,
+        "opamp_offset": 0.05,
+        "quantization_bits": 3,
+        "saturation_vmax": 0.5,
+        "seed": 42
+      },
+      "analog_acc": 0.119,
+      "drop": 0.757,
+      "severity": "CATASTROPHIC"
+    },
+    {
+      "stress_level": "catastrophic",
+      "config": {
+        "resistor_mismatch": 1.0,
+        "noise_sigma": 0.5,
+        "opamp_offset": 0.1,
+        "quantization_bits": 2,
+        "saturation_vmax": 0.25,
+        "seed": 42
+      },
+      "analog_acc": 0.085,
+      "drop": 0.791,
+      "severity": "CATASTROPHIC"
+    }
+  ]
+}

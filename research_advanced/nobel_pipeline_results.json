@@ -1,0 +1,50 @@
+{
+  "analog_accuracies": {
+    "Standard": {
+      "digital": 0.8379999995231628,
+      "analog": 0.7900000214576721,
+      "drop": 0.04799997806549072
+    },
+    "Differentiable": {
+      "digital": 0.8040000200271606,
+      "analog": 0.8040000200271606,
+      "drop": 0.0
+    }
+  },
+  "certificates": {
+    "Standard": {
+      "lipschitz": 171.6853373650207,
+      "certified_frac": 0.0,
+      "certified_radius": 0.0
+    },
+    "Differentiable": {
+      "lipschitz": 36.249506166139106,
+      "certified_frac": 0.0,
+      "certified_radius": 0.0
+    }
+  },
+  "compilations": {
+    "Standard": {
+      "crossbars": 3,
+      "energy_pJ": 17551.36,
+      "area_um2": 8512.0,
+      "macs": 17024
+    },
+    "Differentiable": {
+      "crossbars": 3,
+      "energy_pJ": 17551.36,
+      "area_um2": 8512.0,
+      "macs": 17024
+    }
+  },
+  "ranking": [
+    [
+      "Differentiable",
+      0.7828237094105467
+    ],
+    [
+      "Standard",
+      0.75528012772117
+    ]
+  ]
+}

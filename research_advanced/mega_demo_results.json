@@ -1,0 +1,10 @@
+{
+  "digital_accuracy": 0.8180000185966492,
+  "differentiable_accuracy": 0.7799999713897705,
+  "lipschitz_bound": 125.83769975416054,
+  "certified_fraction": 0.0,
+  "avg_certified_radius": 0.0,
+  "crossbars": 3,
+  "energy_pJ": 17551.36,
+  "area_um2": 8512.0
+}

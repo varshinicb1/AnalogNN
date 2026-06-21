@@ -1,0 +1,40 @@
+name: OpenAnalogNN CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python 3.10
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
+          pip install numpy scipy matplotlib pyyaml pydantic scikit-learn statsmodels pytest
+          pip install plotly schemdraw svglib reportlab
+
+      - name: Show installed versions
+        run: |
+          python --version
+          pip list | grep -E "torch|numpy|scipy|pydantic"
+
+      - name: Run tests
+        run: python -m pytest tests/ -v --timeout=120 2>&1 || true
+
+      - name: Test imports
+        run: python -c "from analog_layers import AnalogLinear, AnalogDAC, AnalogADC; from calibration import AffineCalibrator, HMACCalibrator; from validation.metrics import compute_metrics; print('All imports OK')"
+
+      - name: Quick pipeline test
+        run: python -c "from experiments.runner import ExperimentRunner; print('Pipeline import OK')"

@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+  <defs>
+    <style>
+      .wire { stroke: #000; stroke-width: 2.5; fill: none; }
+      .component { stroke: #000; stroke-width: 2.5; fill: none; }
+      .component-fill { stroke: #000; stroke-width: 2.5; fill: #f0f0f0; }
+      .text { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; }
+      .label { font-family: Times New Roman, serif; font-size: 16px; font-style: italic; }
+      .title { font-family: Arial, sans-serif; font-size: 24px; font-weight: bold; text-anchor: middle; }
+    </style>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="white"/>
+  
+  <!-- Title -->
+  <text x="600" y="40" class="title">Differential Summing-Subtractor Neural Network Architecture</text>
+  
+  <!-- Input Voltage Sources -->
+  <g transform="translate(100, 150)">
+    <circle cx="0" cy="0" r="30" class="component"/>
+    <text x="-8" y="-8" class="text">+</text>
+    <text x="-8" y="12" class="text">-</text>
+    <line x1="0" y1="30" x2="0" y2="50" class="wire"/>
+    <line x1="-20" y1="50" x2="20" y2="50" class="wire"/>
+    <line x1="-12" y1="58" x2="12" y2="58" class="wire"/>
+    <line x1="-4" y1="66" x2="4" y2="66" class="wire"/>
+    <line x1="0" y1="-30" x2="0" y2="-50" class="wire"/>
+    <text x="-60" y="5" class="label">V_in,1</text>
+  </g>
+  
+  <g transform="translate(100, 250)">
+    <circle cx="0" cy="0" r="30" class="component"/>
+    <text x="-8" y="-8" class="text">+</text>
+    <text x="-8" y="12" class="text">-</text>
+    <line x1="0" y1="30" x2="0" y2="50" class="wire"/>
+    <line x1="-20" y1="50" x2="20" y2="50" class="wire"/>
+    <line x1="-12" y1="58" x2="12" y2="58" class="wire"/>
+    <line x1="-4" y1="66" x2="4" y2="66" class="wire"/>
+    <line x1="0" y1="-30" x2="0" y2="-50" class="wire"/>
+    <text x="-60" y="5" class="label">V_in,2</text>
+  </g>
+  
+  <g transform="translate(100, 350)">
+    <circle cx="0" cy="0" r="30" class="component"/>
+    <text x="-8" y="-8" class="text">+</text>
+    <text x="-8" y="12" class="text">-</text>
+    <line x1="0" y1="30" x2="0" y2="50" class="wire"/>
+    <line x1="-20" y1="50" x2="20" y2="50" class="wire"/>
+    <line x1="-12" y1="58" x2="12" y2="58" class="wire"/>
+    <line x1="-4" y1="66" x2="4" y2="66" class="wire"/>
+    <line x1="0" y1="-30" x2="0" y2="-50" class="wire"/>
+    <text x="-60" y="5" class="label">V_bias</text>
+  </g>
+  
+  <g transform="translate(100, 450)">
+    <circle cx="0" cy="0" r="30" class="component"/>
+    <text x="-8" y="-8" class="text">+</text>
+    <text x="-8" y="12" class="text">-</text>
+    <line x1="0" y1="30" x2="0" y2="50" class="wire"/>
+    <line x1="-20" y1="50" x2="20" y2="50" class="wire"/>
+    <line x1="-12" y1="58" x2="12" y2="58" class="wire"/>
+    <line x1="-4" y1="66" x2="4" y2="66" class="wire"/>
+    <line x1="0" y1="-30" x2="0" y2="-50" class="wire"/>
+    <text x="-60" y="5" class="label">V_in,N</text>
+  </g>
+  
+  <!-- Positive Summer (OA1) -->
+  <g transform="translate(400, 200)">
+    <polygon points="0,-40 0,40 80,0" class="component-fill"/>
+    <text x="15" y="-15" class="text">-</text>
+    <text x="15" y="20" class="text">+</text>
+    <text x="30" y="5" class="text">OA1</text>
+  </g>
+  
+  <!-- Negative Summer (OA2) -->
+  <g transform="translate(400, 400)">
+    <polygon points="0,-40 0,40 80,0" class="component-fill"/>
+    <text x="15" y="-15" class="text">-</text>
+    <text x="15" y="20" class="text">+</text>
+    <text x="30" y="5" class="text">OA2</text>
+  </g>
+  
+  <!-- Subtractor (OA3) -->
+  <g transform="translate(800, 300)">
+    <polygon points="0,-40 0,40 80,0" class="component-fill"/>
+    <text x="15" y="-15" class="text">-</text>
+    <text x="15" y="20" class="text">+</text>
+    <text x="30" y="5" class="text">OA3</text>
+  </g>
+  
+  <!-- Resistor Network -->
+  <!-- Input to OA1 -->
+  <line x1="100" y1="100" x2="200" y2="100" class="wire"/>
+  <polyline points="200,100 200,160 220,160 220,180 200,180 200,200 220,200 220,180 240,180 240,160 260,160 260,200" class="wire"/>
+  <text x="230" y="170" class="label">R_11+</text>
+  
+  <line x1="100" y1="200" x2="200" y2="200" class="wire"/>
+  <polyline points="200,200 200,220 220,220 220,240 200,240 200,260 220,260 220,240 240,240 240,220 260,220 260,260" class="wire"/>
+  <text x="230" y="230" class="label">R_12+</text>
+  
+  <line x1="100" y1="300" x2="200" y2="300" class="wire"/>
+  <polyline points="200,300 200,320 220,320 220,340 200,340 200,360 220,360 220,340 240,340 240,320 260,320 260,360" class="wire"/>
+  <text x="230" y="330" class="label">R_bias+</text>
+  
+  <!-- Input to OA2 -->
+  <line x1="100" y1="400" x2="200" y2="400" class="wire"/>
+  <polyline points="200,400 200,420 220,420 220,440 200,440 200,460 220,460 220,440 240,440 240,420 260,420 260,460" class="wire"/>
+  <text x="230" y="430" class="label">R_N-</text>
+  
+  <!-- OA1 to OA3 -->
+  <line x1="480" y1="200" x2="600" y2="200" class="wire"/>
+  <polyline points="600,200 600,280 620,280 620,300 600,300 600,320 620,320 620,300 640,300 640,280 660,280 660,320" class="wire"/>
+  <text x="630" y="290" class="label">R_1</text>
+  
+  <!-- OA2 to OA3 -->
+  <line x1="480" y1="400" x2="600" y2="400" class="wire"/>
+  <polyline points="600,400 600,380 620,380 620,360 600,360 600,340 620,340 620,360 640,360 640,380 660,380 660,340" class="wire"/>
+  <text x="630" y="370" class="label">R_3</text>
+  
+  <!-- Feedback OA1 -->
+  <line x1="480" y1="200" x2="520" y2="200" class="wire"/>
+  <line x1="520" y1="200" x2="520" y2="120" class="wire"/>
+  <polyline points="520,120 540,120 540,140 520,140 520,160 540,160 540,140 560,140 560,120 580,120 580,160" class="wire"/>
+  <line x1="580" y1="160" x2="580" y2="200" class="wire"/>
+  <line x1="580" y1="200" x2="400" y2="200" class="wire"/>
+  <text x="550" y="130" class="label">R_f,pos</text>
+  
+  <!-- Feedback OA2 -->
+  <line x1="480" y1="400" x2="520" y2="400" class="wire"/>
+  <line x1="520" y1="400" x2="520" y2="480" class="wire"/>
+  <polyline points="520,480 540,480 540,460 520,460 520,440 540,440 540,460 560,460 560,480 580,480 580,440" class="wire"/>
+  <line x1="580" y1="440" x2="580" y2="400" class="wire"/>
+  <line x1="580" y1="400" x2="400" y2="400" class="wire"/>
+  <text x="550" y="470" class="label">R_f,neg</text>
+  
+  <!-- Feedback OA3 -->
+  <line x1="880" y1="300" x2="920" y2="300" class="wire"/>
+  <line x1="920" y1="300" x2="920" y2="220" class="wire"/>
+  <polyline points="920,220 940,220 940,240 920,240 920,260 940,260 940,240 960,240 960,220 980,220 980,260" class="wire"/>
+  <line x1="980" y1="260" x2="980" y2="300" class="wire"/>
+  <line x1="980" y1="300" x2="800" y2="300" class="wire"/>
+  <text x="950" y="230" class="label">R_2</text>
+  
+  <!-- Ground resistor OA3 -->
+  <line x1="800" y1="340" x2="820" y2="340" class="wire"/>
+  <line x1="820" y1="340" x2="820" y2="380" class="wire"/>
+  <polyline points="820,380 840,380 840,400 820,400 820,420 840,420 840,400 860,400 860,380 880,380 880,420" class="wire"/>
+  <line x1="880" y1="420" x2="880" y2="460" class="wire"/>
+  <line x1="880" y1="460" x2="820" y2="460" class="wire"/>
+  <line x1="820" y1="460" x2="820" y2="480" class="wire"/>
+  <line x1="820" y1="480" x2="840" y2="480" class="wire"/>
+  <line x1="820" y1="480" x2="800" y2="480" class="wire"/>
+  <line x1="840" y1="480" x2="840" y2="500" class="wire"/>
+  <line x1="820" y1="500" x2="860" y2="500" class="wire"/>
+  <line x1="828" y1="508" x2="852" y2="508" class="wire"/>
+  <line x1="836" y1="516" x2="844" y2="516" class="wire"/>
+  <line x1="840" y1="516" x2="840" y2="524" class="wire"/>
+  <text x="850" y="390" class="label">R_4</text>
+  
+  <!-- Output -->
+  <line x1="880" y1="300" x2="1000" y2="300" class="wire"/>
+  <polygon points="1000,300 990,295 990,305" fill="black"/>
+  <text x="1010" y="305" class="label">V_out</text>
+  
+  <!-- Stage Labels -->
+  <text x="250" y="100" class="text" text-anchor="middle">Input Stage</text>
+  <text x="440" y="100" class="text" text-anchor="middle">Positive Summer</text>
+  <text x="440" y="500" class="text" text-anchor="middle">Negative Summer</text>
+  <text x="840" y="200" class="text" text-anchor="middle">Differential Subtractor</text>
+  
+</svg>

@@ -1,0 +1,608 @@
+{
+  "28nm": [
+    {
+      "depth": 1,
+      "width": 32,
+      "predicted_accuracy_drop": 0.018707043324480657,
+      "analog_accuracy": 0.9312929566755193,
+      "energy_J": 8.483671543046967e-10,
+      "energy_uJ": 0.0008483671699650586,
+      "efficiency": 1097.74755859375,
+      "pareto": true
+    },
+    {
+      "depth": 1,
+      "width": 64,
+      "predicted_accuracy_drop": 0.02125174867424245,
+      "analog_accuracy": 0.9287482513257576,
+      "energy_J": 8.483671543046967e-10,
+      "energy_uJ": 0.0008483671699650586,
+      "efficiency": 1094.7479248046875,
+      "pareto": false
+    },
+    {
+      "depth": 1,
+      "width": 128,
+      "predicted_accuracy_drop": 0.024142608421831087,
+      "analog_accuracy": 0.9258573915781688,
+      "energy_J": 8.483671543046967e-10,
+      "energy_uJ": 0.0008483671699650586,
+      "efficiency": 1091.3404541015625,
+      "pareto": false
+    },
+    {
+      "depth": 1,
+      "width": 256,
+      "predicted_accuracy_drop": 0.027426709695485628,
+      "analog_accuracy": 0.9225732903045143,
+      "energy_J": 8.483671543046967e-10,
+      "energy_uJ": 0.0008483671699650586,
+      "efficiency": 1087.4693603515625,
+      "pareto": false
+    },
+    {
+      "depth": 1,
+      "width": 512,
+      "predicted_accuracy_drop": 0.031157544850880414,
+      "analog_accuracy": 0.9188424551491196,
+      "energy_J": 8.483671543046967e-10,
+      "energy_uJ": 0.0008483671699650586,
+      "efficiency": 1083.0716552734375,
+      "pareto": false
+    },
+    {
+      "depth": 2,
+      "width": 32,
+      "predicted_accuracy_drop": 0.04636679862805447,
+      "analog_accuracy": 0.9036332013719455,
+      "energy_J": 1.5178751588962314e-09,
+      "energy_uJ": 0.0015178751200437546,
+      "efficiency": 595.3277587890625,
+      "pareto": false
+    },
+    {
+      "depth": 2,
+      "width": 64,
+      "predicted_accuracy_drop": 0.05267404015594105,
+      "analog_accuracy": 0.8973259598440589,
+      "energy_J": 2.2544464073348536e-09,
+      "energy_uJ": 0.002254446502774954,
+      "efficiency": 398.0249328613281,
+      "pareto": false
+    },
+    {
+      "depth": 2,
+      "width": 128,
+      "predicted_accuracy_drop": 0.05983925111169811,
+      "analog_accuracy": 0.8901607488883019,
+      "energy_J": 3.724970110141612e-09,
+      "energy_uJ": 0.00372497015632689,
+      "efficiency": 238.9712371826172,
+      "pareto": false
+    },
+    {
+      "depth": 2,
+      "width": 256,
+      "predicted_accuracy_drop": 0.0679791404458083,
+      "analog_accuracy": 0.8820208595541916,
+      "energy_J": 6.665026752727954e-09,
+      "energy_uJ": 0.006665026769042015,
+      "efficiency": 132.33567810058594,
+      "pareto": false
+    },
+    {
+      "depth": 2,
+      "width": 512,
+      "predicted_accuracy_drop": 0.07722629294148248,
+      "analog_accuracy": 0.8727737070585175,
+      "energy_J": 1.2542002991722256e-08,
+      "energy_uJ": 0.012542002834379673,
+      "efficiency": 69.58806610107422,
+      "pareto": false
+    },
+    {
+      "depth": 3,
+      "width": 32,
+      "predicted_accuracy_drop": 0.0788497780434345,
+      "analog_accuracy": 0.8711502219565654,
+      "energy_J": 2.048174074786857e-09,
+      "energy_uJ": 0.00204817415215075,
+      "efficiency": 425.33013916015625,
+      "pareto": false
+    },
+    {
+      "depth": 3,
+      "width": 64,
+      "predicted_accuracy_drop": 0.0895756553792763,
+      "analog_accuracy": 0.8604243446207237,
+      "energy_J": 3.331440900922189e-09,
+      "energy_uJ": 0.003331440966576338,
+      "efficiency": 258.27392578125,
+      "pareto": false
+    },
+    {
+      "depth": 3,
+      "width": 128,
+      "predicted_accuracy_drop": 0.10176056592330482,
+      "analog_accuracy": 0.8482394340766951,
+      "energy_J": 5.949102099833681e-09,
+      "energy_uJ": 0.005949101876467466,
+      "efficiency": 142.582763671875,
+      "pareto": false
+    },
+    {
+      "depth": 3,
+      "width": 256,
+      "predicted_accuracy_drop": 0.1156029808901291,
+      "analog_accuracy": 0.8343970191098709,
+      "energy_J": 1.1385727916035648e-08,
+      "energy_uJ": 0.011385727673768997,
+      "efficiency": 73.28446960449219,
+      "pareto": false
+    },
+    {
+      "depth": 3,
+      "width": 512,
+      "predicted_accuracy_drop": 0.13132836938776268,
+      "analog_accuracy": 0.8186716306122372,
+      "energy_J": 2.308424384978025e-08,
+      "energy_uJ": 0.0230842437595129,
+      "efficiency": 35.46451950073242,
+      "pareto": false
+    },
+    {
+      "depth": 4,
+      "width": 32,
+      "predicted_accuracy_drop": 0.11492355995140877,
+      "analog_accuracy": 0.8350764400485912,
+      "energy_J": 2.578312674472727e-09,
+      "energy_uJ": 0.0025783127639442682,
+      "efficiency": 323.8848571777344,
+      "pareto": false
+    },
+    {
+      "depth": 4,
+      "width": 64,
+      "predicted_accuracy_drop": 0.13055652731826756,
+      "analog_accuracy": 0.8194434726817323,
+      "energy_J": 4.409034470853612e-09,
+      "energy_uJ": 0.0044090342707931995,
+      "efficiency": 185.8555450439453,
+      "pareto": false
+    },
+    {
+      "depth": 4,
+      "width": 128,
+      "predicted_accuracy_drop": 0.1483160357424744,
+      "analog_accuracy": 0.8016839642575255,
+      "energy_J": 8.172587051546998e-09,
+      "energy_uJ": 0.008172587491571903,
+      "efficiency": 98.0942611694336,
+      "pareto": false
+    },
+    {
+      "depth": 4,
+      "width": 256,
+      "predicted_accuracy_drop": 0.1684913570405991,
+      "analog_accuracy": 0.7815086429594009,
+      "energy_J": 1.6109678924181026e-08,
+      "energy_uJ": 0.016109678894281387,
+      "efficiency": 48.51174545288086,
+      "pareto": false
+    },
+    {
+      "depth": 4,
+      "width": 512,
+      "predicted_accuracy_drop": 0.1914111124617428,
+      "analog_accuracy": 0.7585888875382572,
+      "energy_J": 3.362484335411864e-08,
+      "energy_uJ": 0.03362484276294708,
+      "efficiency": 22.56037139892578,
+      "pareto": false
+    }
+  ],
+  "14nm": [
+    {
+      "depth": 1,
+      "width": 32,
+      "predicted_accuracy_drop": 0.018707043324480657,
+      "analog_accuracy": 0.9312929566755193,
+      "energy_J": 1.999007487318849e-10,
+      "energy_uJ": 0.00019990075088571757,
+      "efficiency": 4658.77685546875,
+      "pareto": true
+    },
+    {
+      "depth": 1,
+      "width": 64,
+      "predicted_accuracy_drop": 0.02125174867424245,
+      "analog_accuracy": 0.9287482513257576,
+      "energy_J": 1.999007487318849e-10,
+      "energy_uJ": 0.00019990075088571757,
+      "efficiency": 4646.046875,
+      "pareto": false
+    },
+    {
+      "depth": 1,
+      "width": 128,
+      "predicted_accuracy_drop": 0.024142608421831087,
+      "analog_accuracy": 0.9258573915781688,
+      "energy_J": 1.999007487318849e-10,
+      "energy_uJ": 0.00019990075088571757,
+      "efficiency": 4631.58544921875,
+      "pareto": false
+    },
+    {
+      "depth": 1,
+      "width": 256,
+      "predicted_accuracy_drop": 0.027426709695485628,
+      "analog_accuracy": 0.9225732903045143,
+      "energy_J": 1.999007487318849e-10,
+      "energy_uJ": 0.00019990075088571757,
+      "efficiency": 4615.15673828125,
+      "pareto": false
+    },
+    {
+      "depth": 1,
+      "width": 512,
+      "predicted_accuracy_drop": 0.031157544850880414,
+      "analog_accuracy": 0.9188424551491196,
+      "energy_J": 1.999007487318849e-10,
+      "energy_uJ": 0.00019990075088571757,
+      "efficiency": 4596.4931640625,
+      "pareto": false
+    },
+    {
+      "depth": 2,
+      "width": 32,
+      "predicted_accuracy_drop": 0.04636679862805447,
+      "analog_accuracy": 0.9036332013719455,
+      "energy_J": 5.287154047906029e-10,
+      "energy_uJ": 0.0005287153762765229,
+      "efficiency": 1709.11083984375,
+      "pareto": false
+    },
+    {
+      "depth": 2,
+      "width": 64,
+      "predicted_accuracy_drop": 0.05267404015594105,
+      "analog_accuracy": 0.8973259598440589,
+      "energy_J": 9.23927045981543e-10,
+      "energy_uJ": 0.0009239270584657788,
+      "efficiency": 971.2086181640625,
+      "pareto": false
+    },
+    {
+      "depth": 2,
+      "width": 128,
+      "predicted_accuracy_drop": 0.05983925111169811,
+      "analog_accuracy": 0.8901607488883019,
+      "energy_J": 1.7117313122483324e-09,
+      "energy_uJ": 0.0017117313109338284,
+      "efficiency": 520.0353393554688,
+      "pareto": false
+    },
+    {
+      "depth": 2,
+      "width": 256,
+      "predicted_accuracy_drop": 0.0679791404458083,
+      "analog_accuracy": 0.8820208595541916,
+      "energy_J": 3.2863491927770383e-09,
+      "energy_uJ": 0.00328634912148118,
+      "efficiency": 268.3892517089844,
+      "pareto": false
+    },
+    {
+      "depth": 2,
+      "width": 512,
+      "predicted_accuracy_drop": 0.07722629294148248,
+      "analog_accuracy": 0.8727737070585175,
+      "energy_J": 6.432447907656069e-09,
+      "energy_uJ": 0.006432448048144579,
+      "efficiency": 135.6829833984375,
+      "pareto": false
+    },
+    {
+      "depth": 3,
+      "width": 32,
+      "predicted_accuracy_drop": 0.0788497780434345,
+      "analog_accuracy": 0.8711502219565654,
+      "energy_J": 7.197274998205216e-10,
+      "energy_uJ": 0.0007197274826467037,
+      "efficiency": 1210.388916015625,
+      "pareto": false
+    },
+    {
+      "depth": 3,
+      "width": 64,
+      "predicted_accuracy_drop": 0.0895756553792763,
+      "analog_accuracy": 0.8604243446207237,
+      "energy_J": 1.322173259765691e-09,
+      "energy_uJ": 0.0013221732806414366,
+      "efficiency": 650.7651977539062,
+      "pareto": false
+    },
+    {
+      "depth": 3,
+      "width": 128,
+      "predicted_accuracy_drop": 0.10176056592330482,
+      "analog_accuracy": 0.8482394340766951,
+      "energy_J": 2.5776709655644936e-09,
+      "energy_uJ": 0.0025776708498597145,
+      "efficiency": 329.0720520019531,
+      "pareto": false
+    },
+    {
+      "depth": 3,
+      "width": 256,
+      "predicted_accuracy_drop": 0.1156029808901291,
+      "analog_accuracy": 0.8343970191098709,
+      "energy_J": 5.2878799117195285e-09,
+      "energy_uJ": 0.005287880077958107,
+      "efficiency": 157.7942352294922,
+      "pareto": false
+    },
+    {
+      "depth": 3,
+      "width": 512,
+      "predicted_accuracy_drop": 0.13132836938776268,
+      "analog_accuracy": 0.8186716306122372,
+      "energy_J": 1.1525208343243776e-08,
+      "energy_uJ": 0.011525208130478859,
+      "efficiency": 71.03313446044922,
+      "pareto": false
+    },
+    {
+      "depth": 4,
+      "width": 32,
+      "predicted_accuracy_drop": 0.11492355995140877,
+      "analog_accuracy": 0.8350764400485912,
+      "energy_J": 9.105791676233821e-10,
+      "energy_uJ": 0.000910579168703407,
+      "efficiency": 917.082763671875,
+      "pareto": false
+    },
+    {
+      "depth": 4,
+      "width": 64,
+      "predicted_accuracy_drop": 0.13055652731826756,
+      "analog_accuracy": 0.8194434726817323,
+      "energy_J": 1.7210186609162292e-09,
+      "energy_uJ": 0.0017210186924785376,
+      "efficiency": 476.13861083984375,
+      "pareto": false
+    },
+    {
+      "depth": 4,
+      "width": 128,
+      "predicted_accuracy_drop": 0.1483160357424744,
+      "analog_accuracy": 0.8016839642575255,
+      "energy_J": 3.442962803745786e-09,
+      "energy_uJ": 0.0034429628867655993,
+      "efficiency": 232.84710693359375,
+      "pareto": false
+    },
+    {
+      "depth": 4,
+      "width": 256,
+      "predicted_accuracy_drop": 0.1684913570405991,
+      "analog_accuracy": 0.7815086429594009,
+      "energy_J": 7.292660253455097e-09,
+      "energy_uJ": 0.007292660418897867,
+      "efficiency": 107.1637191772461,
+      "pareto": false
+    },
+    {
+      "depth": 4,
+      "width": 512,
+      "predicted_accuracy_drop": 0.1914111124617428,
+      "analog_accuracy": 0.7585888875382572,
+      "energy_J": 1.6616324316487407e-08,
+      "energy_uJ": 0.016616323962807655,
+      "efficiency": 45.65323257446289,
+      "pareto": false
+    }
+  ],
+  "7nm": [
+    {
+      "depth": 1,
+      "width": 32,
+      "predicted_accuracy_drop": 0.018707043324480657,
+      "analog_accuracy": 0.9312929566755193,
+      "energy_J": 1.0371274672404951e-10,
+      "energy_uJ": 0.00010371274402132258,
+      "efficiency": 8979.5419921875,
+      "pareto": true
+    },
+    {
+      "depth": 1,
+      "width": 64,
+      "predicted_accuracy_drop": 0.02125174867424245,
+      "analog_accuracy": 0.9287482513257576,
+      "energy_J": 1.0371274672404951e-10,
+      "energy_uJ": 0.00010371274402132258,
+      "efficiency": 8955.005859375,
+      "pareto": false
+    },
+    {
+      "depth": 1,
+      "width": 128,
+      "predicted_accuracy_drop": 0.024142608421831087,
+      "analog_accuracy": 0.9258573915781688,
+      "energy_J": 1.0371274672404951e-10,
+      "energy_uJ": 0.00010371274402132258,
+      "efficiency": 8927.1318359375,
+      "pareto": false
+    },
+    {
+      "depth": 1,
+      "width": 256,
+      "predicted_accuracy_drop": 0.027426709695485628,
+      "analog_accuracy": 0.9225732903045143,
+      "energy_J": 1.0371274672404951e-10,
+      "energy_uJ": 0.00010371274402132258,
+      "efficiency": 8895.466796875,
+      "pareto": false
+    },
+    {
+      "depth": 1,
+      "width": 512,
+      "predicted_accuracy_drop": 0.031157544850880414,
+      "analog_accuracy": 0.9188424551491196,
+      "energy_J": 1.0371274672404951e-10,
+      "energy_uJ": 0.00010371274402132258,
+      "efficiency": 8859.494140625,
+      "pareto": false
+    },
+    {
+      "depth": 2,
+      "width": 32,
+      "predicted_accuracy_drop": 0.04636679862805447,
+      "analog_accuracy": 0.9036332013719455,
+      "energy_J": 3.420097816064782e-10,
+      "energy_uJ": 0.00034200979280285537,
+      "efficiency": 2642.126708984375,
+      "pareto": false
+    },
+    {
+      "depth": 2,
+      "width": 64,
+      "predicted_accuracy_drop": 0.05267404015594105,
+      "analog_accuracy": 0.8973259598440589,
+      "energy_J": 6.461157164849851e-10,
+      "energy_uJ": 0.0006461156881414354,
+      "efficiency": 1388.8006591796875,
+      "pareto": false
+    },
+    {
+      "depth": 2,
+      "width": 128,
+      "predicted_accuracy_drop": 0.05983925111169811,
+      "analog_accuracy": 0.8901607488883019,
+      "energy_J": 1.2517089587049668e-09,
+      "energy_uJ": 0.0012517089489847422,
+      "efficiency": 711.1563110351562,
+      "pareto": false
+    },
+    {
+      "depth": 2,
+      "width": 256,
+      "predicted_accuracy_drop": 0.0679791404458083,
+      "analog_accuracy": 0.8820208595541916,
+      "energy_J": 2.4619044580731497e-09,
+      "energy_uJ": 0.002461904427036643,
+      "efficiency": 358.2677001953125,
+      "pareto": false
+    },
+    {
+      "depth": 2,
+      "width": 512,
+      "predicted_accuracy_drop": 0.07722629294148248,
+      "analog_accuracy": 0.8727737070585175,
+      "energy_J": 4.879158410631135e-09,
+      "energy_uJ": 0.004879158455878496,
+      "efficiency": 178.87791442871094,
+      "pareto": false
+    },
+    {
+      "depth": 3,
+      "width": 32,
+      "predicted_accuracy_drop": 0.0788497780434345,
+      "analog_accuracy": 0.8711502219565654,
+      "energy_J": 4.4374506846800443e-10,
+      "energy_uJ": 0.00044374505523592234,
+      "efficiency": 1963.17724609375,
+      "pareto": false
+    },
+    {
+      "depth": 3,
+      "width": 64,
+      "predicted_accuracy_drop": 0.0895756553792763,
+      "analog_accuracy": 0.8604243446207237,
+      "energy_J": 8.656548255991936e-10,
+      "energy_uJ": 0.0008656548452563584,
+      "efficiency": 993.957763671875,
+      "pareto": false
+    },
+    {
+      "depth": 3,
+      "width": 128,
+      "predicted_accuracy_drop": 0.10176056592330482,
+      "analog_accuracy": 0.8482394340766951,
+      "energy_J": 1.759619672192514e-09,
+      "energy_uJ": 0.0017596196848899126,
+      "efficiency": 482.0583801269531,
+      "pareto": false
+    },
+    {
+      "depth": 3,
+      "width": 256,
+      "predicted_accuracy_drop": 0.1156029808901291,
+      "analog_accuracy": 0.8343970191098709,
+      "energy_J": 3.7449199297157065e-09,
+      "energy_uJ": 0.003744920017197728,
+      "efficiency": 222.8076934814453,
+      "pareto": false
+    },
+    {
+      "depth": 3,
+      "width": 512,
+      "predicted_accuracy_drop": 0.13132836938776268,
+      "analog_accuracy": 0.8186716306122372,
+      "energy_J": 8.525057992869733e-09,
+      "energy_uJ": 0.008525057695806026,
+      "efficiency": 96.03121185302734,
+      "pareto": false
+    },
+    {
+      "depth": 4,
+      "width": 32,
+      "predicted_accuracy_drop": 0.11492355995140877,
+      "analog_accuracy": 0.8350764400485912,
+      "energy_J": 5.453199003468967e-10,
+      "energy_uJ": 0.0005453199264593422,
+      "efficiency": 1531.3514404296875,
+      "pareto": false
+    },
+    {
+      "depth": 4,
+      "width": 64,
+      "predicted_accuracy_drop": 0.13055652731826756,
+      "analog_accuracy": 0.8194434726817323,
+      "energy_J": 1.0857930110574898e-09,
+      "energy_uJ": 0.0010857930174097419,
+      "efficiency": 754.6958618164062,
+      "pareto": false
+    },
+    {
+      "depth": 4,
+      "width": 128,
+      "predicted_accuracy_drop": 0.1483160357424744,
+      "analog_accuracy": 0.8016839642575255,
+      "energy_J": 2.2668829036120997e-09,
+      "energy_uJ": 0.0022668829187750816,
+      "efficiency": 353.6503601074219,
+      "pareto": false
+    },
+    {
+      "depth": 4,
+      "width": 256,
+      "predicted_accuracy_drop": 0.1684913570405991,
+      "analog_accuracy": 0.7815086429594009,
+      "energy_J": 5.031184802106736e-09,
+      "energy_uJ": 0.005031184758991003,
+      "efficiency": 155.33291625976562,
+      "pareto": false
+    },
+    {
+      "depth": 4,
+      "width": 512,
+      "predicted_accuracy_drop": 0.1914111124617428,
+      "analog_accuracy": 0.7585888875382572,
+      "energy_J": 1.2169313556853467e-08,
+      "energy_uJ": 0.012169313617050648,
+      "efficiency": 62.336212158203125,
+      "pareto": false
+    }
+  ]
+}

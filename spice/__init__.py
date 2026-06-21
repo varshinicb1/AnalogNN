@@ -3,3 +3,4 @@ from spice.netlist_generator import NetlistGenerator
 from spice.spice_runner import SpiceRunner
 from spice.waveform_parser import WaveformParser
 from spice.convergence import ConvergenceHandler
+from spice.pyspice_runner import PySpiceRunner

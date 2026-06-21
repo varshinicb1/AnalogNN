@@ -1,0 +1,79 @@
+{
+  "random": {
+    "best_score": -1.4024460247955324,
+    "best_params": {
+      "lr": 0.094893665171608,
+      "epochs": 29,
+      "batch_size": 105,
+      "hidden_dim1": 178,
+      "hidden_dim2": 39,
+      "hidden_layers": 2,
+      "r_ref": 68426460.32095057,
+      "sigma_mismatch": 0.22063609437606105,
+      "n_bits": 5,
+      "vmax": 2.728296095500716,
+      "vos_max": 0.0034388521115218396,
+      "noise_sigma": 0.45466020103939103,
+      "tech_nm": 65,
+      "power_mode": "standard"
+    }
+  },
+  "sequential": {
+    "best_score": -0.04568100810623181,
+    "best_result": {
+      "params": {
+        "lr": 0.048750394237320874,
+        "epochs": 13.0,
+        "batch_size": 76.0,
+        "hidden_dim1": 32.0,
+        "hidden_dim2": 125.0,
+        "hidden_layers": 2.0,
+        "r_ref": 53224936.906667426,
+        "sigma_mismatch": 0.07705162875447423,
+        "n_bits": 5.0,
+        "vmax": 2.850643145851791,
+        "vos_max": 0.015245270170271398,
+        "noise_sigma": 0.15221162606030703,
+        "tech_nm": 65.0,
+        "power_mode": "standard"
+      },
+      "analog_accuracy": 0.7459999918937683,
+      "digital_accuracy": 0.7699999809265137,
+      "energy_pJ": 7734.360000000001,
+      "area_um2": 3649.0,
+      "composite_score": -0.04568100810623181,
+      "n_crossbars": 3,
+      "total_macs": 7298,
+      "train_time_s": 0.4
+    }
+  },
+  "joint_bo": {
+    "best_score": -0.04568100810623181,
+    "best_result": {
+      "params": {
+        "lr": 0.048750394237320874,
+        "epochs": 13.0,
+        "batch_size": 76.0,
+        "hidden_dim1": 32.0,
+        "hidden_dim2": 125.0,
+        "hidden_layers": 2.0,
+        "r_ref": 53224936.906667426,
+        "sigma_mismatch": 0.07705162875447423,
+        "n_bits": 5.0,
+        "vmax": 2.850643145851791,
+        "vos_max": 0.015245270170271398,
+        "noise_sigma": 0.15221162606030703,
+        "tech_nm": 65.0,
+        "power_mode": "standard"
+      },
+      "analog_accuracy": 0.7459999918937683,
+      "digital_accuracy": 0.7699999809265137,
+      "energy_pJ": 7734.360000000001,
+      "area_um2": 3649.0,
+      "composite_score": -0.04568100810623181,
+      "n_crossbars": 3,
+      "total_macs": 7298,
+      "train_time_s": 0.5
+    }
+  }
+}

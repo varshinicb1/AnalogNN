@@ -1,0 +1,95 @@
+{
+  "layer_results": [
+    {
+      "layer": 0,
+      "n_inputs": 8,
+      "n_outputs": 16,
+      "n_samples": 3,
+      "max_diff": 0.00017070770263671875,
+      "mean_diff": 3.713644400704652e-05,
+      "min_diff": 8.009374141693115e-08,
+      "match_at_1e_4": 44,
+      "total_comparisons": 48,
+      "match_pct": 91.66666865348816
+    },
+    {
+      "layer": 1,
+      "n_inputs": 16,
+      "n_outputs": 12,
+      "n_samples": 3,
+      "max_diff": 0.0003075599670410156,
+      "mean_diff": 9.359512478113174e-05,
+      "min_diff": 4.112720489501953e-06,
+      "match_at_1e_4": 21,
+      "total_comparisons": 36,
+      "match_pct": 58.33333134651184
+    },
+    {
+      "layer": 2,
+      "n_inputs": 12,
+      "n_outputs": 6,
+      "n_samples": 3,
+      "max_diff": 0.0001227855682373047,
+      "mean_diff": 6.191763532115147e-05,
+      "min_diff": 7.241964340209961e-06,
+      "match_at_1e_4": 13,
+      "total_comparisons": 18,
+      "match_pct": 72.22222089767456
+    }
+  ],
+  "cascade_results": [
+    {
+      "sample": 0,
+      "layer": 0,
+      "max_diff": 9.655952453613281e-05,
+      "mean_diff": 4.578055813908577e-05,
+      "match_at_1e_4": 16,
+      "n_outputs": 16
+    },
+    {
+      "sample": 0,
+      "layer": 1,
+      "max_diff": 0.0004730224609375,
+      "mean_diff": 0.00017053137707989663,
+      "match_at_1e_4": 5,
+      "n_outputs": 12
+    },
+    {
+      "sample": 0,
+      "layer": 2,
+      "max_diff": 0.0008015632629394531,
+      "mean_diff": 0.0003195864555891603,
+      "match_at_1e_4": 1,
+      "n_outputs": 6
+    },
+    {
+      "sample": 1,
+      "layer": 0,
+      "max_diff": 0.00013756752014160156,
+      "mean_diff": 5.7291239500045776e-05,
+      "match_at_1e_4": 13,
+      "n_outputs": 16
+    },
+    {
+      "sample": 1,
+      "layer": 1,
+      "max_diff": 0.0004792213439941406,
+      "mean_diff": 0.00011596456170082092,
+      "match_at_1e_4": 7,
+      "n_outputs": 12
+    },
+    {
+      "sample": 1,
+      "layer": 2,
+      "max_diff": 1.2971129417419434,
+      "mean_diff": 0.21645581722259521,
+      "match_at_1e_4": 2,
+      "n_outputs": 6
+    }
+  ],
+  "ngspice_available": true,
+  "total_individual_match": "78/102",
+  "total_individual_match_pct": 76.47058823529412,
+  "overall_max_diff": 0.0003075599670410156,
+  "total_opamps": 102
+}

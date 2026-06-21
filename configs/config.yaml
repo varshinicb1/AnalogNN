@@ -2,8 +2,8 @@
 seed: 42
 
 dataset:
-  name: "mnist"          # Options: "xor", "iris", "mnist", "fashion"
-  subset_size: 100       # Number of samples for evaluation/simulation
+  name: "iris"          # Options: "xor", "iris", "mnist", "fashion"
+  subset_size: 150       # Number of samples for evaluation/simulation
   downsample_size: 8     # Downsample MNIST/Fashion images to (downsample_size x downsample_size)
 
 model:
@@ -11,6 +11,7 @@ model:
   epochs: 20
   lr: 0.01
   batch_size: 16
+  noise_aware_training: false  # Enables hardware-resilient training
 
 analog:
   noise_sigma: 0.05      # Weight noise standard deviation

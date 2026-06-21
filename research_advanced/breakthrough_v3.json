@@ -1,0 +1,1082 @@
+[
+  {
+    "method": "standard",
+    "dataset": "mnist",
+    "trial": 0,
+    "mismatch": 0.01,
+    "digital": 0.848,
+    "analog": 0.786,
+    "drop": 0.062
+  },
+  {
+    "method": "standard",
+    "dataset": "mnist",
+    "trial": 1,
+    "mismatch": 0.01,
+    "digital": 0.854,
+    "analog": 0.824,
+    "drop": 0.03
+  },
+  {
+    "method": "standard",
+    "dataset": "mnist",
+    "trial": 2,
+    "mismatch": 0.01,
+    "digital": 0.856,
+    "analog": 0.8,
+    "drop": 0.056
+  },
+  {
+    "method": "standard",
+    "dataset": "mnist",
+    "trial": 0,
+    "mismatch": 0.05,
+    "digital": 0.848,
+    "analog": 0.784,
+    "drop": 0.064
+  },
+  {
+    "method": "standard",
+    "dataset": "mnist",
+    "trial": 1,
+    "mismatch": 0.05,
+    "digital": 0.854,
+    "analog": 0.824,
+    "drop": 0.03
+  },
+  {
+    "method": "standard",
+    "dataset": "mnist",
+    "trial": 2,
+    "mismatch": 0.05,
+    "digital": 0.856,
+    "analog": 0.796,
+    "drop": 0.06
+  },
+  {
+    "method": "standard",
+    "dataset": "mnist",
+    "trial": 0,
+    "mismatch": 0.1,
+    "digital": 0.848,
+    "analog": 0.794,
+    "drop": 0.054
+  },
+  {
+    "method": "standard",
+    "dataset": "mnist",
+    "trial": 1,
+    "mismatch": 0.1,
+    "digital": 0.854,
+    "analog": 0.83,
+    "drop": 0.024
+  },
+  {
+    "method": "standard",
+    "dataset": "mnist",
+    "trial": 2,
+    "mismatch": 0.1,
+    "digital": 0.856,
+    "analog": 0.792,
+    "drop": 0.064
+  },
+  {
+    "method": "standard",
+    "dataset": "mnist",
+    "trial": 0,
+    "mismatch": 0.2,
+    "digital": 0.848,
+    "analog": 0.778,
+    "drop": 0.07
+  },
+  {
+    "method": "standard",
+    "dataset": "mnist",
+    "trial": 1,
+    "mismatch": 0.2,
+    "digital": 0.854,
+    "analog": 0.82,
+    "drop": 0.034
+  },
+  {
+    "method": "standard",
+    "dataset": "mnist",
+    "trial": 2,
+    "mismatch": 0.2,
+    "digital": 0.856,
+    "analog": 0.768,
+    "drop": 0.088
+  },
+  {
+    "method": "digital_deploy",
+    "dataset": "mnist",
+    "trial": 0,
+    "mismatch": 0.01,
+    "digital": 0.848,
+    "analog": 0.786,
+    "drop": 0.062
+  },
+  {
+    "method": "digital_deploy",
+    "dataset": "mnist",
+    "trial": 1,
+    "mismatch": 0.01,
+    "digital": 0.854,
+    "analog": 0.824,
+    "drop": 0.03
+  },
+  {
+    "method": "digital_deploy",
+    "dataset": "mnist",
+    "trial": 2,
+    "mismatch": 0.01,
+    "digital": 0.856,
+    "analog": 0.8,
+    "drop": 0.056
+  },
+  {
+    "method": "digital_deploy",
+    "dataset": "mnist",
+    "trial": 0,
+    "mismatch": 0.05,
+    "digital": 0.848,
+    "analog": 0.784,
+    "drop": 0.064
+  },
+  {
+    "method": "digital_deploy",
+    "dataset": "mnist",
+    "trial": 1,
+    "mismatch": 0.05,
+    "digital": 0.854,
+    "analog": 0.824,
+    "drop": 0.03
+  },
+  {
+    "method": "digital_deploy",
+    "dataset": "mnist",
+    "trial": 2,
+    "mismatch": 0.05,
+    "digital": 0.856,
+    "analog": 0.796,
+    "drop": 0.06
+  },
+  {
+    "method": "digital_deploy",
+    "dataset": "mnist",
+    "trial": 0,
+    "mismatch": 0.1,
+    "digital": 0.848,
+    "analog": 0.794,
+    "drop": 0.054
+  },
+  {
+    "method": "digital_deploy",
+    "dataset": "mnist",
+    "trial": 1,
+    "mismatch": 0.1,
+    "digital": 0.854,
+    "analog": 0.83,
+    "drop": 0.024
+  },
+  {
+    "method": "digital_deploy",
+    "dataset": "mnist",
+    "trial": 2,
+    "mismatch": 0.1,
+    "digital": 0.856,
+    "analog": 0.792,
+    "drop": 0.064
+  },
+  {
+    "method": "digital_deploy",
+    "dataset": "mnist",
+    "trial": 0,
+    "mismatch": 0.2,
+    "digital": 0.848,
+    "analog": 0.778,
+    "drop": 0.07
+  },
+  {
+    "method": "digital_deploy",
+    "dataset": "mnist",
+    "trial": 1,
+    "mismatch": 0.2,
+    "digital": 0.854,
+    "analog": 0.82,
+    "drop": 0.034
+  },
+  {
+    "method": "digital_deploy",
+    "dataset": "mnist",
+    "trial": 2,
+    "mismatch": 0.2,
+    "digital": 0.856,
+    "analog": 0.768,
+    "drop": 0.088
+  },
+  {
+    "method": "curriculum",
+    "dataset": "mnist",
+    "trial": 0,
+    "mismatch": 0.01,
+    "digital": 0.804,
+    "analog": 0.794,
+    "drop": 0.01
+  },
+  {
+    "method": "curriculum",
+    "dataset": "mnist",
+    "trial": 1,
+    "mismatch": 0.01,
+    "digital": 0.824,
+    "analog": 0.802,
+    "drop": 0.022
+  },
+  {
+    "method": "curriculum",
+    "dataset": "mnist",
+    "trial": 2,
+    "mismatch": 0.01,
+    "digital": 0.818,
+    "analog": 0.794,
+    "drop": 0.024
+  },
+  {
+    "method": "curriculum",
+    "dataset": "mnist",
+    "trial": 0,
+    "mismatch": 0.05,
+    "digital": 0.804,
+    "analog": 0.792,
+    "drop": 0.012
+  },
+  {
+    "method": "curriculum",
+    "dataset": "mnist",
+    "trial": 1,
+    "mismatch": 0.05,
+    "digital": 0.824,
+    "analog": 0.806,
+    "drop": 0.018
+  },
+  {
+    "method": "curriculum",
+    "dataset": "mnist",
+    "trial": 2,
+    "mismatch": 0.05,
+    "digital": 0.818,
+    "analog": 0.794,
+    "drop": 0.024
+  },
+  {
+    "method": "curriculum",
+    "dataset": "mnist",
+    "trial": 0,
+    "mismatch": 0.1,
+    "digital": 0.804,
+    "analog": 0.782,
+    "drop": 0.022
+  },
+  {
+    "method": "curriculum",
+    "dataset": "mnist",
+    "trial": 1,
+    "mismatch": 0.1,
+    "digital": 0.824,
+    "analog": 0.814,
+    "drop": 0.01
+  },
+  {
+    "method": "curriculum",
+    "dataset": "mnist",
+    "trial": 2,
+    "mismatch": 0.1,
+    "digital": 0.818,
+    "analog": 0.784,
+    "drop": 0.034
+  },
+  {
+    "method": "curriculum",
+    "dataset": "mnist",
+    "trial": 0,
+    "mismatch": 0.2,
+    "digital": 0.804,
+    "analog": 0.742,
+    "drop": 0.062
+  },
+  {
+    "method": "curriculum",
+    "dataset": "mnist",
+    "trial": 1,
+    "mismatch": 0.2,
+    "digital": 0.824,
+    "analog": 0.794,
+    "drop": 0.03
+  },
+  {
+    "method": "curriculum",
+    "dataset": "mnist",
+    "trial": 2,
+    "mismatch": 0.2,
+    "digital": 0.818,
+    "analog": 0.776,
+    "drop": 0.042
+  },
+  {
+    "method": "temperature",
+    "dataset": "mnist",
+    "trial": 0,
+    "mismatch": 0.01,
+    "digital": 0.802,
+    "analog": 0.784,
+    "drop": 0.018
+  },
+  {
+    "method": "temperature",
+    "dataset": "mnist",
+    "trial": 1,
+    "mismatch": 0.01,
+    "digital": 0.818,
+    "analog": 0.79,
+    "drop": 0.028
+  },
+  {
+    "method": "temperature",
+    "dataset": "mnist",
+    "trial": 2,
+    "mismatch": 0.01,
+    "digital": 0.784,
+    "analog": 0.77,
+    "drop": 0.014
+  },
+  {
+    "method": "temperature",
+    "dataset": "mnist",
+    "trial": 0,
+    "mismatch": 0.05,
+    "digital": 0.802,
+    "analog": 0.782,
+    "drop": 0.02
+  },
+  {
+    "method": "temperature",
+    "dataset": "mnist",
+    "trial": 1,
+    "mismatch": 0.05,
+    "digital": 0.818,
+    "analog": 0.794,
+    "drop": 0.024
+  },
+  {
+    "method": "temperature",
+    "dataset": "mnist",
+    "trial": 2,
+    "mismatch": 0.05,
+    "digital": 0.784,
+    "analog": 0.77,
+    "drop": 0.014
+  },
+  {
+    "method": "temperature",
+    "dataset": "mnist",
+    "trial": 0,
+    "mismatch": 0.1,
+    "digital": 0.802,
+    "analog": 0.776,
+    "drop": 0.026
+  },
+  {
+    "method": "temperature",
+    "dataset": "mnist",
+    "trial": 1,
+    "mismatch": 0.1,
+    "digital": 0.818,
+    "analog": 0.788,
+    "drop": 0.03
+  },
+  {
+    "method": "temperature",
+    "dataset": "mnist",
+    "trial": 2,
+    "mismatch": 0.1,
+    "digital": 0.784,
+    "analog": 0.77,
+    "drop": 0.014
+  },
+  {
+    "method": "temperature",
+    "dataset": "mnist",
+    "trial": 0,
+    "mismatch": 0.2,
+    "digital": 0.802,
+    "analog": 0.776,
+    "drop": 0.026
+  },
+  {
+    "method": "temperature",
+    "dataset": "mnist",
+    "trial": 1,
+    "mismatch": 0.2,
+    "digital": 0.818,
+    "analog": 0.766,
+    "drop": 0.052
+  },
+  {
+    "method": "temperature",
+    "dataset": "mnist",
+    "trial": 2,
+    "mismatch": 0.2,
+    "digital": 0.784,
+    "analog": 0.762,
+    "drop": 0.022
+  },
+  {
+    "method": "combined",
+    "dataset": "mnist",
+    "trial": 0,
+    "mismatch": 0.01,
+    "digital": 0.814,
+    "analog": 0.792,
+    "drop": 0.022
+  },
+  {
+    "method": "combined",
+    "dataset": "mnist",
+    "trial": 1,
+    "mismatch": 0.01,
+    "digital": 0.824,
+    "analog": 0.816,
+    "drop": 0.008
+  },
+  {
+    "method": "combined",
+    "dataset": "mnist",
+    "trial": 2,
+    "mismatch": 0.01,
+    "digital": 0.82,
+    "analog": 0.806,
+    "drop": 0.014
+  },
+  {
+    "method": "combined",
+    "dataset": "mnist",
+    "trial": 0,
+    "mismatch": 0.05,
+    "digital": 0.814,
+    "analog": 0.78,
+    "drop": 0.034
+  },
+  {
+    "method": "combined",
+    "dataset": "mnist",
+    "trial": 1,
+    "mismatch": 0.05,
+    "digital": 0.824,
+    "analog": 0.814,
+    "drop": 0.01
+  },
+  {
+    "method": "combined",
+    "dataset": "mnist",
+    "trial": 2,
+    "mismatch": 0.05,
+    "digital": 0.82,
+    "analog": 0.794,
+    "drop": 0.026
+  },
+  {
+    "method": "combined",
+    "dataset": "mnist",
+    "trial": 0,
+    "mismatch": 0.1,
+    "digital": 0.814,
+    "analog": 0.756,
+    "drop": 0.058
+  },
+  {
+    "method": "combined",
+    "dataset": "mnist",
+    "trial": 1,
+    "mismatch": 0.1,
+    "digital": 0.824,
+    "analog": 0.818,
+    "drop": 0.006
+  },
+  {
+    "method": "combined",
+    "dataset": "mnist",
+    "trial": 2,
+    "mismatch": 0.1,
+    "digital": 0.82,
+    "analog": 0.792,
+    "drop": 0.028
+  },
+  {
+    "method": "combined",
+    "dataset": "mnist",
+    "trial": 0,
+    "mismatch": 0.2,
+    "digital": 0.814,
+    "analog": 0.74,
+    "drop": 0.074
+  },
+  {
+    "method": "combined",
+    "dataset": "mnist",
+    "trial": 1,
+    "mismatch": 0.2,
+    "digital": 0.824,
+    "analog": 0.796,
+    "drop": 0.028
+  },
+  {
+    "method": "combined",
+    "dataset": "mnist",
+    "trial": 2,
+    "mismatch": 0.2,
+    "digital": 0.82,
+    "analog": 0.774,
+    "drop": 0.046
+  },
+  {
+    "method": "standard",
+    "dataset": "fashion",
+    "trial": 0,
+    "mismatch": 0.01,
+    "digital": 0.746,
+    "analog": 0.75,
+    "drop": -0.004
+  },
+  {
+    "method": "standard",
+    "dataset": "fashion",
+    "trial": 1,
+    "mismatch": 0.01,
+    "digital": 0.736,
+    "analog": 0.742,
+    "drop": -0.006
+  },
+  {
+    "method": "standard",
+    "dataset": "fashion",
+    "trial": 2,
+    "mismatch": 0.01,
+    "digital": 0.758,
+    "analog": 0.698,
+    "drop": 0.06
+  },
+  {
+    "method": "standard",
+    "dataset": "fashion",
+    "trial": 0,
+    "mismatch": 0.05,
+    "digital": 0.746,
+    "analog": 0.76,
+    "drop": -0.014
+  },
+  {
+    "method": "standard",
+    "dataset": "fashion",
+    "trial": 1,
+    "mismatch": 0.05,
+    "digital": 0.736,
+    "analog": 0.734,
+    "drop": 0.002
+  },
+  {
+    "method": "standard",
+    "dataset": "fashion",
+    "trial": 2,
+    "mismatch": 0.05,
+    "digital": 0.758,
+    "analog": 0.704,
+    "drop": 0.054
+  },
+  {
+    "method": "standard",
+    "dataset": "fashion",
+    "trial": 0,
+    "mismatch": 0.1,
+    "digital": 0.746,
+    "analog": 0.764,
+    "drop": -0.018
+  },
+  {
+    "method": "standard",
+    "dataset": "fashion",
+    "trial": 1,
+    "mismatch": 0.1,
+    "digital": 0.736,
+    "analog": 0.734,
+    "drop": 0.002
+  },
+  {
+    "method": "standard",
+    "dataset": "fashion",
+    "trial": 2,
+    "mismatch": 0.1,
+    "digital": 0.758,
+    "analog": 0.708,
+    "drop": 0.05
+  },
+  {
+    "method": "standard",
+    "dataset": "fashion",
+    "trial": 0,
+    "mismatch": 0.2,
+    "digital": 0.746,
+    "analog": 0.75,
+    "drop": -0.004
+  },
+  {
+    "method": "standard",
+    "dataset": "fashion",
+    "trial": 1,
+    "mismatch": 0.2,
+    "digital": 0.736,
+    "analog": 0.722,
+    "drop": 0.014
+  },
+  {
+    "method": "standard",
+    "dataset": "fashion",
+    "trial": 2,
+    "mismatch": 0.2,
+    "digital": 0.758,
+    "analog": 0.712,
+    "drop": 0.046
+  },
+  {
+    "method": "digital_deploy",
+    "dataset": "fashion",
+    "trial": 0,
+    "mismatch": 0.01,
+    "digital": 0.746,
+    "analog": 0.75,
+    "drop": -0.004
+  },
+  {
+    "method": "digital_deploy",
+    "dataset": "fashion",
+    "trial": 1,
+    "mismatch": 0.01,
+    "digital": 0.736,
+    "analog": 0.742,
+    "drop": -0.006
+  },
+  {
+    "method": "digital_deploy",
+    "dataset": "fashion",
+    "trial": 2,
+    "mismatch": 0.01,
+    "digital": 0.758,
+    "analog": 0.698,
+    "drop": 0.06
+  },
+  {
+    "method": "digital_deploy",
+    "dataset": "fashion",
+    "trial": 0,
+    "mismatch": 0.05,
+    "digital": 0.746,
+    "analog": 0.76,
+    "drop": -0.014
+  },
+  {
+    "method": "digital_deploy",
+    "dataset": "fashion",
+    "trial": 1,
+    "mismatch": 0.05,
+    "digital": 0.736,
+    "analog": 0.734,
+    "drop": 0.002
+  },
+  {
+    "method": "digital_deploy",
+    "dataset": "fashion",
+    "trial": 2,
+    "mismatch": 0.05,
+    "digital": 0.758,
+    "analog": 0.704,
+    "drop": 0.054
+  },
+  {
+    "method": "digital_deploy",
+    "dataset": "fashion",
+    "trial": 0,
+    "mismatch": 0.1,
+    "digital": 0.746,
+    "analog": 0.764,
+    "drop": -0.018
+  },
+  {
+    "method": "digital_deploy",
+    "dataset": "fashion",
+    "trial": 1,
+    "mismatch": 0.1,
+    "digital": 0.736,
+    "analog": 0.734,
+    "drop": 0.002
+  },
+  {
+    "method": "digital_deploy",
+    "dataset": "fashion",
+    "trial": 2,
+    "mismatch": 0.1,
+    "digital": 0.758,
+    "analog": 0.708,
+    "drop": 0.05
+  },
+  {
+    "method": "digital_deploy",
+    "dataset": "fashion",
+    "trial": 0,
+    "mismatch": 0.2,
+    "digital": 0.746,
+    "analog": 0.75,
+    "drop": -0.004
+  },
+  {
+    "method": "digital_deploy",
+    "dataset": "fashion",
+    "trial": 1,
+    "mismatch": 0.2,
+    "digital": 0.736,
+    "analog": 0.722,
+    "drop": 0.014
+  },
+  {
+    "method": "digital_deploy",
+    "dataset": "fashion",
+    "trial": 2,
+    "mismatch": 0.2,
+    "digital": 0.758,
+    "analog": 0.712,
+    "drop": 0.046
+  },
+  {
+    "method": "curriculum",
+    "dataset": "fashion",
+    "trial": 0,
+    "mismatch": 0.01,
+    "digital": 0.754,
+    "analog": 0.638,
+    "drop": 0.116
+  },
+  {
+    "method": "curriculum",
+    "dataset": "fashion",
+    "trial": 1,
+    "mismatch": 0.01,
+    "digital": 0.748,
+    "analog": 0.73,
+    "drop": 0.018
+  },
+  {
+    "method": "curriculum",
+    "dataset": "fashion",
+    "trial": 2,
+    "mismatch": 0.01,
+    "digital": 0.728,
+    "analog": 0.608,
+    "drop": 0.12
+  },
+  {
+    "method": "curriculum",
+    "dataset": "fashion",
+    "trial": 0,
+    "mismatch": 0.05,
+    "digital": 0.754,
+    "analog": 0.632,
+    "drop": 0.122
+  },
+  {
+    "method": "curriculum",
+    "dataset": "fashion",
+    "trial": 1,
+    "mismatch": 0.05,
+    "digital": 0.748,
+    "analog": 0.722,
+    "drop": 0.026
+  },
+  {
+    "method": "curriculum",
+    "dataset": "fashion",
+    "trial": 2,
+    "mismatch": 0.05,
+    "digital": 0.728,
+    "analog": 0.604,
+    "drop": 0.124
+  },
+  {
+    "method": "curriculum",
+    "dataset": "fashion",
+    "trial": 0,
+    "mismatch": 0.1,
+    "digital": 0.754,
+    "analog": 0.626,
+    "drop": 0.128
+  },
+  {
+    "method": "curriculum",
+    "dataset": "fashion",
+    "trial": 1,
+    "mismatch": 0.1,
+    "digital": 0.748,
+    "analog": 0.724,
+    "drop": 0.024
+  },
+  {
+    "method": "curriculum",
+    "dataset": "fashion",
+    "trial": 2,
+    "mismatch": 0.1,
+    "digital": 0.728,
+    "analog": 0.586,
+    "drop": 0.142
+  },
+  {
+    "method": "curriculum",
+    "dataset": "fashion",
+    "trial": 0,
+    "mismatch": 0.2,
+    "digital": 0.754,
+    "analog": 0.608,
+    "drop": 0.146
+  },
+  {
+    "method": "curriculum",
+    "dataset": "fashion",
+    "trial": 1,
+    "mismatch": 0.2,
+    "digital": 0.748,
+    "analog": 0.628,
+    "drop": 0.12
+  },
+  {
+    "method": "curriculum",
+    "dataset": "fashion",
+    "trial": 2,
+    "mismatch": 0.2,
+    "digital": 0.728,
+    "analog": 0.562,
+    "drop": 0.166
+  },
+  {
+    "method": "temperature",
+    "dataset": "fashion",
+    "trial": 0,
+    "mismatch": 0.01,
+    "digital": 0.764,
+    "analog": 0.718,
+    "drop": 0.046
+  },
+  {
+    "method": "temperature",
+    "dataset": "fashion",
+    "trial": 1,
+    "mismatch": 0.01,
+    "digital": 0.752,
+    "analog": 0.618,
+    "drop": 0.134
+  },
+  {
+    "method": "temperature",
+    "dataset": "fashion",
+    "trial": 2,
+    "mismatch": 0.01,
+    "digital": 0.762,
+    "analog": 0.668,
+    "drop": 0.094
+  },
+  {
+    "method": "temperature",
+    "dataset": "fashion",
+    "trial": 0,
+    "mismatch": 0.05,
+    "digital": 0.764,
+    "analog": 0.708,
+    "drop": 0.056
+  },
+  {
+    "method": "temperature",
+    "dataset": "fashion",
+    "trial": 1,
+    "mismatch": 0.05,
+    "digital": 0.752,
+    "analog": 0.624,
+    "drop": 0.128
+  },
+  {
+    "method": "temperature",
+    "dataset": "fashion",
+    "trial": 2,
+    "mismatch": 0.05,
+    "digital": 0.762,
+    "analog": 0.654,
+    "drop": 0.108
+  },
+  {
+    "method": "temperature",
+    "dataset": "fashion",
+    "trial": 0,
+    "mismatch": 0.1,
+    "digital": 0.764,
+    "analog": 0.682,
+    "drop": 0.082
+  },
+  {
+    "method": "temperature",
+    "dataset": "fashion",
+    "trial": 1,
+    "mismatch": 0.1,
+    "digital": 0.752,
+    "analog": 0.618,
+    "drop": 0.134
+  },
+  {
+    "method": "temperature",
+    "dataset": "fashion",
+    "trial": 2,
+    "mismatch": 0.1,
+    "digital": 0.762,
+    "analog": 0.626,
+    "drop": 0.136
+  },
+  {
+    "method": "temperature",
+    "dataset": "fashion",
+    "trial": 0,
+    "mismatch": 0.2,
+    "digital": 0.764,
+    "analog": 0.63,
+    "drop": 0.134
+  },
+  {
+    "method": "temperature",
+    "dataset": "fashion",
+    "trial": 1,
+    "mismatch": 0.2,
+    "digital": 0.752,
+    "analog": 0.578,
+    "drop": 0.174
+  },
+  {
+    "method": "temperature",
+    "dataset": "fashion",
+    "trial": 2,
+    "mismatch": 0.2,
+    "digital": 0.762,
+    "analog": 0.57,
+    "drop": 0.192
+  },
+  {
+    "method": "combined",
+    "dataset": "fashion",
+    "trial": 0,
+    "mismatch": 0.01,
+    "digital": 0.774,
+    "analog": 0.66,
+    "drop": 0.114
+  },
+  {
+    "method": "combined",
+    "dataset": "fashion",
+    "trial": 1,
+    "mismatch": 0.01,
+    "digital": 0.74,
+    "analog": 0.67,
+    "drop": 0.07
+  },
+  {
+    "method": "combined",
+    "dataset": "fashion",
+    "trial": 2,
+    "mismatch": 0.01,
+    "digital": 0.75,
+    "analog": 0.648,
+    "drop": 0.102
+  },
+  {
+    "method": "combined",
+    "dataset": "fashion",
+    "trial": 0,
+    "mismatch": 0.05,
+    "digital": 0.774,
+    "analog": 0.648,
+    "drop": 0.126
+  },
+  {
+    "method": "combined",
+    "dataset": "fashion",
+    "trial": 1,
+    "mismatch": 0.05,
+    "digital": 0.74,
+    "analog": 0.688,
+    "drop": 0.052
+  },
+  {
+    "method": "combined",
+    "dataset": "fashion",
+    "trial": 2,
+    "mismatch": 0.05,
+    "digital": 0.75,
+    "analog": 0.638,
+    "drop": 0.112
+  },
+  {
+    "method": "combined",
+    "dataset": "fashion",
+    "trial": 0,
+    "mismatch": 0.1,
+    "digital": 0.774,
+    "analog": 0.632,
+    "drop": 0.142
+  },
+  {
+    "method": "combined",
+    "dataset": "fashion",
+    "trial": 1,
+    "mismatch": 0.1,
+    "digital": 0.74,
+    "analog": 0.694,
+    "drop": 0.046
+  },
+  {
+    "method": "combined",
+    "dataset": "fashion",
+    "trial": 2,
+    "mismatch": 0.1,
+    "digital": 0.75,
+    "analog": 0.61,
+    "drop": 0.14
+  },
+  {
+    "method": "combined",
+    "dataset": "fashion",
+    "trial": 0,
+    "mismatch": 0.2,
+    "digital": 0.774,
+    "analog": 0.624,
+    "drop": 0.15
+  },
+  {
+    "method": "combined",
+    "dataset": "fashion",
+    "trial": 1,
+    "mismatch": 0.2,
+    "digital": 0.74,
+    "analog": 0.696,
+    "drop": 0.044
+  },
+  {
+    "method": "combined",
+    "dataset": "fashion",
+    "trial": 2,
+    "mismatch": 0.2,
+    "digital": 0.75,
+    "analog": 0.578,
+    "drop": 0.172
+  }
+]

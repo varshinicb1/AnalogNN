@@ -20,7 +20,16 @@ class StatisticalAnalysis:
         
         for key in keys:
             # Extract values for this metric across runs
-            vals = [run[key] for run in runs_data if isinstance(run[key], (int, float))]
+            vals = []
+            for run in runs_data:
+                if key not in run:
+                    continue
+                val = run[key]
+                if hasattr(val, 'item'): # Torch tensor or NumPy scalar
+                    val = val.item()
+                if isinstance(val, (int, float, np.integer, np.floating)):
+                    vals.append(float(val))
+                    
             if not vals:
                 continue
                 
@@ -30,9 +39,11 @@ class StatisticalAnalysis:
             sem = std / np.sqrt(len(vals)) if len(vals) > 1 else 0.0
             
             # 95% Confidence Interval
-            if len(vals) > 1:
+            if len(vals) > 1 and sem > 1e-12:
                 ci = stats.t.interval(0.95, df=len(vals)-1, loc=mean, scale=sem)
                 ci_margin = ci[1] - mean
+                if np.isnan(ci_margin):
+                    ci_margin = 0.0
             else:
                 ci_margin = 0.0
                 

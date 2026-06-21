@@ -1,0 +1,243 @@
+* OpenAnalogNN Auto-Generated ngspice Netlist: analog_layer_ngspice
+* Ideal Op-Amp model with saturation limit
+.subckt opamp_sat IN+ IN- OUT GND
+B1 OUT GND V=max(min(1e5*(V(IN+)-V(IN-)), 2.5), -2.5)
+.ends opamp_sat
+
+* Circuit Components
+V_in_0 node_in_0 0 0.08333331346511841
+V_in_1 node_in_1 0 0.4583331346511841
+V_in_2 node_in_2 0 0.08474574983119965
+V_in_3 node_in_3 0 0.04166664928197861
+V_bias node_bias 0 1.0
+X_opamp_pos_0 0 node_sum_pos_0 node_out_pos_0 0 opamp_sat
+R_rf_pos_0 node_sum_pos_0 node_out_pos_0 10000.0
+X_opamp_neg_0 0 node_sum_neg_0 node_out_neg_0 0 opamp_sat
+R_rf_neg_0 node_sum_neg_0 node_out_neg_0 10000.0
+R_rw_pos_0_0 node_in_0 node_sum_pos_0 10375.892912416952
+R_rw_pos_0_1 node_in_1 node_sum_pos_0 73293.93385500945
+R_rw_pos_0_2 node_in_2 node_sum_pos_0 16030.551389595956
+R_rw_pos_0_3 node_in_3 node_sum_pos_0 7923.298807898204
+R_rbias_pos_0 node_bias node_sum_pos_0 102178.69027418565
+X_opamp_sub_0 node_sub_pos_0 node_sub_neg_0 node_out_0 0 opamp_sat
+R_rsub1_0 node_out_pos_0 node_sub_neg_0 10000.0
+R_rsub2_0 node_sub_neg_0 node_out_0 10000.0
+R_rsub3_0 node_out_neg_0 node_sub_pos_0 10000.0
+R_rsub4_0 node_sub_pos_0 0 10000.0
+X_opamp_pos_1 0 node_sum_pos_1 node_out_pos_1 0 opamp_sat
+R_rf_pos_1 node_sum_pos_1 node_out_pos_1 10000.0
+X_opamp_neg_1 0 node_sum_neg_1 node_out_neg_1 0 opamp_sat
+R_rf_neg_1 node_sum_neg_1 node_out_neg_1 10000.0
+R_rw_neg_1_0 node_in_0 node_sum_neg_1 91281.03009074122
+R_rw_pos_1_1 node_in_1 node_sum_pos_1 99112.60008164264
+R_rw_neg_1_2 node_in_2 node_sum_neg_1 41079.99048000557
+R_rw_pos_1_3 node_in_3 node_sum_pos_1 34055.15170657207
+R_rbias_neg_1 node_bias node_sum_neg_1 95996.24648465551
+X_opamp_sub_1 node_sub_pos_1 node_sub_neg_1 node_out_1 0 opamp_sat
+R_rsub1_1 node_out_pos_1 node_sub_neg_1 10000.0
+R_rsub2_1 node_sub_neg_1 node_out_1 10000.0
+R_rsub3_1 node_out_neg_1 node_sub_pos_1 10000.0
+R_rsub4_1 node_sub_pos_1 0 10000.0
+X_opamp_pos_2 0 node_sum_pos_2 node_out_pos_2 0 opamp_sat
+R_rf_pos_2 node_sum_pos_2 node_out_pos_2 10000.0
+X_opamp_neg_2 0 node_sum_neg_2 node_out_neg_2 0 opamp_sat
+R_rf_neg_2 node_sum_neg_2 node_out_neg_2 10000.0
+R_rw_pos_2_0 node_in_0 node_sum_pos_2 9958.029260333971
+R_rw_neg_2_1 node_in_1 node_sum_neg_2 21505.766245059775
+R_rw_pos_2_2 node_in_2 node_sum_pos_2 8678.01637489624
+R_rw_pos_2_3 node_in_3 node_sum_pos_2 10969.937383825563
+R_rbias_pos_2 node_bias node_sum_pos_2 23156.985070306844
+X_opamp_sub_2 node_sub_pos_2 node_sub_neg_2 node_out_2 0 opamp_sat
+R_rsub1_2 node_out_pos_2 node_sub_neg_2 10000.0
+R_rsub2_2 node_sub_neg_2 node_out_2 10000.0
+R_rsub3_2 node_out_neg_2 node_sub_pos_2 10000.0
+R_rsub4_2 node_sub_pos_2 0 10000.0
+X_opamp_pos_3 0 node_sum_pos_3 node_out_pos_3 0 opamp_sat
+R_rf_pos_3 node_sum_pos_3 node_out_pos_3 10000.0
+X_opamp_neg_3 0 node_sum_neg_3 node_out_neg_3 0 opamp_sat
+R_rf_neg_3 node_sum_neg_3 node_out_neg_3 10000.0
+R_rw_pos_3_0 node_in_0 node_sum_pos_3 40069.8783696496
+R_rw_neg_3_1 node_in_1 node_sum_neg_3 270325.5451793394
+R_rw_pos_3_2 node_in_2 node_sum_pos_3 79014.88168230723
+R_rw_neg_3_3 node_in_3 node_sum_neg_3 58186.21203601867
+R_rbias_neg_3 node_bias node_sum_neg_3 24620.022716400126
+X_opamp_sub_3 node_sub_pos_3 node_sub_neg_3 node_out_3 0 opamp_sat
+R_rsub1_3 node_out_pos_3 node_sub_neg_3 10000.0
+R_rsub2_3 node_sub_neg_3 node_out_3 10000.0
+R_rsub3_3 node_out_neg_3 node_sub_pos_3 10000.0
+R_rsub4_3 node_sub_pos_3 0 10000.0
+X_opamp_pos_4 0 node_sum_pos_4 node_out_pos_4 0 opamp_sat
+R_rf_pos_4 node_sum_pos_4 node_out_pos_4 10000.0
+X_opamp_neg_4 0 node_sum_neg_4 node_out_neg_4 0 opamp_sat
+R_rf_neg_4 node_sum_neg_4 node_out_neg_4 10000.0
+R_rw_pos_4_0 node_in_0 node_sum_pos_4 31911.958594305546
+R_rw_neg_4_1 node_in_1 node_sum_neg_4 235870918.84899127
+R_rw_neg_4_2 node_in_2 node_sum_neg_4 32796.32526373364
+R_rw_pos_4_3 node_in_3 node_sum_pos_4 174618.18603344407
+R_rbias_neg_4 node_bias node_sum_neg_4 27049.698929457092
+X_opamp_sub_4 node_sub_pos_4 node_sub_neg_4 node_out_4 0 opamp_sat
+R_rsub1_4 node_out_pos_4 node_sub_neg_4 10000.0
+R_rsub2_4 node_sub_neg_4 node_out_4 10000.0
+R_rsub3_4 node_out_neg_4 node_sub_pos_4 10000.0
+R_rsub4_4 node_sub_pos_4 0 10000.0
+X_opamp_pos_5 0 node_sum_pos_5 node_out_pos_5 0 opamp_sat
+R_rf_pos_5 node_sum_pos_5 node_out_pos_5 10000.0
+X_opamp_neg_5 0 node_sum_neg_5 node_out_neg_5 0 opamp_sat
+R_rf_neg_5 node_sum_neg_5 node_out_neg_5 10000.0
+R_rw_neg_5_0 node_in_0 node_sum_neg_5 43408.74720144354
+R_rw_neg_5_1 node_in_1 node_sum_neg_5 170542.45158352275
+R_rw_neg_5_2 node_in_2 node_sum_neg_5 49241.88085889978
+R_rw_pos_5_3 node_in_3 node_sum_pos_5 30149.04329190177
+R_rbias_neg_5 node_bias node_sum_neg_5 33532.62908456921
+X_opamp_sub_5 node_sub_pos_5 node_sub_neg_5 node_out_5 0 opamp_sat
+R_rsub1_5 node_out_pos_5 node_sub_neg_5 10000.0
+R_rsub2_5 node_sub_neg_5 node_out_5 10000.0
+R_rsub3_5 node_out_neg_5 node_sub_pos_5 10000.0
+R_rsub4_5 node_sub_pos_5 0 10000.0
+X_opamp_pos_6 0 node_sum_pos_6 node_out_pos_6 0 opamp_sat
+R_rf_pos_6 node_sum_pos_6 node_out_pos_6 10000.0
+X_opamp_neg_6 0 node_sum_neg_6 node_out_neg_6 0 opamp_sat
+R_rf_neg_6 node_sum_neg_6 node_out_neg_6 10000.0
+R_rw_neg_6_0 node_in_0 node_sum_neg_6 213522.69329504008
+R_rw_pos_6_1 node_in_1 node_sum_pos_6 20188.60222052512
+R_rw_neg_6_2 node_in_2 node_sum_neg_6 15854.18682827643
+R_rw_neg_6_3 node_in_3 node_sum_neg_6 10917.990980164876
+R_rbias_pos_6 node_bias node_sum_pos_6 8927.128073931866
+X_opamp_sub_6 node_sub_pos_6 node_sub_neg_6 node_out_6 0 opamp_sat
+R_rsub1_6 node_out_pos_6 node_sub_neg_6 10000.0
+R_rsub2_6 node_sub_neg_6 node_out_6 10000.0
+R_rsub3_6 node_out_neg_6 node_sub_pos_6 10000.0
+R_rsub4_6 node_sub_pos_6 0 10000.0
+X_opamp_pos_7 0 node_sum_pos_7 node_out_pos_7 0 opamp_sat
+R_rf_pos_7 node_sum_pos_7 node_out_pos_7 10000.0
+X_opamp_neg_7 0 node_sum_neg_7 node_out_neg_7 0 opamp_sat
+R_rf_neg_7 node_sum_neg_7 node_out_neg_7 10000.0
+R_rw_neg_7_0 node_in_0 node_sum_neg_7 135544.45063728277
+R_rw_neg_7_1 node_in_1 node_sum_neg_7 16419.505577343665
+R_rw_pos_7_2 node_in_2 node_sum_pos_7 31066.03628070803
+R_rw_neg_7_3 node_in_3 node_sum_neg_7 18128.9700171854
+R_rbias_pos_7 node_bias node_sum_pos_7 379760.3115037958
+X_opamp_sub_7 node_sub_pos_7 node_sub_neg_7 node_out_7 0 opamp_sat
+R_rsub1_7 node_out_pos_7 node_sub_neg_7 10000.0
+R_rsub2_7 node_sub_neg_7 node_out_7 10000.0
+R_rsub3_7 node_out_neg_7 node_sub_pos_7 10000.0
+R_rsub4_7 node_sub_pos_7 0 10000.0
+X_opamp_pos_8 0 node_sum_pos_8 node_out_pos_8 0 opamp_sat
+R_rf_pos_8 node_sum_pos_8 node_out_pos_8 10000.0
+X_opamp_neg_8 0 node_sum_neg_8 node_out_neg_8 0 opamp_sat
+R_rf_neg_8 node_sum_neg_8 node_out_neg_8 10000.0
+R_rw_pos_8_0 node_in_0 node_sum_pos_8 169647.03541779923
+R_rw_pos_8_1 node_in_1 node_sum_pos_8 20609.03287305407
+R_rw_neg_8_2 node_in_2 node_sum_neg_8 13042.795085455367
+R_rw_neg_8_3 node_in_3 node_sum_neg_8 23732.50807452933
+R_rbias_pos_8 node_bias node_sum_pos_8 13567.234172525415
+X_opamp_sub_8 node_sub_pos_8 node_sub_neg_8 node_out_8 0 opamp_sat
+R_rsub1_8 node_out_pos_8 node_sub_neg_8 10000.0
+R_rsub2_8 node_sub_neg_8 node_out_8 10000.0
+R_rsub3_8 node_out_neg_8 node_sub_pos_8 10000.0
+R_rsub4_8 node_sub_pos_8 0 10000.0
+X_opamp_pos_9 0 node_sum_pos_9 node_out_pos_9 0 opamp_sat
+R_rf_pos_9 node_sum_pos_9 node_out_pos_9 10000.0
+X_opamp_neg_9 0 node_sum_neg_9 node_out_neg_9 0 opamp_sat
+R_rf_neg_9 node_sum_neg_9 node_out_neg_9 10000.0
+R_rw_pos_9_0 node_in_0 node_sum_pos_9 45831.40817899944
+R_rw_pos_9_1 node_in_1 node_sum_pos_9 9726.216642613765
+R_rw_neg_9_2 node_in_2 node_sum_neg_9 34302.676277644256
+R_rw_neg_9_3 node_in_3 node_sum_neg_9 16292.228929234547
+R_rbias_pos_9 node_bias node_sum_pos_9 38923.97487154175
+X_opamp_sub_9 node_sub_pos_9 node_sub_neg_9 node_out_9 0 opamp_sat
+R_rsub1_9 node_out_pos_9 node_sub_neg_9 10000.0
+R_rsub2_9 node_sub_neg_9 node_out_9 10000.0
+R_rsub3_9 node_out_neg_9 node_sub_pos_9 10000.0
+R_rsub4_9 node_sub_pos_9 0 10000.0
+X_opamp_pos_10 0 node_sum_pos_10 node_out_pos_10 0 opamp_sat
+R_rf_pos_10 node_sum_pos_10 node_out_pos_10 10000.0
+X_opamp_neg_10 0 node_sum_neg_10 node_out_neg_10 0 opamp_sat
+R_rf_neg_10 node_sum_neg_10 node_out_neg_10 10000.0
+R_rw_pos_10_0 node_in_0 node_sum_pos_10 201526.486121584
+R_rw_neg_10_1 node_in_1 node_sum_neg_10 46191.74199365722
+R_rw_pos_10_2 node_in_2 node_sum_pos_10 78263.16507614781
+R_rw_pos_10_3 node_in_3 node_sum_pos_10 27287.20721054801
+R_rbias_neg_10 node_bias node_sum_neg_10 17355.366651580785
+X_opamp_sub_10 node_sub_pos_10 node_sub_neg_10 node_out_10 0 opamp_sat
+R_rsub1_10 node_out_pos_10 node_sub_neg_10 10000.0
+R_rsub2_10 node_sub_neg_10 node_out_10 10000.0
+R_rsub3_10 node_out_neg_10 node_sub_pos_10 10000.0
+R_rsub4_10 node_sub_pos_10 0 10000.0
+X_opamp_pos_11 0 node_sum_pos_11 node_out_pos_11 0 opamp_sat
+R_rf_pos_11 node_sum_pos_11 node_out_pos_11 10000.0
+X_opamp_neg_11 0 node_sum_neg_11 node_out_neg_11 0 opamp_sat
+R_rf_neg_11 node_sum_neg_11 node_out_neg_11 10000.0
+R_rw_pos_11_0 node_in_0 node_sum_pos_11 51143.69869777602
+R_rw_neg_11_1 node_in_1 node_sum_neg_11 33118.852847351634
+R_rw_pos_11_2 node_in_2 node_sum_pos_11 51205.00830235623
+R_rw_neg_11_3 node_in_3 node_sum_neg_11 3556320.8731707786
+R_rbias_neg_11 node_bias node_sum_neg_11 20653.936043301183
+X_opamp_sub_11 node_sub_pos_11 node_sub_neg_11 node_out_11 0 opamp_sat
+R_rsub1_11 node_out_pos_11 node_sub_neg_11 10000.0
+R_rsub2_11 node_sub_neg_11 node_out_11 10000.0
+R_rsub3_11 node_out_neg_11 node_sub_pos_11 10000.0
+R_rsub4_11 node_sub_pos_11 0 10000.0
+X_opamp_pos_12 0 node_sum_pos_12 node_out_pos_12 0 opamp_sat
+R_rf_pos_12 node_sum_pos_12 node_out_pos_12 10000.0
+X_opamp_neg_12 0 node_sum_neg_12 node_out_neg_12 0 opamp_sat
+R_rf_neg_12 node_sum_neg_12 node_out_neg_12 10000.0
+R_rw_pos_12_0 node_in_0 node_sum_pos_12 39382.86805089824
+R_rw_neg_12_1 node_in_1 node_sum_neg_12 32813.509517790204
+R_rw_neg_12_2 node_in_2 node_sum_neg_12 20203.88841267666
+R_rw_neg_12_3 node_in_3 node_sum_neg_12 51765.12259848499
+R_rbias_neg_12 node_bias node_sum_neg_12 29731.41766016738
+X_opamp_sub_12 node_sub_pos_12 node_sub_neg_12 node_out_12 0 opamp_sat
+R_rsub1_12 node_out_pos_12 node_sub_neg_12 10000.0
+R_rsub2_12 node_sub_neg_12 node_out_12 10000.0
+R_rsub3_12 node_out_neg_12 node_sub_pos_12 10000.0
+R_rsub4_12 node_sub_pos_12 0 10000.0
+X_opamp_pos_13 0 node_sum_pos_13 node_out_pos_13 0 opamp_sat
+R_rf_pos_13 node_sum_pos_13 node_out_pos_13 10000.0
+X_opamp_neg_13 0 node_sum_neg_13 node_out_neg_13 0 opamp_sat
+R_rf_neg_13 node_sum_neg_13 node_out_neg_13 10000.0
+R_rw_neg_13_0 node_in_0 node_sum_neg_13 18280.78696265535
+R_rw_pos_13_1 node_in_1 node_sum_pos_13 9656.61080520374
+R_rw_neg_13_2 node_in_2 node_sum_neg_13 23250.370155207424
+R_rw_neg_13_3 node_in_3 node_sum_neg_13 21189.124361268594
+R_rbias_pos_13 node_bias node_sum_pos_13 15725.491953079643
+X_opamp_sub_13 node_sub_pos_13 node_sub_neg_13 node_out_13 0 opamp_sat
+R_rsub1_13 node_out_pos_13 node_sub_neg_13 10000.0
+R_rsub2_13 node_sub_neg_13 node_out_13 10000.0
+R_rsub3_13 node_out_neg_13 node_sub_pos_13 10000.0
+R_rsub4_13 node_sub_pos_13 0 10000.0
+X_opamp_pos_14 0 node_sum_pos_14 node_out_pos_14 0 opamp_sat
+R_rf_pos_14 node_sum_pos_14 node_out_pos_14 10000.0
+X_opamp_neg_14 0 node_sum_neg_14 node_out_neg_14 0 opamp_sat
+R_rf_neg_14 node_sum_neg_14 node_out_neg_14 10000.0
+R_rw_pos_14_0 node_in_0 node_sum_pos_14 13488.331782480558
+R_rw_neg_14_1 node_in_1 node_sum_neg_14 35940.199978920726
+R_rw_pos_14_2 node_in_2 node_sum_pos_14 8583.626272178644
+R_rw_pos_14_3 node_in_3 node_sum_pos_14 20556.332195706458
+R_rbias_pos_14 node_bias node_sum_pos_14 62026.80904883961
+X_opamp_sub_14 node_sub_pos_14 node_sub_neg_14 node_out_14 0 opamp_sat
+R_rsub1_14 node_out_pos_14 node_sub_neg_14 10000.0
+R_rsub2_14 node_sub_neg_14 node_out_14 10000.0
+R_rsub3_14 node_out_neg_14 node_sub_pos_14 10000.0
+R_rsub4_14 node_sub_pos_14 0 10000.0
+X_opamp_pos_15 0 node_sum_pos_15 node_out_pos_15 0 opamp_sat
+R_rf_pos_15 node_sum_pos_15 node_out_pos_15 10000.0
+X_opamp_neg_15 0 node_sum_neg_15 node_out_neg_15 0 opamp_sat
+R_rf_neg_15 node_sum_neg_15 node_out_neg_15 10000.0
+R_rw_pos_15_0 node_in_0 node_sum_pos_15 87064.48888024557
+R_rw_neg_15_1 node_in_1 node_sum_neg_15 14388.528844396544
+R_rw_pos_15_2 node_in_2 node_sum_pos_15 24891.470830789807
+R_rw_neg_15_3 node_in_3 node_sum_neg_15 442824.8726159963
+R_rbias_pos_15 node_bias node_sum_pos_15 25522.139870843843
+X_opamp_sub_15 node_sub_pos_15 node_sub_neg_15 node_out_15 0 opamp_sat
+R_rsub1_15 node_out_pos_15 node_sub_neg_15 10000.0
+R_rsub2_15 node_sub_neg_15 node_out_15 10000.0
+R_rsub3_15 node_out_neg_15 node_sub_pos_15 10000.0
+R_rsub4_15 node_sub_pos_15 0 10000.0
+
+* Analysis Commands
+.control
+.op
+print all
+.endc
+.end

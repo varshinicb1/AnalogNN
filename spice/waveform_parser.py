@@ -21,32 +21,32 @@ class WaveformParser:
                 
             # Method 1: Parse standard ngspice ASCII raw values
             if "Variables:" in content and "Values:" in content:
-                # Extract variables list mapping index to node name
-                var_sec = content.split("Variables:")[1].split("Values:")[0].strip()
+                # Find the actual Variables: section header line (not No. Variables:)
+                # by finding the second occurrence of "Variables:"
+                first = content.index("Variables:")
+                second = content.index("Variables:", first + 1)
+                var_sec = content[second + 10:content.index("Values:")].strip()
                 variables = []
                 for line in var_sec.splitlines():
                     parts = line.strip().split()
-                    if len(parts) >= 3:
-                        # parts[0]: index, parts[1]: node_name, parts[2]: type
+                    if len(parts) >= 2:
+                        # parts[0]: index, parts[1]: node_name
                         variables.append(parts[1].lower())
                 
                 # Extract values section
                 val_sec = content.split("Values:")[1].strip()
                 lines = val_sec.splitlines()
-                idx = 0
-                for line in lines:
-                    parts = line.strip().split()
-                    if len(parts) == 2:
-                        val = float(parts[1])
-                        if idx < len(variables):
-                            voltages[variables[idx]] = val
-                        idx += 1
-                    elif len(parts) == 1:
-                        # Sometimes values are on a line by themselves
-                        val = float(parts[0])
-                        if idx < len(variables):
-                            voltages[variables[idx]] = val
-                        idx += 1
+                # Find point index line: "0\tval0" or just tokens
+                # The first token is the point index, skip it
+                all_tokens = val_sec.split()
+                if all_tokens and all_tokens[0].lstrip('-').replace('.', '').isdigit():
+                    all_tokens = all_tokens[1:]  # skip point index
+                for idx, val_str in enumerate(all_tokens):
+                    if idx < len(variables):
+                        try:
+                            voltages[variables[idx]] = float(val_str)
+                        except ValueError:
+                            pass
             
             # Method 2: Resilient regex search fallback in log files
             # Look for patterns like "v(node_out_i) = 1.234" or "node_out_i = 1.234"

@@ -1,0 +1,861 @@
+* OpenAnalogNN Auto-Generated LTspice Netlist: layer_0_lt
+* Ideal Op-Amp model with saturation limit
+.subckt opamp_sat IN+ IN- OUT GND
+E1 OUT GND value={limit(1e5*(V(IN+)-V(IN-)), -2.5, 2.5)}
+.ends opamp_sat
+
+* Circuit Components
+V_in_0 node_in_0 0 -0.7321792840957642
+V_in_1 node_in_1 0 -0.40373992919921875
+V_in_2 node_in_2 0 1.2062691450119019
+V_in_3 node_in_3 0 -0.6938396096229553
+V_in_4 node_in_4 0 -1.5164529085159302
+V_in_5 node_in_5 0 2.0242106914520264
+V_in_6 node_in_6 0 -1.1074318885803223
+V_in_7 node_in_7 0 -0.04061885178089142
+V_in_8 node_in_8 0 0.27298247814178467
+V_in_9 node_in_9 0 0.5441054701805115
+V_in_10 node_in_10 0 -2.4758286476135254
+V_in_11 node_in_11 0 0.21060240268707275
+V_in_12 node_in_12 0 0.2536042630672455
+V_in_13 node_in_13 0 -0.7318422794342041
+V_in_14 node_in_14 0 -1.0266847610473633
+V_in_15 node_in_15 0 -0.3532084822654724
+V_bias node_bias 0 1.0
+X_opamp_pos_0 0 node_sum_pos_0 node_out_pos_0 0 opamp_sat
+R_rf_pos_0 node_sum_pos_0 node_out_pos_0 10000.0
+X_opamp_neg_0 0 node_sum_neg_0 node_out_neg_0 0 opamp_sat
+R_rf_neg_0 node_sum_neg_0 node_out_neg_0 10000.0
+R_rw_pos_0_0 node_in_0 node_sum_pos_0 28651.6650822809
+R_rw_pos_0_1 node_in_1 node_sum_pos_0 59842.34027371178
+R_rw_neg_0_2 node_in_2 node_sum_neg_0 61359.183319309144
+R_rw_pos_0_3 node_in_3 node_sum_pos_0 24883.088660935686
+R_rw_neg_0_4 node_in_4 node_sum_neg_0 43327.78238509566
+R_rw_neg_0_5 node_in_5 node_sum_neg_0 71708.58233013347
+R_rw_neg_0_6 node_in_6 node_sum_neg_0 180726.60948138652
+R_rw_pos_0_7 node_in_7 node_sum_pos_0 54274.067410001866
+R_rw_pos_0_8 node_in_8 node_sum_pos_0 23399.905115631518
+R_rw_neg_0_9 node_in_9 node_sum_neg_0 76757.73323519707
+R_rw_pos_0_10 node_in_10 node_sum_pos_0 25732.549960566528
+R_rw_pos_0_11 node_in_11 node_sum_pos_0 145408.29198808633
+R_rw_pos_0_12 node_in_12 node_sum_pos_0 25984.333090793298
+R_rw_pos_0_13 node_in_13 node_sum_pos_0 363342.76672523055
+R_rw_pos_0_14 node_in_14 node_sum_pos_0 182116.50999863294
+R_rw_pos_0_15 node_in_15 node_sum_pos_0 112049.55308819373
+R_rbias_pos_0 node_bias node_sum_pos_0 47279.23776490753
+X_opamp_sub_0 node_sub_pos_0 node_sub_neg_0 node_out_0 0 opamp_sat
+R_rsub1_0 node_out_pos_0 node_sub_neg_0 10000.0
+R_rsub2_0 node_sub_neg_0 node_out_0 10000.0
+R_rsub3_0 node_out_neg_0 node_sub_pos_0 10000.0
+R_rsub4_0 node_sub_pos_0 0 10000.0
+X_opamp_pos_1 0 node_sum_pos_1 node_out_pos_1 0 opamp_sat
+R_rf_pos_1 node_sum_pos_1 node_out_pos_1 10000.0
+X_opamp_neg_1 0 node_sum_neg_1 node_out_neg_1 0 opamp_sat
+R_rf_neg_1 node_sum_neg_1 node_out_neg_1 10000.0
+R_rw_pos_1_0 node_in_0 node_sum_pos_1 43334.13059323886
+R_rw_pos_1_1 node_in_1 node_sum_pos_1 73511.24502289995
+R_rw_pos_1_2 node_in_2 node_sum_pos_1 648882.5019093456
+R_rw_neg_1_3 node_in_3 node_sum_neg_1 159761.87911336965
+R_rw_neg_1_4 node_in_4 node_sum_neg_1 91450.2191210778
+R_rw_pos_1_5 node_in_5 node_sum_pos_1 58429.93300077655
+R_rw_neg_1_6 node_in_6 node_sum_neg_1 33234.46058383699
+R_rw_pos_1_7 node_in_7 node_sum_pos_1 27754.51770218977
+R_rw_neg_1_8 node_in_8 node_sum_neg_1 232629.87919836488
+R_rw_pos_1_9 node_in_9 node_sum_pos_1 159435.81904737922
+R_rw_neg_1_10 node_in_10 node_sum_neg_1 40400.78303352708
+R_rw_neg_1_11 node_in_11 node_sum_neg_1 48093.63590243886
+R_rw_pos_1_12 node_in_12 node_sum_pos_1 129640.19744820269
+R_rw_neg_1_13 node_in_13 node_sum_neg_1 56019.26273862953
+R_rw_pos_1_14 node_in_14 node_sum_pos_1 33722.47785163025
+R_rw_neg_1_15 node_in_15 node_sum_neg_1 118348.30861867497
+R_rbias_neg_1 node_bias node_sum_neg_1 81881.183401399
+X_opamp_sub_1 node_sub_pos_1 node_sub_neg_1 node_out_1 0 opamp_sat
+R_rsub1_1 node_out_pos_1 node_sub_neg_1 10000.0
+R_rsub2_1 node_sub_neg_1 node_out_1 10000.0
+R_rsub3_1 node_out_neg_1 node_sub_pos_1 10000.0
+R_rsub4_1 node_sub_pos_1 0 10000.0
+X_opamp_pos_2 0 node_sum_pos_2 node_out_pos_2 0 opamp_sat
+R_rf_pos_2 node_sum_pos_2 node_out_pos_2 10000.0
+X_opamp_neg_2 0 node_sum_neg_2 node_out_neg_2 0 opamp_sat
+R_rf_neg_2 node_sum_neg_2 node_out_neg_2 10000.0
+R_rw_pos_2_0 node_in_0 node_sum_pos_2 250127.91831327215
+R_rw_pos_2_1 node_in_1 node_sum_pos_2 44639.464535536834
+R_rw_neg_2_2 node_in_2 node_sum_neg_2 35883.36655091755
+R_rw_pos_2_3 node_in_3 node_sum_pos_2 30628.4837580485
+R_rw_neg_2_4 node_in_4 node_sum_neg_2 61978.22016521525
+R_rw_pos_2_5 node_in_5 node_sum_pos_2 140379.6359690051
+R_rw_neg_2_6 node_in_6 node_sum_neg_2 76706.11880814207
+R_rw_neg_2_7 node_in_7 node_sum_neg_2 61301.09413024095
+R_rw_pos_2_8 node_in_8 node_sum_pos_2 689000.4114462658
+R_rw_pos_2_9 node_in_9 node_sum_pos_2 1176080.7226333106
+R_rw_pos_2_10 node_in_10 node_sum_pos_2 63173.294122741456
+R_rw_pos_2_11 node_in_11 node_sum_pos_2 67036.06283576037
+R_rw_pos_2_12 node_in_12 node_sum_pos_2 50646.47153168813
+R_rw_neg_2_13 node_in_13 node_sum_neg_2 68057.51773977472
+R_rw_pos_2_14 node_in_14 node_sum_pos_2 30832.53007819126
+R_rw_neg_2_15 node_in_15 node_sum_neg_2 131746.64833974524
+R_rbias_neg_2 node_bias node_sum_neg_2 58705.03818647611
+X_opamp_sub_2 node_sub_pos_2 node_sub_neg_2 node_out_2 0 opamp_sat
+R_rsub1_2 node_out_pos_2 node_sub_neg_2 10000.0
+R_rsub2_2 node_sub_neg_2 node_out_2 10000.0
+R_rsub3_2 node_out_neg_2 node_sub_pos_2 10000.0
+R_rsub4_2 node_sub_pos_2 0 10000.0
+X_opamp_pos_3 0 node_sum_pos_3 node_out_pos_3 0 opamp_sat
+R_rf_pos_3 node_sum_pos_3 node_out_pos_3 10000.0
+X_opamp_neg_3 0 node_sum_neg_3 node_out_neg_3 0 opamp_sat
+R_rf_neg_3 node_sum_neg_3 node_out_neg_3 10000.0
+R_rw_pos_3_0 node_in_0 node_sum_pos_3 41873.0491982651
+R_rw_pos_3_1 node_in_1 node_sum_pos_3 405820.6343420716
+R_rw_neg_3_2 node_in_2 node_sum_neg_3 33689.080517010385
+R_rw_pos_3_3 node_in_3 node_sum_pos_3 100862.4615381147
+R_rw_neg_3_4 node_in_4 node_sum_neg_3 46750.86050974836
+R_rw_pos_3_5 node_in_5 node_sum_pos_3 141686.65500668436
+R_rw_pos_3_6 node_in_6 node_sum_pos_3 108496.68037542977
+R_rw_neg_3_7 node_in_7 node_sum_neg_3 108850.30575029194
+R_rw_pos_3_8 node_in_8 node_sum_pos_3 1142789.995479892
+R_rw_neg_3_9 node_in_9 node_sum_neg_3 56655.28420142641
+R_rw_pos_3_10 node_in_10 node_sum_pos_3 25427.949286618572
+R_rw_neg_3_11 node_in_11 node_sum_neg_3 29562.03485040106
+R_rw_pos_3_12 node_in_12 node_sum_pos_3 48139.86521039974
+R_rw_neg_3_13 node_in_13 node_sum_neg_3 59721.11165910032
+R_rw_neg_3_14 node_in_14 node_sum_neg_3 94698.03923339433
+R_rw_neg_3_15 node_in_15 node_sum_neg_3 45255.11782275973
+R_rbias_neg_3 node_bias node_sum_neg_3 77839.65154712262
+X_opamp_sub_3 node_sub_pos_3 node_sub_neg_3 node_out_3 0 opamp_sat
+R_rsub1_3 node_out_pos_3 node_sub_neg_3 10000.0
+R_rsub2_3 node_sub_neg_3 node_out_3 10000.0
+R_rsub3_3 node_out_neg_3 node_sub_pos_3 10000.0
+R_rsub4_3 node_sub_pos_3 0 10000.0
+X_opamp_pos_4 0 node_sum_pos_4 node_out_pos_4 0 opamp_sat
+R_rf_pos_4 node_sum_pos_4 node_out_pos_4 10000.0
+X_opamp_neg_4 0 node_sum_neg_4 node_out_neg_4 0 opamp_sat
+R_rf_neg_4 node_sum_neg_4 node_out_neg_4 10000.0
+R_rw_pos_4_0 node_in_0 node_sum_pos_4 45309.59379204171
+R_rw_pos_4_1 node_in_1 node_sum_pos_4 151464.2673923352
+R_rw_pos_4_2 node_in_2 node_sum_pos_4 128153.94469140367
+R_rw_neg_4_3 node_in_3 node_sum_neg_4 29120.849622871887
+R_rw_pos_4_4 node_in_4 node_sum_pos_4 190615.60566357494
+R_rw_neg_4_5 node_in_5 node_sum_neg_4 40424.31612868366
+R_rw_pos_4_6 node_in_6 node_sum_pos_4 115524.76908641876
+R_rw_pos_4_7 node_in_7 node_sum_pos_4 35601.572246367265
+R_rw_pos_4_8 node_in_8 node_sum_pos_4 111053.92304499754
+R_rw_neg_4_9 node_in_9 node_sum_neg_4 358485.4866942862
+R_rw_neg_4_10 node_in_10 node_sum_neg_4 41793.2321593249
+R_rw_neg_4_11 node_in_11 node_sum_neg_4 27062.95908201663
+R_rw_neg_4_12 node_in_12 node_sum_neg_4 52781.6203909288
+R_rw_neg_4_13 node_in_13 node_sum_neg_4 197643.08326956554
+R_rw_neg_4_14 node_in_14 node_sum_neg_4 254232.67153490128
+R_rw_pos_4_15 node_in_15 node_sum_pos_4 24548.77339653667
+R_rbias_pos_4 node_bias node_sum_pos_4 88671.65016558995
+X_opamp_sub_4 node_sub_pos_4 node_sub_neg_4 node_out_4 0 opamp_sat
+R_rsub1_4 node_out_pos_4 node_sub_neg_4 10000.0
+R_rsub2_4 node_sub_neg_4 node_out_4 10000.0
+R_rsub3_4 node_out_neg_4 node_sub_pos_4 10000.0
+R_rsub4_4 node_sub_pos_4 0 10000.0
+X_opamp_pos_5 0 node_sum_pos_5 node_out_pos_5 0 opamp_sat
+R_rf_pos_5 node_sum_pos_5 node_out_pos_5 10000.0
+X_opamp_neg_5 0 node_sum_neg_5 node_out_neg_5 0 opamp_sat
+R_rf_neg_5 node_sum_neg_5 node_out_neg_5 10000.0
+R_rw_neg_5_0 node_in_0 node_sum_neg_5 30420.63506813821
+R_rw_neg_5_1 node_in_1 node_sum_neg_5 34228.03982373103
+R_rw_neg_5_2 node_in_2 node_sum_neg_5 1442758.4650088602
+R_rw_neg_5_3 node_in_3 node_sum_neg_5 140964.29316742215
+R_rw_pos_5_4 node_in_4 node_sum_pos_5 40470.56649681124
+R_rw_neg_5_5 node_in_5 node_sum_neg_5 38209.53390411938
+R_rw_pos_5_6 node_in_6 node_sum_pos_5 38056.76843513318
+R_rw_neg_5_7 node_in_7 node_sum_neg_5 39927.45704973995
+R_rw_pos_5_8 node_in_8 node_sum_pos_5 147512.79026341953
+R_rw_pos_5_9 node_in_9 node_sum_pos_5 58660.256090311224
+R_rw_neg_5_10 node_in_10 node_sum_neg_5 74376.99924125531
+R_rw_neg_5_11 node_in_11 node_sum_neg_5 39119.79381986566
+R_rw_pos_5_12 node_in_12 node_sum_pos_5 28106.969624525405
+R_rw_pos_5_13 node_in_13 node_sum_pos_5 27926.199679660967
+R_rw_neg_5_14 node_in_14 node_sum_neg_5 26436.430908748687
+R_rw_pos_5_15 node_in_15 node_sum_pos_5 137629.22620754206
+R_rbias_neg_5 node_bias node_sum_neg_5 46821.38987438036
+X_opamp_sub_5 node_sub_pos_5 node_sub_neg_5 node_out_5 0 opamp_sat
+R_rsub1_5 node_out_pos_5 node_sub_neg_5 10000.0
+R_rsub2_5 node_sub_neg_5 node_out_5 10000.0
+R_rsub3_5 node_out_neg_5 node_sub_pos_5 10000.0
+R_rsub4_5 node_sub_pos_5 0 10000.0
+X_opamp_pos_6 0 node_sum_pos_6 node_out_pos_6 0 opamp_sat
+R_rf_pos_6 node_sum_pos_6 node_out_pos_6 10000.0
+X_opamp_neg_6 0 node_sum_neg_6 node_out_neg_6 0 opamp_sat
+R_rf_neg_6 node_sum_neg_6 node_out_neg_6 10000.0
+R_rw_pos_6_0 node_in_0 node_sum_pos_6 141133.53959382253
+R_rw_neg_6_1 node_in_1 node_sum_neg_6 34516.777001181435
+R_rw_pos_6_2 node_in_2 node_sum_pos_6 86460.27250069732
+R_rw_neg_6_3 node_in_3 node_sum_neg_6 23572.3916150414
+R_rw_neg_6_4 node_in_4 node_sum_neg_6 28989.296198298955
+R_rw_pos_6_5 node_in_5 node_sum_pos_6 464518.48782517517
+R_rw_neg_6_6 node_in_6 node_sum_neg_6 42972.06793915063
+R_rw_neg_6_7 node_in_7 node_sum_neg_6 3694802.114526834
+R_rw_pos_6_8 node_in_8 node_sum_pos_6 69134.26284486074
+R_rw_neg_6_9 node_in_9 node_sum_neg_6 27727.385973481578
+R_rw_neg_6_10 node_in_10 node_sum_neg_6 75155.10479896593
+R_rw_neg_6_11 node_in_11 node_sum_neg_6 56909.570594714656
+R_rw_neg_6_12 node_in_12 node_sum_neg_6 54372.017681616024
+R_rw_neg_6_13 node_in_13 node_sum_neg_6 590475.7145044267
+R_rw_pos_6_14 node_in_14 node_sum_pos_6 50715.74112965841
+R_rw_pos_6_15 node_in_15 node_sum_pos_6 40327.15848444957
+R_rbias_pos_6 node_bias node_sum_pos_6 27620.146791362087
+X_opamp_sub_6 node_sub_pos_6 node_sub_neg_6 node_out_6 0 opamp_sat
+R_rsub1_6 node_out_pos_6 node_sub_neg_6 10000.0
+R_rsub2_6 node_sub_neg_6 node_out_6 10000.0
+R_rsub3_6 node_out_neg_6 node_sub_pos_6 10000.0
+R_rsub4_6 node_sub_pos_6 0 10000.0
+X_opamp_pos_7 0 node_sum_pos_7 node_out_pos_7 0 opamp_sat
+R_rf_pos_7 node_sum_pos_7 node_out_pos_7 10000.0
+X_opamp_neg_7 0 node_sum_neg_7 node_out_neg_7 0 opamp_sat
+R_rf_neg_7 node_sum_neg_7 node_out_neg_7 10000.0
+R_rw_neg_7_0 node_in_0 node_sum_neg_7 167001.2405234337
+R_rw_neg_7_1 node_in_1 node_sum_neg_7 80285.78442608869
+R_rw_neg_7_2 node_in_2 node_sum_neg_7 28576.2152612773
+R_rw_neg_7_3 node_in_3 node_sum_neg_7 38270.89936710232
+R_rw_neg_7_4 node_in_4 node_sum_neg_7 122016.79300221574
+R_rw_neg_7_5 node_in_5 node_sum_neg_7 71388.75553282858
+R_rw_neg_7_6 node_in_6 node_sum_neg_7 32757.36345376135
+R_rw_neg_7_7 node_in_7 node_sum_neg_7 37414.92240077296
+R_rw_neg_7_8 node_in_8 node_sum_neg_7 61956.09342631121
+R_rw_neg_7_9 node_in_9 node_sum_neg_7 72665.75213033582
+R_rw_pos_7_10 node_in_10 node_sum_pos_7 109252.26377501695
+R_rw_neg_7_11 node_in_11 node_sum_neg_7 47195.28863350694
+R_rw_neg_7_12 node_in_12 node_sum_neg_7 192559.08788974796
+R_rw_neg_7_13 node_in_13 node_sum_neg_7 34819.52998286753
+R_rw_neg_7_14 node_in_14 node_sum_neg_7 79349.63179421292
+R_rw_neg_7_15 node_in_15 node_sum_neg_7 29080.630065850477
+R_rbias_pos_7 node_bias node_sum_pos_7 73315.969976542
+X_opamp_sub_7 node_sub_pos_7 node_sub_neg_7 node_out_7 0 opamp_sat
+R_rsub1_7 node_out_pos_7 node_sub_neg_7 10000.0
+R_rsub2_7 node_sub_neg_7 node_out_7 10000.0
+R_rsub3_7 node_out_neg_7 node_sub_pos_7 10000.0
+R_rsub4_7 node_sub_pos_7 0 10000.0
+X_opamp_pos_8 0 node_sum_pos_8 node_out_pos_8 0 opamp_sat
+R_rf_pos_8 node_sum_pos_8 node_out_pos_8 10000.0
+X_opamp_neg_8 0 node_sum_neg_8 node_out_neg_8 0 opamp_sat
+R_rf_neg_8 node_sum_neg_8 node_out_neg_8 10000.0
+R_rw_pos_8_0 node_in_0 node_sum_pos_8 27765.706922065292
+R_rw_neg_8_1 node_in_1 node_sum_neg_8 61675.13078960851
+R_rw_pos_8_2 node_in_2 node_sum_pos_8 276382.53167760465
+R_rw_pos_8_3 node_in_3 node_sum_pos_8 37870.26784342808
+R_rw_neg_8_4 node_in_4 node_sum_neg_8 25226.927402207257
+R_rw_pos_8_5 node_in_5 node_sum_pos_8 28391.93017540003
+R_rw_pos_8_6 node_in_6 node_sum_pos_8 1660054.470299834
+R_rw_neg_8_7 node_in_7 node_sum_neg_8 40164.628087262914
+R_rw_neg_8_8 node_in_8 node_sum_neg_8 2093843.1552794208
+R_rw_neg_8_9 node_in_9 node_sum_neg_8 23746.769308987394
+R_rw_pos_8_10 node_in_10 node_sum_pos_8 38152.52467562415
+R_rw_pos_8_11 node_in_11 node_sum_pos_8 153714.04946373252
+R_rw_pos_8_12 node_in_12 node_sum_pos_8 43769.9626791323
+R_rw_neg_8_13 node_in_13 node_sum_neg_8 60561.55982362399
+R_rw_pos_8_14 node_in_14 node_sum_pos_8 650896.8830243164
+R_rw_neg_8_15 node_in_15 node_sum_neg_8 49139.94775597762
+R_rbias_neg_8 node_bias node_sum_neg_8 544835.7569639039
+X_opamp_sub_8 node_sub_pos_8 node_sub_neg_8 node_out_8 0 opamp_sat
+R_rsub1_8 node_out_pos_8 node_sub_neg_8 10000.0
+R_rsub2_8 node_sub_neg_8 node_out_8 10000.0
+R_rsub3_8 node_out_neg_8 node_sub_pos_8 10000.0
+R_rsub4_8 node_sub_pos_8 0 10000.0
+X_opamp_pos_9 0 node_sum_pos_9 node_out_pos_9 0 opamp_sat
+R_rf_pos_9 node_sum_pos_9 node_out_pos_9 10000.0
+X_opamp_neg_9 0 node_sum_neg_9 node_out_neg_9 0 opamp_sat
+R_rf_neg_9 node_sum_neg_9 node_out_neg_9 10000.0
+R_rw_neg_9_0 node_in_0 node_sum_neg_9 177439.13266727974
+R_rw_neg_9_1 node_in_1 node_sum_neg_9 116062.86178920562
+R_rw_neg_9_2 node_in_2 node_sum_neg_9 754353.5216616854
+R_rw_pos_9_3 node_in_3 node_sum_pos_9 25154.985974292977
+R_rw_pos_9_4 node_in_4 node_sum_pos_9 278982.09512407036
+R_rw_pos_9_5 node_in_5 node_sum_pos_9 1289892.611643083
+R_rw_neg_9_6 node_in_6 node_sum_neg_9 152721.2863305194
+R_rw_pos_9_7 node_in_7 node_sum_pos_9 4410816.0564785935
+R_rw_neg_9_8 node_in_8 node_sum_neg_9 48817.78647345427
+R_rw_neg_9_9 node_in_9 node_sum_neg_9 45741.04161428328
+R_rw_pos_9_10 node_in_10 node_sum_pos_9 29555.400159410725
+R_rw_neg_9_11 node_in_11 node_sum_neg_9 26065.103971657343
+R_rw_pos_9_12 node_in_12 node_sum_pos_9 152926.89624243756
+R_rw_pos_9_13 node_in_13 node_sum_pos_9 112834.4205452579
+R_rw_pos_9_14 node_in_14 node_sum_pos_9 162478.1349295892
+R_rw_pos_9_15 node_in_15 node_sum_pos_9 257068.33140158528
+R_rbias_pos_9 node_bias node_sum_pos_9 159842.45569423676
+X_opamp_sub_9 node_sub_pos_9 node_sub_neg_9 node_out_9 0 opamp_sat
+R_rsub1_9 node_out_pos_9 node_sub_neg_9 10000.0
+R_rsub2_9 node_sub_neg_9 node_out_9 10000.0
+R_rsub3_9 node_out_neg_9 node_sub_pos_9 10000.0
+R_rsub4_9 node_sub_pos_9 0 10000.0
+X_opamp_pos_10 0 node_sum_pos_10 node_out_pos_10 0 opamp_sat
+R_rf_pos_10 node_sum_pos_10 node_out_pos_10 10000.0
+X_opamp_neg_10 0 node_sum_neg_10 node_out_neg_10 0 opamp_sat
+R_rf_neg_10 node_sum_neg_10 node_out_neg_10 10000.0
+R_rw_pos_10_0 node_in_0 node_sum_pos_10 303828.4641745384
+R_rw_neg_10_1 node_in_1 node_sum_neg_10 70229.10816104097
+R_rw_pos_10_2 node_in_2 node_sum_pos_10 227496.89012826112
+R_rw_neg_10_3 node_in_3 node_sum_neg_10 26065.027031805388
+R_rw_neg_10_4 node_in_4 node_sum_neg_10 177566.2011527578
+R_rw_neg_10_5 node_in_5 node_sum_neg_10 51868.08974112044
+R_rw_neg_10_6 node_in_6 node_sum_neg_10 33669.345476109964
+R_rw_pos_10_7 node_in_7 node_sum_pos_10 898582.337172084
+R_rw_neg_10_8 node_in_8 node_sum_neg_10 88528.57373713389
+R_rw_neg_10_9 node_in_9 node_sum_neg_10 31719.29025858631
+R_rw_neg_10_10 node_in_10 node_sum_neg_10 57852.34428374077
+R_rw_neg_10_11 node_in_11 node_sum_neg_10 358501.0465472288
+R_rw_pos_10_12 node_in_12 node_sum_pos_10 42907.133797781666
+R_rw_pos_10_13 node_in_13 node_sum_pos_10 83467.23100143095
+R_rw_neg_10_14 node_in_14 node_sum_neg_10 39796.98745166876
+R_rw_neg_10_15 node_in_15 node_sum_neg_10 39599.66544767734
+R_rbias_neg_10 node_bias node_sum_neg_10 141907.1514823691
+X_opamp_sub_10 node_sub_pos_10 node_sub_neg_10 node_out_10 0 opamp_sat
+R_rsub1_10 node_out_pos_10 node_sub_neg_10 10000.0
+R_rsub2_10 node_sub_neg_10 node_out_10 10000.0
+R_rsub3_10 node_out_neg_10 node_sub_pos_10 10000.0
+R_rsub4_10 node_sub_pos_10 0 10000.0
+X_opamp_pos_11 0 node_sum_pos_11 node_out_pos_11 0 opamp_sat
+R_rf_pos_11 node_sum_pos_11 node_out_pos_11 10000.0
+X_opamp_neg_11 0 node_sum_neg_11 node_out_neg_11 0 opamp_sat
+R_rf_neg_11 node_sum_neg_11 node_out_neg_11 10000.0
+R_rw_neg_11_0 node_in_0 node_sum_neg_11 36499.46427386538
+R_rw_neg_11_1 node_in_1 node_sum_neg_11 90666.94155882363
+R_rw_pos_11_2 node_in_2 node_sum_pos_11 138969.65643203707
+R_rw_neg_11_3 node_in_3 node_sum_neg_11 57463.19544615947
+R_rw_neg_11_4 node_in_4 node_sum_neg_11 90711.30641428735
+R_rw_pos_11_5 node_in_5 node_sum_pos_11 41373.46444420428
+R_rw_pos_11_6 node_in_6 node_sum_pos_11 61725.936433994306
+R_rw_neg_11_7 node_in_7 node_sum_neg_11 72488.87210547282
+R_rw_pos_11_8 node_in_8 node_sum_pos_11 29851.404125105968
+R_rw_pos_11_9 node_in_9 node_sum_pos_11 48586.57374800756
+R_rw_neg_11_10 node_in_10 node_sum_neg_11 181610.46912366798
+R_rw_pos_11_11 node_in_11 node_sum_pos_11 65326.464090522146
+R_rw_pos_11_12 node_in_12 node_sum_pos_11 80601.53713612643
+R_rw_pos_11_13 node_in_13 node_sum_pos_11 45827.99358629412
+R_rw_neg_11_14 node_in_14 node_sum_neg_11 178548.6774543093
+R_rw_pos_11_15 node_in_15 node_sum_pos_11 74612.00378592007
+R_rbias_pos_11 node_bias node_sum_pos_11 52031.95875457371
+X_opamp_sub_11 node_sub_pos_11 node_sub_neg_11 node_out_11 0 opamp_sat
+R_rsub1_11 node_out_pos_11 node_sub_neg_11 10000.0
+R_rsub2_11 node_sub_neg_11 node_out_11 10000.0
+R_rsub3_11 node_out_neg_11 node_sub_pos_11 10000.0
+R_rsub4_11 node_sub_pos_11 0 10000.0
+X_opamp_pos_12 0 node_sum_pos_12 node_out_pos_12 0 opamp_sat
+R_rf_pos_12 node_sum_pos_12 node_out_pos_12 10000.0
+X_opamp_neg_12 0 node_sum_neg_12 node_out_neg_12 0 opamp_sat
+R_rf_neg_12 node_sum_neg_12 node_out_neg_12 10000.0
+R_rw_neg_12_0 node_in_0 node_sum_neg_12 373057.4888486665
+R_rw_pos_12_1 node_in_1 node_sum_pos_12 77942.32495519488
+R_rw_neg_12_2 node_in_2 node_sum_neg_12 44793.68790118763
+R_rw_neg_12_3 node_in_3 node_sum_neg_12 71770.8854031312
+R_rw_neg_12_4 node_in_4 node_sum_neg_12 54172.48096322901
+R_rw_neg_12_5 node_in_5 node_sum_neg_12 530102.1960888009
+R_rw_neg_12_6 node_in_6 node_sum_neg_12 85301.596009582
+R_rw_pos_12_7 node_in_7 node_sum_pos_12 89890.60980847591
+R_rw_neg_12_8 node_in_8 node_sum_neg_12 23988.832332131453
+R_rw_neg_12_9 node_in_9 node_sum_neg_12 143768.43784839424
+R_rw_pos_12_10 node_in_10 node_sum_pos_12 27510.08638255958
+R_rw_neg_12_11 node_in_11 node_sum_neg_12 562368.5914632243
+R_rw_pos_12_12 node_in_12 node_sum_pos_12 169653.4577968504
+R_rw_neg_12_13 node_in_13 node_sum_neg_12 35205.65465579713
+R_rw_neg_12_14 node_in_14 node_sum_neg_12 33467.90408078953
+R_rw_neg_12_15 node_in_15 node_sum_neg_12 66199.58620365827
+R_rbias_pos_12 node_bias node_sum_pos_12 33938.1503025811
+X_opamp_sub_12 node_sub_pos_12 node_sub_neg_12 node_out_12 0 opamp_sat
+R_rsub1_12 node_out_pos_12 node_sub_neg_12 10000.0
+R_rsub2_12 node_sub_neg_12 node_out_12 10000.0
+R_rsub3_12 node_out_neg_12 node_sub_pos_12 10000.0
+R_rsub4_12 node_sub_pos_12 0 10000.0
+X_opamp_pos_13 0 node_sum_pos_13 node_out_pos_13 0 opamp_sat
+R_rf_pos_13 node_sum_pos_13 node_out_pos_13 10000.0
+X_opamp_neg_13 0 node_sum_neg_13 node_out_neg_13 0 opamp_sat
+R_rf_neg_13 node_sum_neg_13 node_out_neg_13 10000.0
+R_rw_pos_13_0 node_in_0 node_sum_pos_13 110593.8616813386
+R_rw_neg_13_1 node_in_1 node_sum_neg_13 80844.35168984541
+R_rw_pos_13_2 node_in_2 node_sum_pos_13 345148.0649060097
+R_rw_neg_13_3 node_in_3 node_sum_neg_13 247752.91848815
+R_rw_neg_13_4 node_in_4 node_sum_neg_13 116807.75417495577
+R_rw_neg_13_5 node_in_5 node_sum_neg_13 34308.45288497001
+R_rw_neg_13_6 node_in_6 node_sum_neg_13 40978.66099790682
+R_rw_pos_13_7 node_in_7 node_sum_pos_13 22363.28059784116
+R_rw_neg_13_8 node_in_8 node_sum_neg_13 117334.20427756941
+R_rw_pos_13_9 node_in_9 node_sum_pos_13 204901.1436767264
+R_rw_neg_13_10 node_in_10 node_sum_neg_13 458431.9650189518
+R_rw_neg_13_11 node_in_11 node_sum_neg_13 808800.3450506013
+R_rw_neg_13_12 node_in_12 node_sum_neg_13 52091.78648976531
+R_rw_pos_13_13 node_in_13 node_sum_pos_13 58230.490264601365
+R_rw_neg_13_14 node_in_14 node_sum_neg_13 37208.46306985052
+R_rw_pos_13_15 node_in_15 node_sum_pos_13 87928.15371270172
+R_rbias_neg_13 node_bias node_sum_neg_13 38544.44609986897
+X_opamp_sub_13 node_sub_pos_13 node_sub_neg_13 node_out_13 0 opamp_sat
+R_rsub1_13 node_out_pos_13 node_sub_neg_13 10000.0
+R_rsub2_13 node_sub_neg_13 node_out_13 10000.0
+R_rsub3_13 node_out_neg_13 node_sub_pos_13 10000.0
+R_rsub4_13 node_sub_pos_13 0 10000.0
+X_opamp_pos_14 0 node_sum_pos_14 node_out_pos_14 0 opamp_sat
+R_rf_pos_14 node_sum_pos_14 node_out_pos_14 10000.0
+X_opamp_neg_14 0 node_sum_neg_14 node_out_neg_14 0 opamp_sat
+R_rf_neg_14 node_sum_neg_14 node_out_neg_14 10000.0
+R_rw_neg_14_0 node_in_0 node_sum_neg_14 29128.1048042698
+R_rw_pos_14_1 node_in_1 node_sum_pos_14 27411.7047142068
+R_rw_pos_14_2 node_in_2 node_sum_pos_14 46774.950896273695
+R_rw_neg_14_3 node_in_3 node_sum_neg_14 1962260.574289284
+R_rw_neg_14_4 node_in_4 node_sum_neg_14 401913.9537127849
+R_rw_neg_14_5 node_in_5 node_sum_neg_14 145293.88789729707
+R_rw_neg_14_6 node_in_6 node_sum_neg_14 30922.534675203293
+R_rw_pos_14_7 node_in_7 node_sum_pos_14 1153975.179484137
+R_rw_neg_14_8 node_in_8 node_sum_neg_14 141099.60737018764
+R_rw_pos_14_9 node_in_9 node_sum_pos_14 41096.76513808526
+R_rw_pos_14_10 node_in_10 node_sum_pos_14 30213.482509694724
+R_rw_pos_14_11 node_in_11 node_sum_pos_14 60478.306701309884
+R_rw_neg_14_12 node_in_12 node_sum_neg_14 52143.09656760372
+R_rw_neg_14_13 node_in_13 node_sum_neg_14 1019646.3236615206
+R_rw_neg_14_14 node_in_14 node_sum_neg_14 62681.465259860684
+R_rw_neg_14_15 node_in_15 node_sum_neg_14 22572.780875771452
+R_rbias_pos_14 node_bias node_sum_pos_14 35777.35033075017
+X_opamp_sub_14 node_sub_pos_14 node_sub_neg_14 node_out_14 0 opamp_sat
+R_rsub1_14 node_out_pos_14 node_sub_neg_14 10000.0
+R_rsub2_14 node_sub_neg_14 node_out_14 10000.0
+R_rsub3_14 node_out_neg_14 node_sub_pos_14 10000.0
+R_rsub4_14 node_sub_pos_14 0 10000.0
+X_opamp_pos_15 0 node_sum_pos_15 node_out_pos_15 0 opamp_sat
+R_rf_pos_15 node_sum_pos_15 node_out_pos_15 10000.0
+X_opamp_neg_15 0 node_sum_neg_15 node_out_neg_15 0 opamp_sat
+R_rf_neg_15 node_sum_neg_15 node_out_neg_15 10000.0
+R_rw_neg_15_0 node_in_0 node_sum_neg_15 202026.95379003006
+R_rw_neg_15_1 node_in_1 node_sum_neg_15 30707.77798948551
+R_rw_pos_15_2 node_in_2 node_sum_pos_15 75688.8455693587
+R_rw_neg_15_3 node_in_3 node_sum_neg_15 30495.917176940024
+R_rw_pos_15_4 node_in_4 node_sum_pos_15 90080.98902573231
+R_rw_neg_15_5 node_in_5 node_sum_neg_15 47062.158655947635
+R_rw_neg_15_6 node_in_6 node_sum_neg_15 26960.764533608643
+R_rw_pos_15_7 node_in_7 node_sum_pos_15 60611.58129811594
+R_rw_neg_15_8 node_in_8 node_sum_neg_15 38885.087551161036
+R_rw_neg_15_9 node_in_9 node_sum_neg_15 563831.4131500297
+R_rw_neg_15_10 node_in_10 node_sum_neg_15 118698.47247638107
+R_rw_neg_15_11 node_in_11 node_sum_neg_15 46638.69687426485
+R_rw_pos_15_12 node_in_12 node_sum_pos_15 190658.73979570673
+R_rw_neg_15_13 node_in_13 node_sum_neg_15 137490.80664482538
+R_rw_neg_15_14 node_in_14 node_sum_neg_15 75928.55828789347
+R_rw_neg_15_15 node_in_15 node_sum_neg_15 64293.8232431231
+R_rbias_pos_15 node_bias node_sum_pos_15 50563.46251432976
+X_opamp_sub_15 node_sub_pos_15 node_sub_neg_15 node_out_15 0 opamp_sat
+R_rsub1_15 node_out_pos_15 node_sub_neg_15 10000.0
+R_rsub2_15 node_sub_neg_15 node_out_15 10000.0
+R_rsub3_15 node_out_neg_15 node_sub_pos_15 10000.0
+R_rsub4_15 node_sub_pos_15 0 10000.0
+X_opamp_pos_16 0 node_sum_pos_16 node_out_pos_16 0 opamp_sat
+R_rf_pos_16 node_sum_pos_16 node_out_pos_16 10000.0
+X_opamp_neg_16 0 node_sum_neg_16 node_out_neg_16 0 opamp_sat
+R_rf_neg_16 node_sum_neg_16 node_out_neg_16 10000.0
+R_rw_pos_16_0 node_in_0 node_sum_pos_16 34303.05501197024
+R_rw_neg_16_1 node_in_1 node_sum_neg_16 117316.57437146246
+R_rw_pos_16_2 node_in_2 node_sum_pos_16 47230.73310995889
+R_rw_pos_16_3 node_in_3 node_sum_pos_16 44899.44989046918
+R_rw_pos_16_4 node_in_4 node_sum_pos_16 32038.385222773904
+R_rw_neg_16_5 node_in_5 node_sum_neg_16 378878.63490726217
+R_rw_pos_16_6 node_in_6 node_sum_pos_16 269683.5785699797
+R_rw_neg_16_7 node_in_7 node_sum_neg_16 37738.09621549824
+R_rw_pos_16_8 node_in_8 node_sum_pos_16 43361.351878771726
+R_rw_pos_16_9 node_in_9 node_sum_pos_16 355110.53306705324
+R_rw_neg_16_10 node_in_10 node_sum_neg_16 64967.175579982955
+R_rw_neg_16_11 node_in_11 node_sum_neg_16 55872.15275943255
+R_rw_pos_16_12 node_in_12 node_sum_pos_16 198621.41794297122
+R_rw_neg_16_13 node_in_13 node_sum_neg_16 345941.1265095149
+R_rw_pos_16_14 node_in_14 node_sum_pos_16 60493.189645979495
+R_rw_neg_16_15 node_in_15 node_sum_neg_16 22200.304054371452
+R_rbias_pos_16 node_bias node_sum_pos_16 58457.69254322097
+X_opamp_sub_16 node_sub_pos_16 node_sub_neg_16 node_out_16 0 opamp_sat
+R_rsub1_16 node_out_pos_16 node_sub_neg_16 10000.0
+R_rsub2_16 node_sub_neg_16 node_out_16 10000.0
+R_rsub3_16 node_out_neg_16 node_sub_pos_16 10000.0
+R_rsub4_16 node_sub_pos_16 0 10000.0
+X_opamp_pos_17 0 node_sum_pos_17 node_out_pos_17 0 opamp_sat
+R_rf_pos_17 node_sum_pos_17 node_out_pos_17 10000.0
+X_opamp_neg_17 0 node_sum_neg_17 node_out_neg_17 0 opamp_sat
+R_rf_neg_17 node_sum_neg_17 node_out_neg_17 10000.0
+R_rw_pos_17_0 node_in_0 node_sum_pos_17 186702.52402521152
+R_rw_pos_17_1 node_in_1 node_sum_pos_17 26522.649129093068
+R_rw_pos_17_2 node_in_2 node_sum_pos_17 203417.93689466245
+R_rw_neg_17_3 node_in_3 node_sum_neg_17 129851.63556137499
+R_rw_neg_17_4 node_in_4 node_sum_neg_17 449443.8381586354
+R_rw_pos_17_5 node_in_5 node_sum_pos_17 43025.687302270664
+R_rw_neg_17_6 node_in_6 node_sum_neg_17 146661.1652318645
+R_rw_neg_17_7 node_in_7 node_sum_neg_17 35727.340252270915
+R_rw_neg_17_8 node_in_8 node_sum_neg_17 67723.67988308259
+R_rw_neg_17_9 node_in_9 node_sum_neg_17 45364.808250843045
+R_rw_pos_17_10 node_in_10 node_sum_pos_17 61280.13082082066
+R_rw_neg_17_11 node_in_11 node_sum_neg_17 31222.6408780936
+R_rw_pos_17_12 node_in_12 node_sum_pos_17 218153.83340092175
+R_rw_pos_17_13 node_in_13 node_sum_pos_17 88820.83220612393
+R_rw_neg_17_14 node_in_14 node_sum_neg_17 48433.89653576663
+R_rw_pos_17_15 node_in_15 node_sum_pos_17 57885.05925189432
+R_rbias_pos_17 node_bias node_sum_pos_17 48101.72306858206
+X_opamp_sub_17 node_sub_pos_17 node_sub_neg_17 node_out_17 0 opamp_sat
+R_rsub1_17 node_out_pos_17 node_sub_neg_17 10000.0
+R_rsub2_17 node_sub_neg_17 node_out_17 10000.0
+R_rsub3_17 node_out_neg_17 node_sub_pos_17 10000.0
+R_rsub4_17 node_sub_pos_17 0 10000.0
+X_opamp_pos_18 0 node_sum_pos_18 node_out_pos_18 0 opamp_sat
+R_rf_pos_18 node_sum_pos_18 node_out_pos_18 10000.0
+X_opamp_neg_18 0 node_sum_neg_18 node_out_neg_18 0 opamp_sat
+R_rf_neg_18 node_sum_neg_18 node_out_neg_18 10000.0
+R_rw_pos_18_0 node_in_0 node_sum_pos_18 39738.71368266569
+R_rw_pos_18_1 node_in_1 node_sum_pos_18 139209.6034056419
+R_rw_pos_18_2 node_in_2 node_sum_pos_18 61650.01983839539
+R_rw_neg_18_3 node_in_3 node_sum_neg_18 36346.55628016406
+R_rw_neg_18_4 node_in_4 node_sum_neg_18 49560.728391828685
+R_rw_neg_18_5 node_in_5 node_sum_neg_18 22910.437483762536
+R_rw_pos_18_6 node_in_6 node_sum_pos_18 35317.97504322591
+R_rw_neg_18_7 node_in_7 node_sum_neg_18 48753.14428959233
+R_rw_neg_18_8 node_in_8 node_sum_neg_18 27926.03001397865
+R_rw_neg_18_9 node_in_9 node_sum_neg_18 171087.65701226206
+R_rw_neg_18_10 node_in_10 node_sum_neg_18 55664.99309422225
+R_rw_neg_18_11 node_in_11 node_sum_neg_18 37124.62145909147
+R_rw_pos_18_12 node_in_12 node_sum_pos_18 65551.62612493857
+R_rw_neg_18_13 node_in_13 node_sum_neg_18 216251.55531115446
+R_rw_pos_18_14 node_in_14 node_sum_pos_18 103043.32898694302
+R_rw_neg_18_15 node_in_15 node_sum_neg_18 33966.54125169861
+R_rbias_neg_18 node_bias node_sum_neg_18 637887.2466966843
+X_opamp_sub_18 node_sub_pos_18 node_sub_neg_18 node_out_18 0 opamp_sat
+R_rsub1_18 node_out_pos_18 node_sub_neg_18 10000.0
+R_rsub2_18 node_sub_neg_18 node_out_18 10000.0
+R_rsub3_18 node_out_neg_18 node_sub_pos_18 10000.0
+R_rsub4_18 node_sub_pos_18 0 10000.0
+X_opamp_pos_19 0 node_sum_pos_19 node_out_pos_19 0 opamp_sat
+R_rf_pos_19 node_sum_pos_19 node_out_pos_19 10000.0
+X_opamp_neg_19 0 node_sum_neg_19 node_out_neg_19 0 opamp_sat
+R_rf_neg_19 node_sum_neg_19 node_out_neg_19 10000.0
+R_rw_neg_19_0 node_in_0 node_sum_neg_19 24326.42607251232
+R_rw_pos_19_1 node_in_1 node_sum_pos_19 181794.7872963629
+R_rw_pos_19_2 node_in_2 node_sum_pos_19 731084.8435272472
+R_rw_pos_19_3 node_in_3 node_sum_pos_19 89888.32214934104
+R_rw_neg_19_4 node_in_4 node_sum_neg_19 51365.50200505657
+R_rw_neg_19_5 node_in_5 node_sum_neg_19 114300.5098304616
+R_rw_pos_19_6 node_in_6 node_sum_pos_19 27893.457574583947
+R_rw_neg_19_7 node_in_7 node_sum_neg_19 762650.6678917469
+R_rw_neg_19_8 node_in_8 node_sum_neg_19 319861.01467627345
+R_rw_pos_19_9 node_in_9 node_sum_pos_19 673742.8499574072
+R_rw_pos_19_10 node_in_10 node_sum_pos_19 28310.491064347363
+R_rw_pos_19_11 node_in_11 node_sum_pos_19 131529.19239003232
+R_rw_pos_19_12 node_in_12 node_sum_pos_19 32650.471058280447
+R_rw_pos_19_13 node_in_13 node_sum_pos_19 22141.17459814292
+R_rw_neg_19_14 node_in_14 node_sum_neg_19 55414.352122510485
+R_rw_pos_19_15 node_in_15 node_sum_pos_19 38642.67536447725
+R_rbias_pos_19 node_bias node_sum_pos_19 160098.9571920682
+X_opamp_sub_19 node_sub_pos_19 node_sub_neg_19 node_out_19 0 opamp_sat
+R_rsub1_19 node_out_pos_19 node_sub_neg_19 10000.0
+R_rsub2_19 node_sub_neg_19 node_out_19 10000.0
+R_rsub3_19 node_out_neg_19 node_sub_pos_19 10000.0
+R_rsub4_19 node_sub_pos_19 0 10000.0
+X_opamp_pos_20 0 node_sum_pos_20 node_out_pos_20 0 opamp_sat
+R_rf_pos_20 node_sum_pos_20 node_out_pos_20 10000.0
+X_opamp_neg_20 0 node_sum_neg_20 node_out_neg_20 0 opamp_sat
+R_rf_neg_20 node_sum_neg_20 node_out_neg_20 10000.0
+R_rw_pos_20_0 node_in_0 node_sum_pos_20 719000.014865585
+R_rw_neg_20_1 node_in_1 node_sum_neg_20 41410.787152726014
+R_rw_pos_20_2 node_in_2 node_sum_pos_20 25464.882948727787
+R_rw_pos_20_3 node_in_3 node_sum_pos_20 81320.58824705542
+R_rw_neg_20_4 node_in_4 node_sum_neg_20 60814.81633859247
+R_rw_neg_20_5 node_in_5 node_sum_neg_20 26551.06333447753
+R_rw_neg_20_6 node_in_6 node_sum_neg_20 563543.7770962309
+R_rw_neg_20_7 node_in_7 node_sum_neg_20 25887.831078406314
+R_rw_neg_20_8 node_in_8 node_sum_neg_20 26032.913980768757
+R_rw_pos_20_9 node_in_9 node_sum_pos_20 120727.02610444567
+R_rw_neg_20_10 node_in_10 node_sum_neg_20 573100.6134825248
+R_rw_neg_20_11 node_in_11 node_sum_neg_20 305292.8860799486
+R_rw_neg_20_12 node_in_12 node_sum_neg_20 26577.911073105184
+R_rw_neg_20_13 node_in_13 node_sum_neg_20 42553.11064953531
+R_rw_pos_20_14 node_in_14 node_sum_pos_20 30503.050220297475
+R_rw_neg_20_15 node_in_15 node_sum_neg_20 30258.23866746431
+R_rbias_neg_20 node_bias node_sum_neg_20 137420.22386504046
+X_opamp_sub_20 node_sub_pos_20 node_sub_neg_20 node_out_20 0 opamp_sat
+R_rsub1_20 node_out_pos_20 node_sub_neg_20 10000.0
+R_rsub2_20 node_sub_neg_20 node_out_20 10000.0
+R_rsub3_20 node_out_neg_20 node_sub_pos_20 10000.0
+R_rsub4_20 node_sub_pos_20 0 10000.0
+X_opamp_pos_21 0 node_sum_pos_21 node_out_pos_21 0 opamp_sat
+R_rf_pos_21 node_sum_pos_21 node_out_pos_21 10000.0
+X_opamp_neg_21 0 node_sum_neg_21 node_out_neg_21 0 opamp_sat
+R_rf_neg_21 node_sum_neg_21 node_out_neg_21 10000.0
+R_rw_pos_21_0 node_in_0 node_sum_pos_21 82516.28897396002
+R_rw_pos_21_1 node_in_1 node_sum_pos_21 113406.41476136807
+R_rw_neg_21_2 node_in_2 node_sum_neg_21 3354537.4748817817
+R_rw_neg_21_3 node_in_3 node_sum_neg_21 90544.60581262765
+R_rw_pos_21_4 node_in_4 node_sum_pos_21 79691.00598565466
+R_rw_neg_21_5 node_in_5 node_sum_neg_21 59963.4405354716
+R_rw_neg_21_6 node_in_6 node_sum_neg_21 459251.21144869487
+R_rw_neg_21_7 node_in_7 node_sum_neg_21 24831.37762419303
+R_rw_neg_21_8 node_in_8 node_sum_neg_21 400007.8918106669
+R_rw_neg_21_9 node_in_9 node_sum_neg_21 39396.67066373624
+R_rw_pos_21_10 node_in_10 node_sum_pos_21 107762.16066227561
+R_rw_neg_21_11 node_in_11 node_sum_neg_21 34859.925761801744
+R_rw_neg_21_12 node_in_12 node_sum_neg_21 69075.07922256232
+R_rw_pos_21_13 node_in_13 node_sum_pos_21 39041.10945413543
+R_rw_pos_21_14 node_in_14 node_sum_pos_21 48239.195703641424
+R_rw_neg_21_15 node_in_15 node_sum_neg_21 1565475.3081658876
+R_rbias_pos_21 node_bias node_sum_pos_21 60165.02044578453
+X_opamp_sub_21 node_sub_pos_21 node_sub_neg_21 node_out_21 0 opamp_sat
+R_rsub1_21 node_out_pos_21 node_sub_neg_21 10000.0
+R_rsub2_21 node_sub_neg_21 node_out_21 10000.0
+R_rsub3_21 node_out_neg_21 node_sub_pos_21 10000.0
+R_rsub4_21 node_sub_pos_21 0 10000.0
+X_opamp_pos_22 0 node_sum_pos_22 node_out_pos_22 0 opamp_sat
+R_rf_pos_22 node_sum_pos_22 node_out_pos_22 10000.0
+X_opamp_neg_22 0 node_sum_neg_22 node_out_neg_22 0 opamp_sat
+R_rf_neg_22 node_sum_neg_22 node_out_neg_22 10000.0
+R_rw_pos_22_0 node_in_0 node_sum_pos_22 35925.18527131335
+R_rw_pos_22_1 node_in_1 node_sum_pos_22 29340.522662756746
+R_rw_neg_22_2 node_in_2 node_sum_neg_22 22803.385818140276
+R_rw_pos_22_3 node_in_3 node_sum_pos_22 55617.95528161138
+R_rw_neg_22_4 node_in_4 node_sum_neg_22 231740.86574687017
+R_rw_pos_22_5 node_in_5 node_sum_pos_22 63059.57534656808
+R_rw_neg_22_6 node_in_6 node_sum_neg_22 101083.53563687998
+R_rw_pos_22_7 node_in_7 node_sum_pos_22 51596.88488241039
+R_rw_neg_22_8 node_in_8 node_sum_neg_22 343265.0372170867
+R_rw_neg_22_9 node_in_9 node_sum_neg_22 801857.7581999775
+R_rw_neg_22_10 node_in_10 node_sum_neg_22 40253.27059611058
+R_rw_pos_22_11 node_in_11 node_sum_pos_22 52682.85069995741
+R_rw_pos_22_12 node_in_12 node_sum_pos_22 55406.12152648059
+R_rw_neg_22_13 node_in_13 node_sum_neg_22 298646.34063036315
+R_rw_pos_22_14 node_in_14 node_sum_pos_22 40205.43883173035
+R_rw_pos_22_15 node_in_15 node_sum_pos_22 1435463.3797970242
+R_rbias_pos_22 node_bias node_sum_pos_22 40538.25272642638
+X_opamp_sub_22 node_sub_pos_22 node_sub_neg_22 node_out_22 0 opamp_sat
+R_rsub1_22 node_out_pos_22 node_sub_neg_22 10000.0
+R_rsub2_22 node_sub_neg_22 node_out_22 10000.0
+R_rsub3_22 node_out_neg_22 node_sub_pos_22 10000.0
+R_rsub4_22 node_sub_pos_22 0 10000.0
+X_opamp_pos_23 0 node_sum_pos_23 node_out_pos_23 0 opamp_sat
+R_rf_pos_23 node_sum_pos_23 node_out_pos_23 10000.0
+X_opamp_neg_23 0 node_sum_neg_23 node_out_neg_23 0 opamp_sat
+R_rf_neg_23 node_sum_neg_23 node_out_neg_23 10000.0
+R_rw_neg_23_0 node_in_0 node_sum_neg_23 76080.14318863161
+R_rw_pos_23_1 node_in_1 node_sum_pos_23 47632.08189648595
+R_rw_pos_23_2 node_in_2 node_sum_pos_23 28353.716723534202
+R_rw_pos_23_3 node_in_3 node_sum_pos_23 177566.2716272818
+R_rw_pos_23_4 node_in_4 node_sum_pos_23 955215.7838878445
+R_rw_neg_23_5 node_in_5 node_sum_neg_23 48052.18795103391
+R_rw_neg_23_6 node_in_6 node_sum_neg_23 26415.381845511918
+R_rw_neg_23_7 node_in_7 node_sum_neg_23 403730.1240125504
+R_rw_pos_23_8 node_in_8 node_sum_pos_23 64088.97239409837
+R_rw_pos_23_9 node_in_9 node_sum_pos_23 63061.45969969984
+R_rw_pos_23_10 node_in_10 node_sum_pos_23 78188.82215301244
+R_rw_neg_23_11 node_in_11 node_sum_neg_23 22872.134322878614
+R_rw_pos_23_12 node_in_12 node_sum_pos_23 60736.15896254984
+R_rw_neg_23_13 node_in_13 node_sum_neg_23 26874.35651225417
+R_rw_pos_23_14 node_in_14 node_sum_pos_23 34609.17427331881
+R_rw_pos_23_15 node_in_15 node_sum_pos_23 39671.12430023114
+R_rbias_neg_23 node_bias node_sum_neg_23 41692725.872001626
+X_opamp_sub_23 node_sub_pos_23 node_sub_neg_23 node_out_23 0 opamp_sat
+R_rsub1_23 node_out_pos_23 node_sub_neg_23 10000.0
+R_rsub2_23 node_sub_neg_23 node_out_23 10000.0
+R_rsub3_23 node_out_neg_23 node_sub_pos_23 10000.0
+R_rsub4_23 node_sub_pos_23 0 10000.0
+X_opamp_pos_24 0 node_sum_pos_24 node_out_pos_24 0 opamp_sat
+R_rf_pos_24 node_sum_pos_24 node_out_pos_24 10000.0
+X_opamp_neg_24 0 node_sum_neg_24 node_out_neg_24 0 opamp_sat
+R_rf_neg_24 node_sum_neg_24 node_out_neg_24 10000.0
+R_rw_pos_24_0 node_in_0 node_sum_pos_24 50599.14289889214
+R_rw_pos_24_1 node_in_1 node_sum_pos_24 55733.65786910948
+R_rw_neg_24_2 node_in_2 node_sum_neg_24 73801.5258512063
+R_rw_pos_24_3 node_in_3 node_sum_pos_24 104182.45698248126
+R_rw_pos_24_4 node_in_4 node_sum_pos_24 28180.417859977024
+R_rw_pos_24_5 node_in_5 node_sum_pos_24 73060.38486959247
+R_rw_pos_24_6 node_in_6 node_sum_pos_24 65004.63157364532
+R_rw_neg_24_7 node_in_7 node_sum_neg_24 53816.73355847302
+R_rw_pos_24_8 node_in_8 node_sum_pos_24 28813.783723882425
+R_rw_neg_24_9 node_in_9 node_sum_neg_24 119659.22131571383
+R_rw_neg_24_10 node_in_10 node_sum_neg_24 138114.04964307585
+R_rw_neg_24_11 node_in_11 node_sum_neg_24 51311.80219718547
+R_rw_neg_24_12 node_in_12 node_sum_neg_24 24416.788352452684
+R_rw_pos_24_13 node_in_13 node_sum_pos_24 334317.4793250892
+R_rw_pos_24_14 node_in_14 node_sum_pos_24 216033.7309336583
+R_rw_neg_24_15 node_in_15 node_sum_neg_24 50529.35039960726
+R_rbias_neg_24 node_bias node_sum_neg_24 69573.82279741888
+X_opamp_sub_24 node_sub_pos_24 node_sub_neg_24 node_out_24 0 opamp_sat
+R_rsub1_24 node_out_pos_24 node_sub_neg_24 10000.0
+R_rsub2_24 node_sub_neg_24 node_out_24 10000.0
+R_rsub3_24 node_out_neg_24 node_sub_pos_24 10000.0
+R_rsub4_24 node_sub_pos_24 0 10000.0
+X_opamp_pos_25 0 node_sum_pos_25 node_out_pos_25 0 opamp_sat
+R_rf_pos_25 node_sum_pos_25 node_out_pos_25 10000.0
+X_opamp_neg_25 0 node_sum_neg_25 node_out_neg_25 0 opamp_sat
+R_rf_neg_25 node_sum_neg_25 node_out_neg_25 10000.0
+R_rw_pos_25_0 node_in_0 node_sum_pos_25 284574.1995473069
+R_rw_pos_25_1 node_in_1 node_sum_pos_25 33153.70318954794
+R_rw_neg_25_2 node_in_2 node_sum_neg_25 1029110.1404948507
+R_rw_pos_25_3 node_in_3 node_sum_pos_25 60648.007501646585
+R_rw_pos_25_4 node_in_4 node_sum_pos_25 102843.03352699801
+R_rw_neg_25_5 node_in_5 node_sum_neg_25 26093.365516343605
+R_rw_neg_25_6 node_in_6 node_sum_neg_25 80361.05728968616
+R_rw_pos_25_7 node_in_7 node_sum_pos_25 173082.0802337099
+R_rw_pos_25_8 node_in_8 node_sum_pos_25 342612.17359540384
+R_rw_neg_25_9 node_in_9 node_sum_neg_25 84659.65762151661
+R_rw_pos_25_10 node_in_10 node_sum_pos_25 95947.7221180543
+R_rw_pos_25_11 node_in_11 node_sum_pos_25 308445.91941685224
+R_rw_pos_25_12 node_in_12 node_sum_pos_25 23585.07834588871
+R_rw_neg_25_13 node_in_13 node_sum_neg_25 748306.3748174084
+R_rw_pos_25_14 node_in_14 node_sum_pos_25 335711.06348884664
+R_rw_neg_25_15 node_in_15 node_sum_neg_25 1240986.4677991176
+R_rbias_neg_25 node_bias node_sum_neg_25 145556.98068805088
+X_opamp_sub_25 node_sub_pos_25 node_sub_neg_25 node_out_25 0 opamp_sat
+R_rsub1_25 node_out_pos_25 node_sub_neg_25 10000.0
+R_rsub2_25 node_sub_neg_25 node_out_25 10000.0
+R_rsub3_25 node_out_neg_25 node_sub_pos_25 10000.0
+R_rsub4_25 node_sub_pos_25 0 10000.0
+X_opamp_pos_26 0 node_sum_pos_26 node_out_pos_26 0 opamp_sat
+R_rf_pos_26 node_sum_pos_26 node_out_pos_26 10000.0
+X_opamp_neg_26 0 node_sum_neg_26 node_out_neg_26 0 opamp_sat
+R_rf_neg_26 node_sum_neg_26 node_out_neg_26 10000.0
+R_rw_neg_26_0 node_in_0 node_sum_neg_26 461902.07971301157
+R_rw_pos_26_1 node_in_1 node_sum_pos_26 82859.98339562034
+R_rw_neg_26_2 node_in_2 node_sum_neg_26 27869.55316679647
+R_rw_neg_26_3 node_in_3 node_sum_neg_26 30390.710420128
+R_rw_neg_26_4 node_in_4 node_sum_neg_26 45820.14914912434
+R_rw_neg_26_5 node_in_5 node_sum_neg_26 1242523.192399947
+R_rw_neg_26_6 node_in_6 node_sum_neg_26 35786.313431127805
+R_rw_pos_26_7 node_in_7 node_sum_pos_26 146929.65571659853
+R_rw_pos_26_8 node_in_8 node_sum_pos_26 28771.456448555244
+R_rw_neg_26_9 node_in_9 node_sum_neg_26 63642.10661878681
+R_rw_neg_26_10 node_in_10 node_sum_neg_26 41485.706754452265
+R_rw_neg_26_11 node_in_11 node_sum_neg_26 37406.56366709367
+R_rw_pos_26_12 node_in_12 node_sum_pos_26 88575.68066072161
+R_rw_pos_26_13 node_in_13 node_sum_pos_26 37383.07994555158
+R_rw_pos_26_14 node_in_14 node_sum_pos_26 37855.096518310085
+R_rw_neg_26_15 node_in_15 node_sum_neg_26 89621.04253833098
+R_rbias_neg_26 node_bias node_sum_neg_26 98845.3399215631
+X_opamp_sub_26 node_sub_pos_26 node_sub_neg_26 node_out_26 0 opamp_sat
+R_rsub1_26 node_out_pos_26 node_sub_neg_26 10000.0
+R_rsub2_26 node_sub_neg_26 node_out_26 10000.0
+R_rsub3_26 node_out_neg_26 node_sub_pos_26 10000.0
+R_rsub4_26 node_sub_pos_26 0 10000.0
+X_opamp_pos_27 0 node_sum_pos_27 node_out_pos_27 0 opamp_sat
+R_rf_pos_27 node_sum_pos_27 node_out_pos_27 10000.0
+X_opamp_neg_27 0 node_sum_neg_27 node_out_neg_27 0 opamp_sat
+R_rf_neg_27 node_sum_neg_27 node_out_neg_27 10000.0
+R_rw_pos_27_0 node_in_0 node_sum_pos_27 126537.95000714157
+R_rw_pos_27_1 node_in_1 node_sum_pos_27 178061.14504594053
+R_rw_neg_27_2 node_in_2 node_sum_neg_27 90698.03530214877
+R_rw_pos_27_3 node_in_3 node_sum_pos_27 28486.60996301984
+R_rw_pos_27_4 node_in_4 node_sum_pos_27 301983.0556333663
+R_rw_pos_27_5 node_in_5 node_sum_pos_27 70410.49668201574
+R_rw_pos_27_6 node_in_6 node_sum_pos_27 69942.0776827738
+R_rw_pos_27_7 node_in_7 node_sum_pos_27 144962.58687965936
+R_rw_pos_27_8 node_in_8 node_sum_pos_27 1833172.3213883284
+R_rw_pos_27_9 node_in_9 node_sum_pos_27 537879.3820534119
+R_rw_pos_27_10 node_in_10 node_sum_pos_27 102619.58706347422
+R_rw_pos_27_11 node_in_11 node_sum_pos_27 131679.07396511908
+R_rw_pos_27_12 node_in_12 node_sum_pos_27 27259.81829079874
+R_rw_neg_27_13 node_in_13 node_sum_neg_27 30625.199083136024
+R_rw_neg_27_14 node_in_14 node_sum_neg_27 83687.89659986444
+R_rw_pos_27_15 node_in_15 node_sum_pos_27 24608.701455571943
+R_rbias_pos_27 node_bias node_sum_pos_27 34834.7989700643
+X_opamp_sub_27 node_sub_pos_27 node_sub_neg_27 node_out_27 0 opamp_sat
+R_rsub1_27 node_out_pos_27 node_sub_neg_27 10000.0
+R_rsub2_27 node_sub_neg_27 node_out_27 10000.0
+R_rsub3_27 node_out_neg_27 node_sub_pos_27 10000.0
+R_rsub4_27 node_sub_pos_27 0 10000.0
+X_opamp_pos_28 0 node_sum_pos_28 node_out_pos_28 0 opamp_sat
+R_rf_pos_28 node_sum_pos_28 node_out_pos_28 10000.0
+X_opamp_neg_28 0 node_sum_neg_28 node_out_neg_28 0 opamp_sat
+R_rf_neg_28 node_sum_neg_28 node_out_neg_28 10000.0
+R_rw_pos_28_0 node_in_0 node_sum_pos_28 119389.72688359341
+R_rw_neg_28_1 node_in_1 node_sum_neg_28 24995.824274630206
+R_rw_pos_28_2 node_in_2 node_sum_pos_28 194502.37878899858
+R_rw_neg_28_3 node_in_3 node_sum_neg_28 53492.97588909366
+R_rw_neg_28_4 node_in_4 node_sum_neg_28 35723.34259462428
+R_rw_pos_28_5 node_in_5 node_sum_pos_28 90539.15760056782
+R_rw_neg_28_6 node_in_6 node_sum_neg_28 962336.8072724268
+R_rw_neg_28_7 node_in_7 node_sum_neg_28 250940.32326080615
+R_rw_pos_28_8 node_in_8 node_sum_pos_28 573295.9586905548
+R_rw_pos_28_9 node_in_9 node_sum_pos_28 28625.82129472972
+R_rw_pos_28_10 node_in_10 node_sum_pos_28 188953.14637232537
+R_rw_neg_28_11 node_in_11 node_sum_neg_28 621653.653573909
+R_rw_pos_28_12 node_in_12 node_sum_pos_28 92328.5062863143
+R_rw_neg_28_13 node_in_13 node_sum_neg_28 121437.89534485617
+R_rw_neg_28_14 node_in_14 node_sum_neg_28 91286.66729602165
+R_rw_neg_28_15 node_in_15 node_sum_neg_28 57098.42519350066
+R_rbias_neg_28 node_bias node_sum_neg_28 65630.07404558996
+X_opamp_sub_28 node_sub_pos_28 node_sub_neg_28 node_out_28 0 opamp_sat
+R_rsub1_28 node_out_pos_28 node_sub_neg_28 10000.0
+R_rsub2_28 node_sub_neg_28 node_out_28 10000.0
+R_rsub3_28 node_out_neg_28 node_sub_pos_28 10000.0
+R_rsub4_28 node_sub_pos_28 0 10000.0
+X_opamp_pos_29 0 node_sum_pos_29 node_out_pos_29 0 opamp_sat
+R_rf_pos_29 node_sum_pos_29 node_out_pos_29 10000.0
+X_opamp_neg_29 0 node_sum_neg_29 node_out_neg_29 0 opamp_sat
+R_rf_neg_29 node_sum_neg_29 node_out_neg_29 10000.0
+R_rw_pos_29_0 node_in_0 node_sum_pos_29 49883.83210948256
+R_rw_pos_29_1 node_in_1 node_sum_pos_29 656546.9056884513
+R_rw_neg_29_2 node_in_2 node_sum_neg_29 226269.11949106626
+R_rw_neg_29_3 node_in_3 node_sum_neg_29 32176.75217871609
+R_rw_pos_29_4 node_in_4 node_sum_pos_29 78539.33786156385
+R_rw_pos_29_5 node_in_5 node_sum_pos_29 118469.24412394695
+R_rw_pos_29_6 node_in_6 node_sum_pos_29 145566.76830772785
+R_rw_neg_29_7 node_in_7 node_sum_neg_29 165192.54420332293
+R_rw_pos_29_8 node_in_8 node_sum_pos_29 58719.67761117553
+R_rw_pos_29_9 node_in_9 node_sum_pos_29 134239.39423823004
+R_rw_pos_29_10 node_in_10 node_sum_pos_29 416086.3658881527
+R_rw_neg_29_11 node_in_11 node_sum_neg_29 232680.73390153443
+R_rw_neg_29_12 node_in_12 node_sum_neg_29 363459.26354790124
+R_rw_neg_29_13 node_in_13 node_sum_neg_29 76629.52281414041
+R_rw_neg_29_14 node_in_14 node_sum_neg_29 395138.6350087216
+R_rw_neg_29_15 node_in_15 node_sum_neg_29 148241.31160548545
+R_rbias_neg_29 node_bias node_sum_neg_29 75190.14263064186
+X_opamp_sub_29 node_sub_pos_29 node_sub_neg_29 node_out_29 0 opamp_sat
+R_rsub1_29 node_out_pos_29 node_sub_neg_29 10000.0
+R_rsub2_29 node_sub_neg_29 node_out_29 10000.0
+R_rsub3_29 node_out_neg_29 node_sub_pos_29 10000.0
+R_rsub4_29 node_sub_pos_29 0 10000.0
+X_opamp_pos_30 0 node_sum_pos_30 node_out_pos_30 0 opamp_sat
+R_rf_pos_30 node_sum_pos_30 node_out_pos_30 10000.0
+X_opamp_neg_30 0 node_sum_neg_30 node_out_neg_30 0 opamp_sat
+R_rf_neg_30 node_sum_neg_30 node_out_neg_30 10000.0
+R_rw_pos_30_0 node_in_0 node_sum_pos_30 184088.43581501007
+R_rw_pos_30_1 node_in_1 node_sum_pos_30 137016.299621397
+R_rw_neg_30_2 node_in_2 node_sum_neg_30 30627.055187318805
+R_rw_neg_30_3 node_in_3 node_sum_neg_30 1670604.3036028072
+R_rw_neg_30_4 node_in_4 node_sum_neg_30 53753.01389624235
+R_rw_neg_30_5 node_in_5 node_sum_neg_30 51398.339585716705
+R_rw_pos_30_6 node_in_6 node_sum_pos_30 34049.58100700385
+R_rw_neg_30_7 node_in_7 node_sum_neg_30 45598.20957919703
+R_rw_pos_30_8 node_in_8 node_sum_pos_30 23045.31773097819
+R_rw_pos_30_9 node_in_9 node_sum_pos_30 50795.909917670026
+R_rw_pos_30_10 node_in_10 node_sum_pos_30 38196.454789908545
+R_rw_neg_30_11 node_in_11 node_sum_neg_30 95256.52380193661
+R_rw_pos_30_12 node_in_12 node_sum_pos_30 44750.66900415239
+R_rw_pos_30_13 node_in_13 node_sum_pos_30 51280.52096572843
+R_rw_pos_30_14 node_in_14 node_sum_pos_30 136344.16523542826
+R_rw_neg_30_15 node_in_15 node_sum_neg_30 122208.8174489684
+R_rbias_neg_30 node_bias node_sum_neg_30 61587.44486885121
+X_opamp_sub_30 node_sub_pos_30 node_sub_neg_30 node_out_30 0 opamp_sat
+R_rsub1_30 node_out_pos_30 node_sub_neg_30 10000.0
+R_rsub2_30 node_sub_neg_30 node_out_30 10000.0
+R_rsub3_30 node_out_neg_30 node_sub_pos_30 10000.0
+R_rsub4_30 node_sub_pos_30 0 10000.0
+X_opamp_pos_31 0 node_sum_pos_31 node_out_pos_31 0 opamp_sat
+R_rf_pos_31 node_sum_pos_31 node_out_pos_31 10000.0
+X_opamp_neg_31 0 node_sum_neg_31 node_out_neg_31 0 opamp_sat
+R_rf_neg_31 node_sum_neg_31 node_out_neg_31 10000.0
+R_rw_neg_31_0 node_in_0 node_sum_neg_31 116012.2002438009
+R_rw_pos_31_1 node_in_1 node_sum_pos_31 25916.18769244862
+R_rw_neg_31_2 node_in_2 node_sum_neg_31 61419.12521980063
+R_rw_neg_31_3 node_in_3 node_sum_neg_31 63848.9717439494
+R_rw_neg_31_4 node_in_4 node_sum_neg_31 37568.42259889434
+R_rw_neg_31_5 node_in_5 node_sum_neg_31 41721.69337859736
+R_rw_pos_31_6 node_in_6 node_sum_pos_31 41347.52707289179
+R_rw_pos_31_7 node_in_7 node_sum_pos_31 35214.36682331754
+R_rw_pos_31_8 node_in_8 node_sum_pos_31 38964.34263933632
+R_rw_neg_31_9 node_in_9 node_sum_neg_31 111771.40354098666
+R_rw_neg_31_10 node_in_10 node_sum_neg_31 33802.593741956574
+R_rw_neg_31_11 node_in_11 node_sum_neg_31 42454.12397143006
+R_rw_pos_31_12 node_in_12 node_sum_pos_31 77516.33056821783
+R_rw_pos_31_13 node_in_13 node_sum_pos_31 127346.21536144707
+R_rw_pos_31_14 node_in_14 node_sum_pos_31 60731.12975116467
+R_rw_neg_31_15 node_in_15 node_sum_neg_31 26012.78062765084
+R_rbias_pos_31 node_bias node_sum_pos_31 51318.37853813939
+X_opamp_sub_31 node_sub_pos_31 node_sub_neg_31 node_out_31 0 opamp_sat
+R_rsub1_31 node_out_pos_31 node_sub_neg_31 10000.0
+R_rsub2_31 node_sub_neg_31 node_out_31 10000.0
+R_rsub3_31 node_out_neg_31 node_sub_pos_31 10000.0
+R_rsub4_31 node_sub_pos_31 0 10000.0
+
+* Analysis Commands
+.op
+print all
+.end

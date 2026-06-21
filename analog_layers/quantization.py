@@ -12,7 +12,8 @@ def quantize_tensor(tensor: torch.Tensor, bits: int, symmetric: bool = True) -> 
         # Symmetric quantization: maps [-max_val, max_val] to 2^(bits-1) - 1 levels
         max_val = torch.max(torch.abs(tensor))
         if max_val == 0:
-            return tensor
+            # Fix: Return zeros tensor for all-zero input, not unchanged tensor
+            return torch.zeros_like(tensor)
         levels = 2**(bits - 1) - 1
         scaled = tensor / max_val
         quantized = torch.round(scaled * levels) / levels

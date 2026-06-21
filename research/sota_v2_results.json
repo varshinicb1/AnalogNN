@@ -1,0 +1,49 @@
+{
+  "standard_deploy": {
+    "digital_accuracy": 0.7541999816894531,
+    "analog_accuracy": 0.70660001039505,
+    "chip_mean": 0.6957866708437602,
+    "chip_std": 0.027650959301924693,
+    "chip_min": 0.628600001335144
+  },
+  "nature_comms": {
+    "digital_accuracy": 0.6801999807357788,
+    "analog_accuracy": 0.12139999866485596,
+    "chip_mean": 0.1263200004895528,
+    "chip_std": 0.013555968842900805,
+    "chip_min": 0.10419999808073044
+  },
+  "differentiable": {
+    "analog_accuracy": 0.7757999897003174,
+    "chip_mean": 0.7761133313179016,
+    "chip_std": 0.0008954458452480478,
+    "chip_min": 0.7731999754905701
+  },
+  "distributional": {
+    "analog_accuracy": 0.7635999917984009,
+    "chip_mean": 0.7607466737429301,
+    "chip_std": 0.0021932804023635662,
+    "chip_min": 0.7562000155448914
+  },
+  "diff_affine": {
+    "analog_accuracy": 0.7786533335844675,
+    "chip_mean": 0.7786533335844675,
+    "chip_std": 0.0016007724328031413,
+    "chip_min": 0.7748000025749207,
+    "rmse_post": 3.1005094051361084
+  },
+  "diff_bayesian": {
+    "analog_accuracy": 0.7386733373006185,
+    "chip_mean": 0.7386733373006185,
+    "chip_std": 0.001533175724233891,
+    "chip_min": 0.7354000210762024,
+    "rmse_post": 1.736120343208313
+  },
+  "diff_ensemble": {
+    "analog_accuracy": 0.754013329744339,
+    "chip_mean": 0.754013329744339,
+    "chip_std": 0.001718084975193273,
+    "chip_min": 0.7516000270843506,
+    "rmse_post": 2.1150333881378174
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "standard": {
+    "label": "Standard",
+    "mean_accuracy": 0.7984400057792663,
+    "std_accuracy": 0.005370878730951158,
+    "min_accuracy": 0.7900000214576721,
+    "max_accuracy": 0.8080000281333923,
+    "p10_accuracy": 0.7919999957084656,
+    "p90_accuracy": 0.8059999942779541,
+    "yield_90pct": 1.0,
+    "n_chips": 50
+  },
+  "distributional": {
+    "label": "Distributional",
+    "mean_accuracy": 0.8095600008964539,
+    "std_accuracy": 0.00444143646084648,
+    "min_accuracy": 0.7979999780654907,
+    "max_accuracy": 0.8199999928474426,
+    "p10_accuracy": 0.8040000200271606,
+    "p90_accuracy": 0.8142000079154968,
+    "yield_90pct": 1.0,
+    "n_chips": 50
+  },
+  "curriculum": {
+    "label": "Curriculum",
+    "mean_accuracy": 0.8009600019454957,
+    "std_accuracy": 0.0038830907025081797,
+    "min_accuracy": 0.7900000214576721,
+    "max_accuracy": 0.8059999942779541,
+    "p10_accuracy": 0.7960000038146973,
+    "p90_accuracy": 0.8059999942779541,
+    "yield_90pct": 1.0,
+    "n_chips": 50
+  }
+}

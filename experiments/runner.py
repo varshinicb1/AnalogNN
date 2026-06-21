@@ -1,33 +1,48 @@
+"""
+Enhanced Experiment Runner for OpenAnalogNN
+==========================================
+
+Orchestrates the full validation pipeline using modular stages.
+Breaks circular dependencies by delegating to separate stage modules.
+"""
+
 import os
-import yaml
 import torch
-import numpy as np
-import matplotlib.pyplot as plt
 import json
+from typing import Dict, Tuple, Optional
 
 from datasets.loaders import get_dataset
-from experiments.models import DigitalMLP, train_model, evaluate_model
+from experiments.config_loader import load_config
+from experiments.pipeline_stages import (
+    train_baseline_stage,
+    simulate_analog_stage,
+    calibration_benchmark_stage,
+    parity_evaluation_stage,
+    circuit_optimization_stage,
+    limitation_analysis_stage,
+    statistical_trials_stage
+)
+from reports.figure_generation import PublicationFigureEngine
 from analog_layers.analog_linear import AnalogLinear
-from spice.spice_runner import SpiceRunner
-from validation.metrics import compute_metrics
-from calibration.polynomial import PolynomialCalibrator
+
 
 class ExperimentRunner:
+    """
+    Orchestrates training, analog simulation sweeps, calibration,
+    optimal resistance sizing, limitation checks, and report building.
+    """
+
     def __init__(self, config_path: str = "./configs/config.yaml"):
-        with open(config_path, "r") as f:
-            self.config = yaml.safe_load(f)
-            
+        self.config_path = config_path
+        self.config = load_config(config_path)
         self.seed = self.config.get('seed', 42)
-        np.random.seed(self.seed)
-        torch.manual_seed(self.seed)
+        self.figure_engine = PublicationFigureEngine(output_dir="./figures")
         
-    def load_data_and_train_baseline(self):
+    def load_data_and_train_baseline(self) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor, torch.nn.Module]:
         """
-        Loads the configured dataset, trains the digital MLP baseline model,
-        and returns data tensors and the trained model.
+        Loads the configured dataset and trains the digital baseline model.
         """
         d_cfg = self.config['dataset']
-        m_cfg = self.config['model']
         
         print(f"Loading dataset: {d_cfg['name']} (Subset size: {d_cfg['subset_size']})...")
         X_train, y_train, X_test, y_test, num_features, num_classes = get_dataset(
@@ -38,190 +53,158 @@ class ExperimentRunner:
         )
         
         print("Training Digital MLP Baseline...")
-        model = DigitalMLP(num_features, m_cfg['hidden_dims'], num_classes)
-        history = train_model(
-            model=model,
-            X_train=X_train,
-            y_train=y_train,
-            X_test=X_test,
-            y_test=y_test,
-            epochs=m_cfg['epochs'],
-            lr=m_cfg['lr'],
-            batch_size=m_cfg['batch_size'],
-            seed=self.seed
+        model, history = train_baseline_stage(
+            X_train, y_train, X_test, y_test, num_features, num_classes, self.config
         )
-        
-        # Plot training curves
-        from experiments.models import plot_training_curves
-        plot_training_curves(history, "./figures")
         
         return X_train, y_train, X_test, y_test, model
 
-    def run_sweeps(self, X_test: torch.Tensor, y_test: torch.Tensor, digital_model: torch.nn.Module,
-                   save_dir: str = "./figures") -> dict:
+    def run_full_pipeline(self) -> Dict:
         """
-        Sweeps noise levels, mismatch levels, and quantization resolutions,
-        producing publication-ready robustness curves.
+        Runs the full OpenAnalogNN scientific validation pipeline using modular stages.
         """
-        os.makedirs(save_dir, exist_ok=True)
-        os.makedirs("./benchmarks", exist_ok=True)
+        print("=== OpenAnalogNN Scientific Validation Pipeline ===")
         
-        # Convert digital model to analog layers (we assume mapping a single AnalogLinear layer)
-        # In our MLP sequence, we target the first Linear layer for our SPICE/analog sweeps
-        # to ensure fast simulation.
+        # 1. Digital Baseline
+        X_train, y_train, X_test, y_test, digital_model = self.load_data_and_train_baseline()
+        
+        # Extract first linear layer for analog mapping
         digital_linear = None
         for layer in digital_model.network:
-            if isinstance(layer, torch.nn.Linear):
+            if isinstance(layer, (torch.nn.Linear, AnalogLinear)):
                 digital_linear = layer
                 break
                 
         if digital_linear is None:
-            raise ValueError("No linear layer found in baseline model to simulate.")
+            raise ValueError("No linear layer found in baseline model.")
             
-        print("Starting Parametric Sweeps...")
+        weight = digital_linear.weight.data
+        bias = digital_linear.bias.data if digital_linear.bias is not None else None
         
-        # 1. Sweep Weight Noise Standard Deviation (sigma in [0.0, 0.25])
-        noise_sigmas = [0.0, 0.02, 0.05, 0.10, 0.15, 0.20, 0.25]
-        noise_accs = []
-        noise_rmses = []
+        # Build rest of network for end-to-end evaluation
+        rest_layers = []
+        found_linear = False
+        for layer in digital_model.network:
+            if found_linear:
+                rest_layers.append(layer)
+            elif layer is digital_linear:
+                found_linear = True
+        rest_of_network = torch.nn.Sequential(*rest_layers)
         
-        for sigma in noise_sigmas:
-            cfg = self.config.copy()
-            cfg['analog']['noise_sigma'] = sigma
-            cfg['analog']['enable_noise'] = True
-            
-            # Setup layer
-            analog_layer = AnalogLinear.from_digital(digital_linear, config=cfg['analog'])
-            runner = SpiceRunner(config=cfg)
-            
-            # Run inference
-            with torch.no_grad():
-                y_sim = runner.run(analog_layer.weight, analog_layer.bias, X_test,
-                                   r_ref=self.config['circuit']['r_ref'],
-                                   v_ref=self.config['circuit']['v_ref'])
-                y_ideal = digital_linear(X_test)
-                
-            metrics = compute_metrics(y_ideal, y_sim, y_cal=None, y_true=y_test)
-            noise_accs.append(metrics['accuracy_sim'])
-            noise_rmses.append(metrics['rmse_pre_calibration'])
-            
-        # 2. Sweep Resistor Mismatch (delta in [0%, 10%])
-        mismatches = [0.0, 0.01, 0.02, 0.04, 0.06, 0.08, 0.10]
-        mismatch_accs = []
-        mismatch_rmses = []
+        # 2. Analog Simulation
+        y_ideal, y_sim = simulate_analog_stage(weight, bias, X_test, self.config)
         
-        for delta in mismatches:
-            cfg = self.config.copy()
-            cfg['analog']['resistor_mismatch'] = delta
-            cfg['analog']['enable_mismatch'] = True
-            cfg['analog']['enable_noise'] = False # Isolate mismatch
-            
-            analog_layer = AnalogLinear.from_digital(digital_linear, config=cfg['analog'])
-            runner = SpiceRunner(config=cfg)
-            
-            with torch.no_grad():
-                y_sim = runner.run(analog_layer.weight, analog_layer.bias, X_test,
-                                   r_ref=self.config['circuit']['r_ref'],
-                                   v_ref=self.config['circuit']['v_ref'])
-                y_ideal = digital_linear(X_test)
-                
-            metrics = compute_metrics(y_ideal, y_sim, y_cal=None, y_true=y_test)
-            mismatch_accs.append(metrics['accuracy_sim'])
-            mismatch_rmses.append(metrics['rmse_pre_calibration'])
-            
-        # 3. Sweep Quantization Resolution (n_bits in [2, 8])
-        bits_list = [2, 3, 4, 5, 6, 8, 12]
-        quant_accs = []
-        quant_rmses = []
+        # 3. Calibration Benchmarking
+        benchmark_results = calibration_benchmark_stage(
+            y_ideal, y_sim, weight, X_test, y_test, rest_of_network, self.config
+        )
         
-        for bits in bits_list:
-            cfg = self.config.copy()
-            cfg['analog']['quantization_bits'] = bits
-            cfg['analog']['enable_quantization'] = True
-            cfg['analog']['enable_noise'] = False
-            cfg['analog']['enable_mismatch'] = False
-            
-            analog_layer = AnalogLinear.from_digital(digital_linear, config=cfg['analog'])
-            runner = SpiceRunner(config=cfg)
-            
-            with torch.no_grad():
-                y_sim = runner.run(analog_layer.weight, analog_layer.bias, X_test,
-                                   r_ref=self.config['circuit']['r_ref'],
-                                   v_ref=self.config['circuit']['v_ref'])
-                y_ideal = digital_linear(X_test)
-                
-            metrics = compute_metrics(y_ideal, y_sim, y_cal=None, y_true=y_test)
-            quant_accs.append(metrics['accuracy_sim'])
-            quant_rmses.append(metrics['rmse_pre_calibration'])
-
-        # --- Plots ---
-        plt.style.use('seaborn-v0_8-whitegrid' if 'seaborn-v0_8-whitegrid' in plt.style.available else 'default')
+        # 4. Parity Evaluation
+        parity_results = parity_evaluation_stage(weight, bias, X_test, y_test, self.config)
         
-        # Noise Robustness Plot
-        fig, ax1 = plt.subplots(figsize=(7, 4.5))
-        color = '#1f77b4'
-        ax1.set_xlabel('Weight Noise Standard Deviation ($\\sigma_w$)', fontsize=12)
-        ax1.set_ylabel('Inference Accuracy', color=color, fontsize=12)
-        ax1.plot(noise_sigmas, noise_accs, marker='o', linewidth=2, color=color, label='Accuracy')
-        ax1.tick_params(axis='y', labelcolor=color)
+        # 5. Circuit Optimization
+        opt_results = circuit_optimization_stage(weight, self.config)
         
-        ax2 = ax1.twinx()
-        color = '#d62728'
-        ax2.set_ylabel('Signal Output RMSE (V)', color=color, fontsize=12)
-        ax2.plot(noise_sigmas, noise_rmses, marker='s', linewidth=2, color=color, linestyle='--', label='RMSE')
-        ax2.tick_params(axis='y', labelcolor=color)
+        # 6. Limitation Analysis
+        limitation_results = limitation_analysis_stage(
+            y_ideal, y_sim, weight, y_test, X_test, rest_of_network, self.config
+        )
         
-        plt.title('Synaptic Weight Noise Robustness Analysis', fontsize=13, fontweight='bold')
-        fig.tight_layout()
-        plt.savefig(os.path.join(save_dir, 'robustness_noise.png'), dpi=300)
-        plt.close()
+        # 7. Statistical Trials
+        stats_summary = statistical_trials_stage(
+            weight, bias, X_test, y_ideal, y_test, rest_of_network, self.config
+        )
         
-        # Resistor Mismatch Plot
-        fig, ax1 = plt.subplots(figsize=(7, 4.5))
-        color = '#2ca02c'
-        ax1.set_xlabel('Resistor Mismatch Tolerance ($\\sigma_R$)', fontsize=12)
-        ax1.set_ylabel('Inference Accuracy', color=color, fontsize=12)
-        ax1.plot(mismatches, mismatch_accs, marker='o', linewidth=2, color=color, label='Accuracy')
-        ax1.tick_params(axis='y', labelcolor=color)
+        # 8. Generate Figures and Reports
+        self._generate_reports(benchmark_results, opt_results, limitation_results, 
+                               stats_summary, weight, bias, X_test, y_ideal, y_sim, y_test)
         
-        ax2 = ax1.twinx()
-        color = '#9467bd'
-        ax2.set_ylabel('Signal Output RMSE (V)', color=color, fontsize=12)
-        ax2.plot(mismatches, mismatch_rmses, marker='s', linewidth=2, color=color, linestyle='--', label='RMSE')
-        ax2.tick_params(axis='y', labelcolor=color)
-        
-        plt.title('Device Mismatch Tolerance Analysis', fontsize=13, fontweight='bold')
-        fig.tight_layout()
-        plt.savefig(os.path.join(save_dir, 'robustness_mismatch.png'), dpi=300)
-        plt.close()
-
-        # Quantization Resolution Plot
-        fig, ax1 = plt.subplots(figsize=(7, 4.5))
-        color = '#ff7f0e'
-        ax1.set_xlabel('Quantization Bit Resolution ($n_{bits}$)', fontsize=12)
-        ax1.set_ylabel('Inference Accuracy', color=color, fontsize=12)
-        ax1.plot(bits_list, quant_accs, marker='o', linewidth=2, color=color, label='Accuracy')
-        ax1.tick_params(axis='y', labelcolor=color)
-        
-        ax2 = ax1.twinx()
-        color = '#17becf'
-        ax2.set_ylabel('Signal Output RMSE (V)', color=color, fontsize=12)
-        ax2.plot(bits_list, quant_rmses, marker='s', linewidth=2, color=color, linestyle='--', label='RMSE')
-        ax2.tick_params(axis='y', labelcolor=color)
-        
-        plt.title('DAC/ADC Quantization Robustness Analysis', fontsize=13, fontweight='bold')
-        fig.tight_layout()
-        plt.savefig(os.path.join(save_dir, 'robustness_quantization.png'), dpi=300)
-        plt.close()
-
-        # Save results to disk
-        sweep_data = {
-            'noise': {'sigmas': noise_sigmas, 'accuracies': noise_accs, 'rmses': noise_rmses},
-            'mismatch': {'deltas': mismatches, 'accuracies': mismatch_accs, 'rmses': mismatch_rmses},
-            'quantization': {'bits': bits_list, 'accuracies': quant_accs, 'rmses': quant_rmses}
+        print("Validation pipeline successfully executed! Reports and figures compiled.")
+        return {
+            'benchmark': benchmark_results['metrics'],
+            'parity': parity_results['accuracies'],
+            'optimization': opt_results,
+            'limitation': limitation_results,
+            'statistics': stats_summary
         }
-        with open("./benchmarks/sweep_results.json", "w") as f:
-            json.dump(sweep_data, f, indent=4)
-            
-        print("Parametric sweeps successfully completed! Visualizations saved in ./figures.")
-        return sweep_data
+    
+    def _generate_reports(self, benchmark_results, opt_results, limitation_results,
+                         stats_summary, weight, bias, X_test, y_ideal, y_sim, y_test):
+        """Generate figures and reports from pipeline results."""
+        from validation.residual_analysis import ResidualAnalyzer
+        from validation.error_bounds import AnalogErrorBound
+        from spice.netlist_generator import NetlistGenerator
+        from validation.statistical_analysis import StatisticalAnalysis
+        import copy
+        
+        os.makedirs("./reports/paper_ready", exist_ok=True)
+        os.makedirs("./netlists", exist_ok=True)
+        
+        # Parity plots
+        y_ideal_test = benchmark_results['y_ideal_test']
+        y_sim_test = benchmark_results['y_sim_test']
+        y_post_hmac = benchmark_results['residuals']['HMAC (Linear)'] + y_ideal_test
+        
+        self.figure_engine.plot_calibration_parity(
+            y_ideal=y_ideal_test, y_pre=y_sim_test, y_post=y_post_hmac,
+            filename="calibration_parity.png"
+        )
+        
+        # Residual diagnostics
+        y_cal_hmac = torch.tensor(benchmark_results['residuals']['HMAC (Linear)'] + y_ideal_test)
+        y_cal_ols = torch.tensor(benchmark_results['residuals']['Affine'] + y_ideal_test)
+        
+        analyzer = ResidualAnalyzer(
+            y_ideal=torch.tensor(y_ideal_test),
+            y_sim=torch.tensor(y_sim_test),
+            y_cal_hmac=y_cal_hmac,
+            y_cal_ols=y_cal_ols,
+            weight_matrix=weight
+        )
+        analyzer.plot_residual_diagnostics(save_dir="./figures")
+        
+        # Error bounds analysis
+        bound_calc = AnalogErrorBound(
+            weight_matrix=weight, bias=bias,
+            mismatch_sigma=self.config['analog'].get('resistor_mismatch', 0.01),
+            offset_sigma=self.config['analog'].get('opamp_offset', 0.002),
+            noise_sigma=self.config['analog'].get('noise_sigma', 0.05),
+            quantization_bits=self.config['analog'].get('quantization_bits', 6)
+        )
+        sensitivity_data = bound_calc.sensitivity_analysis()
+        self.figure_engine.plot_sensitivity_analysis(sensitivity_data, filename="sensitivity_analysis.png")
+        
+        # SPICE netlists
+        NetlistGenerator.generate(
+            weight=weight, bias=bias, x=X_test[0],
+            r_ref=self.config['circuit']['r_ref'],
+            v_ref=self.config['circuit']['v_ref'],
+            vmax=self.config['analog']['saturation_vmax'],
+            output_dir="./netlists",
+            filename="analog_layer_ngspice.cir",
+            backend="ngspice"
+        )
+        NetlistGenerator.generate(
+            weight=weight, bias=bias, x=X_test[0],
+            r_ref=self.config['circuit']['r_ref'],
+            v_ref=self.config['circuit']['v_ref'],
+            vmax=self.config['analog']['saturation_vmax'],
+            output_dir="./netlists",
+            filename="analog_layer_ltspice.cir",
+            backend="ltspice"
+        )
+        
+        # LaTeX table
+        StatisticalAnalysis.generate_latex_table(stats_summary, "./reports/paper_ready/performance_table.tex")
+        
+        # JSON report
+        report_data = {
+            'benchmark': benchmark_results['metrics'],
+            'optimization': opt_results,
+            'limitation': limitation_results,
+            'statistics': stats_summary
+        }
+        
+        with open("./reports/paper_ready/report_data.json", "w") as f:
+            json.dump(report_data, f, indent=4)
+

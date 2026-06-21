@@ -2,21 +2,29 @@ import torch
 import numpy as np
 from scipy.stats import pearsonr
 
-def compute_metrics(y_ideal: torch.Tensor, y_sim: torch.Tensor, y_cal: torch.Tensor | None, y_true: torch.Tensor) -> dict:
+def compute_metrics(y_ideal: torch.Tensor, y_sim: torch.Tensor, y_cal: torch.Tensor | None, y_true: torch.Tensor,
+                    rest_of_network_fn = None) -> dict:
     """
     Computes scientific validation metrics between layers:
     - RMSE
     - Pearson Correlation (R)
-    - Classification Accuracy Drop
+    - Classification Accuracy Drop (using rest_of_network_fn to get class logits if provided)
     """
     ideal_np = y_ideal.detach().cpu().numpy()
     sim_np = y_sim.detach().cpu().numpy()
-    
-    # Accuracy values
-    ideal_preds = np.argmax(ideal_np, axis=1)
-    sim_preds = np.argmax(sim_np, axis=1)
     true_np = y_true.detach().cpu().numpy()
     
+    # Compute class logits if rest_of_network_fn is provided
+    if rest_of_network_fn is not None:
+        with torch.no_grad():
+            ideal_logits = rest_of_network_fn(y_ideal).detach().cpu().numpy()
+            sim_logits = rest_of_network_fn(y_sim).detach().cpu().numpy()
+        ideal_preds = np.argmax(ideal_logits, axis=1)
+        sim_preds = np.argmax(sim_logits, axis=1)
+    else:
+        ideal_preds = np.argmax(ideal_np, axis=1)
+        sim_preds = np.argmax(sim_np, axis=1)
+        
     acc_ideal = np.mean(ideal_preds == true_np)
     acc_sim = np.mean(sim_preds == true_np)
     
@@ -41,7 +49,12 @@ def compute_metrics(y_ideal: torch.Tensor, y_sim: torch.Tensor, y_cal: torch.Ten
     
     if y_cal is not None:
         cal_np = y_cal.detach().cpu().numpy()
-        cal_preds = np.argmax(cal_np, axis=1)
+        if rest_of_network_fn is not None:
+            with torch.no_grad():
+                cal_logits = rest_of_network_fn(y_cal).detach().cpu().numpy()
+            cal_preds = np.argmax(cal_logits, axis=1)
+        else:
+            cal_preds = np.argmax(cal_np, axis=1)
         acc_cal = np.mean(cal_preds == true_np)
         
         # RMSE post-calibration

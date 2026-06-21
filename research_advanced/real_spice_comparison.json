@@ -1,0 +1,7 @@
+{
+  "match": false,
+  "n_outputs": 32,
+  "max_diff": 2.3915388075902233,
+  "mean_diff": 1.0217124499532524,
+  "saturated_nodes": 0
+}

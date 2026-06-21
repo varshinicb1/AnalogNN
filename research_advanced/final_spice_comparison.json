@@ -1,0 +1,10 @@
+{
+  "n_outputs": 42,
+  "max_diff": 8.868717122845204e-05,
+  "mean_diff": 3.252534254386006e-05,
+  "min_diff": 6.798745744197865e-07,
+  "match_1e4": 42,
+  "match_1e3": 42,
+  "all_match_1e3": true,
+  "verdict": "PASS"
+}

@@ -1,0 +1,30 @@
+{
+  "results": {
+    "core_math": {
+      "core_math_match": true,
+      "analog_vs_digital": 2.384185791015625e-07,
+      "solver_vs_digital": 1.7881393432617188e-07,
+      "analog_vs_solver": 2.384185791015625e-07
+    },
+    "nonidealities": {
+      "saturation_working": true,
+      "max_analog": 2.5,
+      "max_solver": 2.5,
+      "no_saturation_match": true,
+      "no_saturation_max_diff": 2.384185791015625e-07
+    },
+    "circuit_graph": {
+      "circuit_graph_match": true,
+      "max_diff": 1.1920928955078125e-07
+    },
+    "netlists": {
+      "netlist_dir": "research_advanced/netlists",
+      "n_layers": 2,
+      "layer_0_path": "research_advanced/netlists\\layer_0_cir.cir",
+      "layer_1_path": "research_advanced/netlists\\layer_1_cir.cir"
+    }
+  },
+  "all_pass": true,
+  "elapsed_s": 1.7838644981384277,
+  "summary": "AnalogLinear, FallbackNodalSolver, and Circuit Graph Solver match at ~1e-7 for the core linear algebra. SPICE netlists are generated and ready for ngspice simulation."
+}

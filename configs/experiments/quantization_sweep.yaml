@@ -1,0 +1,30 @@
+# Configuration for quantization sweeps
+experiment_name: "quantization_sweep"
+seed: 42
+
+dataset:
+  name: "mnist"
+  subset_size: 150
+  downsample_size: 8
+
+model:
+  hidden_dims: [16, 8]
+  epochs: 15
+  lr: 0.01
+  batch_size: 16
+
+analog:
+  enable_noise: false
+  noise_sigma: 0.0
+  enable_mismatch: false
+  resistor_mismatch: 0.0
+  enable_offset: false
+  opamp_offset: 0.0
+  enable_quantization: true
+  quantization_bits: 8
+  saturation_vmax: 5.0
+
+sweep:
+  parameter: "analog.quantization_bits"
+  values: [2, 3, 4, 5, 6, 8, 10, 12, 16]
+  runs_per_value: 5

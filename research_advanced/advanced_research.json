@@ -1,0 +1,326 @@
+{
+  "spectral_regularization": [
+    {
+      "dataset": "iris",
+      "strategies": {
+        "None": {
+          "clean_acc": 0.9200000166893005,
+          "analog_acc": 0.9200000166893005,
+          "robustness": 1.0,
+          "kappa": 1.3472524881362915,
+          "spectral_var": 0.016252577304840088
+        },
+        "Kappa": {
+          "clean_acc": 0.9800000190734863,
+          "analog_acc": 0.9800000190734863,
+          "robustness": 1.0,
+          "kappa": 1.2483513355255127,
+          "spectral_var": 0.009896432049572468
+        },
+        "Balance": {
+          "clean_acc": 0.9599999785423279,
+          "analog_acc": 0.9599999785423279,
+          "robustness": 1.0,
+          "kappa": 1.3868625164031982,
+          "spectral_var": 0.021414123475551605
+        },
+        "Norm": {
+          "clean_acc": 0.9800000190734863,
+          "analog_acc": 0.9599999785423279,
+          "robustness": 0.9795917957735685,
+          "kappa": 1.4402177333831787,
+          "spectral_var": 0.023673327639698982
+        },
+        "Combined": {
+          "clean_acc": 0.9800000190734863,
+          "analog_acc": 0.9800000190734863,
+          "robustness": 1.0,
+          "kappa": 1.4449403285980225,
+          "spectral_var": 0.0236708614975214
+        }
+      }
+    },
+    {
+      "dataset": "mnist",
+      "strategies": {
+        "None": {
+          "clean_acc": 0.828000009059906,
+          "analog_acc": 0.8119999766349792,
+          "robustness": 0.9806762895533143,
+          "kappa": 26.09654426574707,
+          "spectral_var": 0.5296340584754944
+        },
+        "Kappa": {
+          "clean_acc": 0.8399999737739563,
+          "analog_acc": 0.8080000281333923,
+          "robustness": 0.9619048254289885,
+          "kappa": 23.40737533569336,
+          "spectral_var": 0.49638283252716064
+        },
+        "Balance": {
+          "clean_acc": 0.8320000171661377,
+          "analog_acc": 0.7940000295639038,
+          "robustness": 0.9543269389204281,
+          "kappa": 23.629926681518555,
+          "spectral_var": 0.4996865689754486
+        },
+        "Norm": {
+          "clean_acc": 0.8339999914169312,
+          "analog_acc": 0.8040000200271606,
+          "robustness": 0.9640288109130531,
+          "kappa": 23.203706741333008,
+          "spectral_var": 0.4857405722141266
+        },
+        "Combined": {
+          "clean_acc": 0.8299999833106995,
+          "analog_acc": 0.7979999780654907,
+          "robustness": 0.9614457760377689,
+          "kappa": 24.361003875732422,
+          "spectral_var": 0.508317232131958
+        }
+      }
+    },
+    {
+      "dataset": "fashion",
+      "strategies": {
+        "None": {
+          "clean_acc": 0.777999997138977,
+          "analog_acc": 0.5979999899864197,
+          "robustness": 0.7686375220893436,
+          "kappa": 18.894594192504883,
+          "spectral_var": 0.3890655040740967
+        },
+        "Kappa": {
+          "clean_acc": 0.7860000133514404,
+          "analog_acc": 0.6539999842643738,
+          "robustness": 0.8320610345485502,
+          "kappa": 20.53573989868164,
+          "spectral_var": 0.4102860391139984
+        },
+        "Balance": {
+          "clean_acc": 0.7940000295639038,
+          "analog_acc": 0.671999990940094,
+          "robustness": 0.8463475641294157,
+          "kappa": 21.821195602416992,
+          "spectral_var": 0.41477638483047485
+        },
+        "Norm": {
+          "clean_acc": 0.7580000162124634,
+          "analog_acc": 0.6240000128746033,
+          "robustness": 0.8232189967390441,
+          "kappa": 21.478322982788086,
+          "spectral_var": 0.42596518993377686
+        },
+        "Combined": {
+          "clean_acc": 0.7599999904632568,
+          "analog_acc": 0.5239999890327454,
+          "robustness": 0.6894736784316826,
+          "kappa": 21.343685150146484,
+          "spectral_var": 0.4183361530303955
+        }
+      }
+    }
+  ],
+  "transformer_extension": [
+    {
+      "dataset": "iris",
+      "configs": {
+        "Dense": {
+          "clean_acc": 1.0,
+          "analog_acc": 1.0,
+          "robustness": 1.0,
+          "config": {
+            "name": "Dense",
+            "num_layers": 2,
+            "d_model": 64,
+            "nhead": 4,
+            "sparsity": 0.0
+          }
+        },
+        "Sparse-50": {
+          "clean_acc": 0.9200000166893005,
+          "analog_acc": 0.9200000166893005,
+          "robustness": 1.0,
+          "config": {
+            "name": "Sparse-50",
+            "num_layers": 2,
+            "d_model": 64,
+            "nhead": 4,
+            "sparsity": 0.5
+          }
+        },
+        "Sparse-70": {
+          "clean_acc": 0.6200000047683716,
+          "analog_acc": 0.6200000047683716,
+          "robustness": 1.0,
+          "config": {
+            "name": "Sparse-70",
+            "num_layers": 2,
+            "d_model": 64,
+            "nhead": 4,
+            "sparsity": 0.7
+          }
+        },
+        "Deep": {
+          "clean_acc": 0.9800000190734863,
+          "analog_acc": 0.9800000190734863,
+          "robustness": 1.0,
+          "config": {
+            "name": "Deep",
+            "num_layers": 4,
+            "d_model": 64,
+            "nhead": 4,
+            "sparsity": 0.0
+          }
+        }
+      }
+    },
+    {
+      "dataset": "mnist",
+      "configs": {
+        "Dense": {
+          "clean_acc": 0.8460000157356262,
+          "analog_acc": 0.8500000238418579,
+          "robustness": 1.0047281418815974,
+          "config": {
+            "name": "Dense",
+            "num_layers": 2,
+            "d_model": 64,
+            "nhead": 4,
+            "sparsity": 0.0
+          }
+        },
+        "Sparse-50": {
+          "clean_acc": 0.8159999847412109,
+          "analog_acc": 0.8159999847412109,
+          "robustness": 1.0,
+          "config": {
+            "name": "Sparse-50",
+            "num_layers": 2,
+            "d_model": 64,
+            "nhead": 4,
+            "sparsity": 0.5
+          }
+        },
+        "Sparse-70": {
+          "clean_acc": 0.5220000147819519,
+          "analog_acc": 0.5260000228881836,
+          "robustness": 1.0076628505612257,
+          "config": {
+            "name": "Sparse-70",
+            "num_layers": 2,
+            "d_model": 64,
+            "nhead": 4,
+            "sparsity": 0.7
+          }
+        },
+        "Deep": {
+          "clean_acc": 0.8560000061988831,
+          "analog_acc": 0.8560000061988831,
+          "robustness": 1.0,
+          "config": {
+            "name": "Deep",
+            "num_layers": 4,
+            "d_model": 64,
+            "nhead": 4,
+            "sparsity": 0.0
+          }
+        }
+      }
+    },
+    {
+      "dataset": "fashion",
+      "configs": {
+        "Dense": {
+          "clean_acc": 0.7739999890327454,
+          "analog_acc": 0.7639999985694885,
+          "robustness": 0.9870801154974774,
+          "config": {
+            "name": "Dense",
+            "num_layers": 2,
+            "d_model": 64,
+            "nhead": 4,
+            "sparsity": 0.0
+          }
+        },
+        "Sparse-50": {
+          "clean_acc": 0.7319999933242798,
+          "analog_acc": 0.734000027179718,
+          "robustness": 1.0027322867126751,
+          "config": {
+            "name": "Sparse-50",
+            "num_layers": 2,
+            "d_model": 64,
+            "nhead": 4,
+            "sparsity": 0.5
+          }
+        },
+        "Sparse-70": {
+          "clean_acc": 0.5059999823570251,
+          "analog_acc": 0.4440000057220459,
+          "robustness": 0.8774703976348499,
+          "config": {
+            "name": "Sparse-70",
+            "num_layers": 2,
+            "d_model": 64,
+            "nhead": 4,
+            "sparsity": 0.7
+          }
+        },
+        "Deep": {
+          "clean_acc": 0.7739999890327454,
+          "analog_acc": 0.7739999890327454,
+          "robustness": 1.0,
+          "config": {
+            "name": "Deep",
+            "num_layers": 4,
+            "d_model": 64,
+            "nhead": 4,
+            "sparsity": 0.0
+          }
+        }
+      }
+    }
+  ],
+  "large_scale": [
+    {
+      "dataset": "mnist_full",
+      "phase_transition": [
+        {
+          "mismatch": 0.0,
+          "accuracy": 0.9520000219345093
+        },
+        {
+          "mismatch": 0.1,
+          "accuracy": 0.9509999752044678
+        },
+        {
+          "mismatch": 0.2,
+          "accuracy": 0.9480000138282776
+        },
+        {
+          "mismatch": 0.3,
+          "accuracy": 0.0860000029206276
+        },
+        {
+          "mismatch": 0.4,
+          "accuracy": 0.11400000005960464
+        }
+      ],
+      "sparse_networks": [
+        {
+          "sparsity": 0.0,
+          "analog_acc": 0.9039999842643738
+        },
+        {
+          "sparsity": 0.5,
+          "analog_acc": 0.8920000195503235
+        },
+        {
+          "sparsity": 0.7,
+          "analog_acc": 0.6029999852180481
+        }
+      ]
+    }
+  ]
+}

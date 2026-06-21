@@ -18,8 +18,8 @@ class NgspiceExporter:
         # Define Op-Amp subcircuit (with clamping to model saturation)
         netlist.append("* Ideal Op-Amp model with saturation limit")
         netlist.append(".subckt opamp_sat IN+ IN- OUT GND")
-        # Behavioral source for clamping: limit(val, min, max)
-        netlist.append(f"B1 OUT GND V=limit(1e5*(V(IN+)-V(IN-)), {-vmax}, {vmax})")
+        # Behavioral source for clamping: max(min(val, high), low)
+        netlist.append(f"B1 OUT GND V=max(min(1e5*(V(IN+)-V(IN-)), {vmax}), {-vmax})")
         netlist.append(".ends opamp_sat")
         netlist.append("")
 

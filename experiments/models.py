@@ -7,16 +7,24 @@ from sklearn.metrics import confusion_matrix
 import matplotlib.pyplot as plt
 import os
 
+from analog_layers.analog_linear import AnalogLinear
+
 class DigitalMLP(nn.Module):
-    def __init__(self, input_dim: int, hidden_dims: list, output_dim: int):
+    def __init__(self, input_dim: int, hidden_dims: list, output_dim: int, analog_config: dict = None):
         super(DigitalMLP, self).__init__()
         layers = []
         prev_dim = input_dim
         for h_dim in hidden_dims:
-            layers.append(nn.Linear(prev_dim, h_dim))
+            if analog_config is not None:
+                layers.append(AnalogLinear(prev_dim, h_dim, config=analog_config))
+            else:
+                layers.append(nn.Linear(prev_dim, h_dim))
             layers.append(nn.ReLU())
             prev_dim = h_dim
-        layers.append(nn.Linear(prev_dim, output_dim))
+        if analog_config is not None:
+            layers.append(AnalogLinear(prev_dim, output_dim, config=analog_config))
+        else:
+            layers.append(nn.Linear(prev_dim, output_dim))
         self.network = nn.Sequential(*layers)
         
     def forward(self, x):

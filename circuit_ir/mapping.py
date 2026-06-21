@@ -24,7 +24,7 @@ def map_layer_to_circuit(weight: torch.Tensor, bias: torch.Tensor | None, x: tor
     
     # 1. Map input activations to voltage sources
     for j in range(in_features):
-        x_val = float(x[j])
+        x_val = float(x.detach()[j]) if x.requires_grad else float(x[j])
         # Input voltage source connected between input node and ground (node '0')
         circuit.add_component(VoltageSource(
             name=f"in_{j}",

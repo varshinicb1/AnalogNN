@@ -1,0 +1,5 @@
+include requirements.txt
+include pytest.ini
+include configs/config.yaml
+include README.md
+recursive-include configs/experiments *.yaml

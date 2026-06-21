@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Environments
+.venv/
+venv/
+env/
+.conda/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Data (large downloaded datasets)
+data/
+media/
+wandb/
+mlflow.db
+*.db
+
+# Build artifacts
+netlists_compiled/
+test_figures/
+demo_output/*.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

@@ -1,0 +1,83 @@
+{
+  "core_layers": {
+    "128x64": {
+      "analog_latency_ms": 0.27327537536621094,
+      "digital_latency_ms": 0.021839141845703125,
+      "speedup": 0.07991624498342348,
+      "accuracy": 0.9098706841468811,
+      "mean_absolute_error": 0.0901293158531189
+    },
+    "256x128": {
+      "analog_latency_ms": 0.542902946472168,
+      "digital_latency_ms": 0.022220611572265625,
+      "speedup": 0.0409292521189232,
+      "accuracy": 0.8710189759731293,
+      "mean_absolute_error": 0.12898102402687073
+    },
+    "512x256": {
+      "analog_latency_ms": 1.836991310119629,
+      "digital_latency_ms": 0.05557537078857422,
+      "speedup": 0.030253475061324614,
+      "accuracy": 0.8155272901058197,
+      "mean_absolute_error": 0.1844727098941803
+    }
+  },
+  "circuit_sim": {
+    "64x32": {
+      "n_samples": 10,
+      "total_time_ms": 17.49396324157715,
+      "time_per_sample_ms": 1.7493963241577148,
+      "throughput_samples_per_sec": 571.6257580919931
+    },
+    "128x64": {
+      "n_samples": 10,
+      "total_time_ms": 1.0530948638916016,
+      "time_per_sample_ms": 0.10530948638916016,
+      "throughput_samples_per_sec": 9495.820692777903
+    }
+  },
+  "calibration": {
+    "affine": {
+      "fit_time_ms": 0.7781982421875,
+      "calibration_error": 0.0772567167878151
+    },
+    "polynomial": {
+      "fit_time_ms": 0.5588531494140625,
+      "calibration_error": 0.0766826868057251
+    },
+    "hmac": {
+      "fit_time_ms": 1.5892982482910156,
+      "calibration_error": 0.0772567167878151
+    }
+  },
+  "energy": {
+    "28nm": {
+      "128x64": {
+        "analog_energy_J": 1.0904764054977986e-05,
+        "gpu_energy_J": 2.62144e-06,
+        "efficiency_vs_gpu": 0.24039401373414604,
+        "tops_per_watt": 1.542708859863531
+      },
+      "256x128": {
+        "analog_energy_J": 4.236759178460954e-05,
+        "gpu_energy_J": 1.048576e-05,
+        "efficiency_vs_gpu": 0.24749483174092182,
+        "tops_per_watt": 1.5861910516342523
+      }
+    },
+    "65nm": {
+      "128x64": {
+        "analog_energy_J": 1.0827526518533947e-05,
+        "gpu_energy_J": 2.62144e-06,
+        "efficiency_vs_gpu": 0.24210885057753193,
+        "tops_per_watt": 1.553747432552513
+      },
+      "256x128": {
+        "analog_energy_J": 4.2448062659203256e-05,
+        "gpu_energy_J": 1.048576e-05,
+        "efficiency_vs_gpu": 0.24702564364799248,
+        "tops_per_watt": 1.5831835376885814
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "standard_deploy": {
+    "digital_accuracy": 0.7620999813079834,
+    "analog_accuracy": 0.718999981880188,
+    "accuracy_drop": 0.04309999942779541,
+    "chip_mean": 0.698936661084493,
+    "chip_std": 0.03135013352361165,
+    "chip_min": 0.633400022983551,
+    "energy_pJ": 2591.04,
+    "area_um2": 8512.0,
+    "n_crossbars": 3
+  },
+  "nature_comms": {
+    "digital_accuracy": 0.6754999756813049,
+    "analog_accuracy": 0.15790000557899475,
+    "accuracy_drop": 0.5175999701023102,
+    "chip_mean": 0.1596766655643781,
+    "chip_std": 0.013057735215743863,
+    "chip_min": 0.13500000536441803,
+    "energy_pJ": 2591.04,
+    "area_um2": 8512.0,
+    "n_crossbars": 3
+  },
+  "differentiable": {
+    "analog_accuracy": 0.7504000067710876,
+    "chip_mean": 0.7506366689999898,
+    "chip_std": 0.0014945434659472626,
+    "chip_min": 0.7455000281333923,
+    "energy_pJ": 2591.04,
+    "area_um2": 8512.0,
+    "n_crossbars": 3
+  },
+  "distributional": {
+    "analog_accuracy": 0.76419997215271,
+    "chip_mean": 0.7650000035762787,
+    "chip_std": 0.00158661233098244,
+    "chip_min": 0.7615000009536743,
+    "energy_pJ": 0.0,
+    "area_um2": 0.0,
+    "n_crossbars": 0
+  }
+}

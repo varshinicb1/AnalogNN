@@ -1,0 +1,164 @@
+[
+  {
+    "dataset": "CIFAR10",
+    "architecture": "S",
+    "mode": "Digital",
+    "train_time_s": 1.7,
+    "accuracy": 22.0,
+    "energy_uj": "N/A",
+    "efficiency": "N/A"
+  },
+  {
+    "dataset": "CIFAR10",
+    "architecture": "S",
+    "mode": "StdDeploy",
+    "train_time_s": 0,
+    "accuracy": 17.0,
+    "energy_uj": 0.0032,
+    "efficiency": 5308.59
+  },
+  {
+    "dataset": "CIFAR10",
+    "architecture": "S",
+    "mode": "DiffAnalo",
+    "train_time_s": 1.63,
+    "accuracy": 25.0,
+    "energy_uj": 0.0032,
+    "efficiency": 7810.47
+  },
+  {
+    "dataset": "CIFAR10",
+    "architecture": "M",
+    "mode": "Digital",
+    "train_time_s": 1.11,
+    "accuracy": 30.0,
+    "energy_uj": "N/A",
+    "efficiency": "N/A"
+  },
+  {
+    "dataset": "CIFAR10",
+    "architecture": "M",
+    "mode": "StdDeploy",
+    "train_time_s": 0,
+    "accuracy": 28.0,
+    "energy_uj": 0.0078,
+    "efficiency": 3599.37
+  },
+  {
+    "dataset": "CIFAR10",
+    "architecture": "M",
+    "mode": "DiffAnalo",
+    "train_time_s": 2.06,
+    "accuracy": 28.0,
+    "energy_uj": 0.0078,
+    "efficiency": 3581.56
+  },
+  {
+    "dataset": "CIFAR10",
+    "architecture": "L",
+    "mode": "Digital",
+    "train_time_s": 1.56,
+    "accuracy": 31.0,
+    "energy_uj": "N/A",
+    "efficiency": "N/A"
+  },
+  {
+    "dataset": "CIFAR10",
+    "architecture": "L",
+    "mode": "StdDeploy",
+    "train_time_s": 0,
+    "accuracy": 27.0,
+    "energy_uj": 0.0171,
+    "efficiency": 1581.77
+  },
+  {
+    "dataset": "CIFAR10",
+    "architecture": "L",
+    "mode": "DiffAnalo",
+    "train_time_s": 4.09,
+    "accuracy": 27.5,
+    "energy_uj": 0.0171,
+    "efficiency": 1604.02
+  },
+  {
+    "dataset": "SVHN",
+    "architecture": "S",
+    "mode": "Digital",
+    "train_time_s": 0.68,
+    "accuracy": 26.0,
+    "energy_uj": "N/A",
+    "efficiency": "N/A"
+  },
+  {
+    "dataset": "SVHN",
+    "architecture": "S",
+    "mode": "StdDeploy",
+    "train_time_s": 0,
+    "accuracy": 25.5,
+    "energy_uj": 0.0026,
+    "efficiency": 9722.5
+  },
+  {
+    "dataset": "SVHN",
+    "architecture": "S",
+    "mode": "DiffAnalo",
+    "train_time_s": 0.95,
+    "accuracy": 29.5,
+    "energy_uj": 0.0026,
+    "efficiency": 11294.0
+  },
+  {
+    "dataset": "SVHN",
+    "architecture": "M",
+    "mode": "Digital",
+    "train_time_s": 1.12,
+    "accuracy": 30.5,
+    "energy_uj": "N/A",
+    "efficiency": "N/A"
+  },
+  {
+    "dataset": "SVHN",
+    "architecture": "M",
+    "mode": "StdDeploy",
+    "train_time_s": 0,
+    "accuracy": 26.0,
+    "energy_uj": 0.0071,
+    "efficiency": 3657.96
+  },
+  {
+    "dataset": "SVHN",
+    "architecture": "M",
+    "mode": "DiffAnalo",
+    "train_time_s": 1.61,
+    "accuracy": 30.5,
+    "energy_uj": 0.0071,
+    "efficiency": 4306.8
+  },
+  {
+    "dataset": "SVHN",
+    "architecture": "L",
+    "mode": "Digital",
+    "train_time_s": 1.69,
+    "accuracy": 39.0,
+    "energy_uj": "N/A",
+    "efficiency": "N/A"
+  },
+  {
+    "dataset": "SVHN",
+    "architecture": "L",
+    "mode": "StdDeploy",
+    "train_time_s": 0,
+    "accuracy": 27.5,
+    "energy_uj": 0.0161,
+    "efficiency": 1703.84
+  },
+  {
+    "dataset": "SVHN",
+    "architecture": "L",
+    "mode": "DiffAnalo",
+    "train_time_s": 3.11,
+    "accuracy": 28.0,
+    "energy_uj": 0.0161,
+    "efficiency": 1738.21
+  }
+]

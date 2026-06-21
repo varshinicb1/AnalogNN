@@ -13,7 +13,7 @@ class LtspiceExporter:
         # LTspice subcircuit for op-amp with limit
         netlist.append("* Ideal Op-Amp model with saturation limit")
         netlist.append(".subckt opamp_sat IN+ IN- OUT GND")
-        netlist.append(f"E1 OUT GND value={{limit(1e5*(V(IN+)-V(IN-)), {-vmax}, {vmax})}}")
+        netlist.append(f"E1 OUT GND value={{max(min(1e5*(V(IN+)-V(IN-)), {vmax}), {-vmax})}}")
         netlist.append(".ends opamp_sat")
         netlist.append("")
 

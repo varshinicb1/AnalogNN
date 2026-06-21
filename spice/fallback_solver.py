@@ -32,13 +32,15 @@ class FallbackNodalSolver:
         batch_size = x_np.shape[0]
         
         # 1. Resistor Mismatch delta
-        mismatch_sigma = config.get('resistor_mismatch', 0.0)
-        enable_mismatch = config.get('enable_mismatch', True)
+        mismatch_sigma = float(config.get('resistor_mismatch', 0.0))
+        enable_mismatch = bool(config.get('enable_mismatch', True))
+        
+        seed = int(config.get('seed', 42))
+        rng = np.random.RandomState(seed)
         
         if enable_mismatch and mismatch_sigma > 0.0:
-            np.random.seed(config.get('seed', 42))
-            delta_w = np.random.normal(0, mismatch_sigma, size=w_np.shape)
-            delta_b = np.random.normal(0, mismatch_sigma, size=out_features)
+            delta_w = rng.normal(0, mismatch_sigma, size=w_np.shape)
+            delta_b = rng.normal(0, mismatch_sigma, size=out_features)
         else:
             delta_w = np.zeros_like(w_np)
             delta_b = np.zeros(out_features)
@@ -48,9 +50,9 @@ class FallbackNodalSolver:
         b_mismatched = b_np / (1.0 + delta_b)
         
         # 2. Apply Drift over time (exponential decay)
-        drift_time = config.get('drift_time', 0.0)
-        drift_tau = config.get('drift_tau', 0.0)
-        enable_drift = config.get('enable_drift', True)
+        drift_time = float(config.get('drift_time', 0.0))
+        drift_tau = float(config.get('drift_tau', 0.0))
+        enable_drift = bool(config.get('enable_drift', True))
         
         if enable_drift and drift_time > 0.0 and drift_tau > 0.0:
             decay = np.exp(-drift_time / drift_tau)
@@ -62,11 +64,10 @@ class FallbackNodalSolver:
         noise_gain = 1.0 + np.sum(np.abs(w_mismatched), axis=1) # Shape: (out_features,)
         
         # 4. Generate Op-Amp Input Offset voltage
-        opamp_offset = config.get('opamp_offset', 0.0)
-        enable_offset = config.get('enable_offset', True)
+        opamp_offset = float(config.get('opamp_offset', 0.0))
+        enable_offset = bool(config.get('enable_offset', True))
         if enable_offset and opamp_offset > 0.0:
-            np.random.seed(config.get('seed', 42) + 1)
-            v_os = np.random.normal(0, opamp_offset, size=out_features)
+            v_os = rng.normal(0, opamp_offset, size=out_features)
             offset_error = noise_gain * v_os # Shape: (out_features,)
         else:
             offset_error = np.zeros(out_features)
@@ -76,8 +77,8 @@ class FallbackNodalSolver:
         y = np.matmul(x_np, w_mismatched.T) + b_mismatched + offset_error
         
         # 6. Apply Saturation limits (supply rails Vmax)
-        saturation_vmax = config.get('saturation_vmax', 0.0)
-        enable_saturation = config.get('enable_saturation', True)
+        saturation_vmax = float(config.get('saturation_vmax', 0.0))
+        enable_saturation = bool(config.get('enable_saturation', True))
         
         if enable_saturation and saturation_vmax > 0.0:
             y = np.clip(y, -saturation_vmax, saturation_vmax)
