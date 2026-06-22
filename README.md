@@ -51,25 +51,40 @@ pip install open-analog-nn
 
 **SPICE Validation:**
 ```
-  ngspice vs FallbackSolver:\x1b[32m  42/42 outputs match at 1e-4  Max diff: 8.87e-5  Mean diff: 3.25e-5\x1b[0m
+  ngspice vs FallbackSolver:  42/42 outputs match at 1e-4  Max diff: 8.87e-5  Mean diff: 3.25e-5
 ```
 
 **Calibration:**
 ```
   Affine (OLS):      77.87% accuracy  (best for classification)
-  Bayesian GP:       62.0% RMSE ↓     (best for regression, with uncertainty)
-  HMAC:              58.7% RMSE ↓     (BLUE-optimal under circuit physics)
+  Bayesian GP:       62.0% RMSE reduction  (best for regression, with uncertainty)
+  HMAC:              58.7% RMSE reduction  (BLUE-optimal under circuit physics)
 ```
 
 **Scaling Law** (504 runs, R²=0.9385):
 ```
-  accuracy_drop = 0.130 × D^0.26 × W^0.18 × N^0.86 × exp(-0.35·log D·log N)
+  accuracy_drop = 0.130 x D^0.26 x W^0.18 x N^0.86 x exp(-0.35 x log D x log N)
 ```
 
 **Energy-Accuracy Pareto:**
 ```
-  D=1, W=32 at 7nm:  8980 acc/µJ  (all architectures <10 µJ per inference)
+  D=1, W=32 at 7nm:  8980 acc/uJ  (all architectures under 10 uJ per inference)
 ```
+
+<p align="center">
+  <img src="figures/circuit_schematic.png" alt="Circuit schematic" width="32%">
+  <img src="research_results/scaling_laws.png" alt="Scaling law" width="32%">
+  <img src="research_results/energy_accuracy_pareto.png" alt="Energy Pareto" width="32%">
+  <br>
+  <sub><b>Left:</b> Op-amp differential summing amplifier &nbsp;&middot;&nbsp; <b>Center:</b> Analog scaling law (R²=0.9385) &nbsp;&middot;&nbsp; <b>Right:</b> Energy-accuracy Pareto (28nm–7nm)</sub>
+</p>
+
+<p align="center">
+  <img src="research_results/calibration_heatmap.png" alt="Calibration comparison" width="48%">
+  <img src="figures/parity_analysis.png" alt="SPICE parity" width="48%">
+  <br>
+  <sub><b>Left:</b> Six calibration methods compared &nbsp;&middot;&nbsp; <b>Right:</b> SPICE vs solver parity (42/42 at 10⁻⁴)</sub>
+</p>
 
 ## 🚀 Quick Start
 
