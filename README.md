@@ -1,163 +1,221 @@
-<div align="center">
+<p align="center">
+  <img src="social_preview.png" alt="OpenAnalogNN" width="800">
+</p>
 
-# OpenAnalogNN ⚡
+<p align="center">
+  <b>OpenAnalogNN</b> — <i>Differentiable Analog Neural Network Simulation from PyTorch to SPICE</i><br>
+  <b>77.58% analog accuracy</b> · <b>28× lower chip variance</b> · <b>42/42 SPICE match</b> · <b>R²=0.9385 scaling law</b>
+</p>
 
-**Differentiable Analog Neural Network Simulation — from PyTorch to SPICE**
-
-[![PyPI version](https://img.shields.io/pypi/v/open-analog-nn?color=blue&logo=pypi)](https://pypi.org/project/open-analog-nn/)
-[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
-[![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-ee4c2c.svg?logo=pytorch)](https://pytorch.org)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Tests](https://img.shields.io/badge/tests-37%20passing-brightgreen)](tests/)
-[![arXiv](https://img.shields.io/badge/arXiv-2506.XXXXX-b31b1b.svg)](reports/paper_ready/arxiv_paper.md)
-[![HuggingFace](https://img.shields.io/badge/🤗-Demo-yellow)](app_deploy/)
-
-```
-pip install open-analog-nn
-```
-
-</div>
+<p align="center">
+  <a href="https://pypi.org/project/open-analog-nn/"><img src="https://img.shields.io/pypi/v/open-analog-nn?style=for-the-badge&color=blue&logo=pypi" alt="PyPI"></a>
+  <a href="https://pytorch.org"><img src="https://img.shields.io/badge/PyTorch-2.0+-ee4c2c?style=for-the-badge&logo=pytorch" alt="PyTorch"></a>
+  <a href="https://www.python.org/downloads/"><img src="https://img.shields.io/badge/Python-3.10+-blue?style=for-the-badge&logo=python" alt="Python"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License"></a>
+  <a href="reports/arxiv_submission/main.tex"><img src="https://img.shields.io/badge/arXiv-2506.XXXXX-red?style=for-the-badge" alt="arXiv"></a>
+  <a href="https://github.com/varshinicb1/AnalogNN/releases/tag/v0.2.0"><img src="https://img.shields.io/badge/Release-v0.2.0-ff69b4?style=for-the-badge" alt="Release"></a>
+  <a href="https://huggingface.co/spaces"><img src="https://img.shields.io/badge/HuggingFace-Demo-yellow?style=for-the-badge&logo=huggingface" alt="Demo"></a>
+  <a href="tests/"><img src="https://img.shields.io/badge/Tests-37%2F37-brightgreen?style=for-the-badge" alt="Tests"></a>
+</p>
 
 ---
 
-## What is OpenAnalogNN?
-
-OpenAnalogNN is the **first open-source framework** that lets you train neural networks with realistic analog hardware non-idealities, map them to physical SPICE circuits, calibrate out errors, and publish production-ready results — all from one `pip install`.
-
-| Before (Standard Deploy) | After (DifferentiableAnalogMLP) |
-|---|---|
-| 70.66% analog accuracy | **77.58%** (+2.91% vs Nature Comms 2026) |
-| Chip std 2.77% | Chip std **0.09%** (28× lower) |
-| No SPICE validation | **42/42** outputs match ngspice at 10⁻⁴ |
-
-## Quick Start
+## ⚡ One-liner
 
 ```bash
 pip install open-analog-nn
+
+# Then: train analog-aware → map to circuits → simulate SPICE → calibrate → publish
 ```
+
+## 🏆 Why OpenAnalogNN?
+
+**The analog ML gap:** Software-trained weights must be realized as physical conductances. Manufacturing tolerances, temperature drift, and finite precision destroy accuracy. Prior tools either simulate non-idealities (no SPICE) or generate circuits (no training).
+
+**OpenAnalogNN bridges both worlds** — the first framework that is simultaneously:
+
+| ✅ Differentiable | ✅ SPICE-Validated | ✅ Calibration-Ready | ✅ Production |
+|---|---|---|---|
+| Train through noise, mismatch, offset | 42/42 outputs match ngspice at 10⁻⁴ | 6 methods: affine (best), Bayesian GP, HMAC | PyPI package, 37 tests, arXiv paper |
+
+## 📊 Key Results
+
+**SOTA on Fashion-MNIST:**
+
+| Method | Analog Acc | Chip Std | vs Nature Comms 2026 |
+|--------|:----------:|:--------:|:--------------------:|
+| Standard Deploy | 70.66% | 2.77% | — |
+| **Nature Comms 2026** | **12.14%** | 1.36% | Baseline (collapses) |
+| **DifferentiableAnalogMLP** | **77.58%** | **0.09%** | **+2.91%**, **28× lower variance** |
+| + Affine Calibration | **77.87%** | 0.16% | **Best accuracy** |
+
+**SPICE Validation:**
+```
+  ngspice vs FallbackSolver:\x1b[32m  42/42 outputs match at 1e-4  Max diff: 8.87e-5  Mean diff: 3.25e-5\x1b[0m
+```
+
+**Calibration:**
+```
+  Affine (OLS):      77.87% accuracy  (best for classification)
+  Bayesian GP:       62.0% RMSE ↓     (best for regression, with uncertainty)
+  HMAC:              58.7% RMSE ↓     (BLUE-optimal under circuit physics)
+```
+
+**Scaling Law** (504 runs, R²=0.9385):
+```
+  accuracy_drop = 0.130 × D^0.26 × W^0.18 × N^0.86 × exp(-0.35·log D·log N)
+```
+
+**Energy-Accuracy Pareto:**
+```
+  D=1, W=32 at 7nm:  8980 acc/µJ  (all architectures <10 µJ per inference)
+```
+
+## 🚀 Quick Start
 
 ```python
+import torch
 from analog_layers import AnalogLinear
 from calibration import AffineCalibrator
-from datasets.loaders import get_dataset
-
-# 1. Train with analog non-idealities
-layer = AnalogLinear(64, 10, config={
-    'noise_sigma': 0.03,
-    'resistor_mismatch': 0.01,
-    'saturation_vmax': 2.5
-})
-x = torch.randn(32, 64)
-y = layer(x)  # differentiable!
-
-# 2. Map to physical circuit
 from circuit_ir.mapping import map_layer_to_circuit
-circuit = map_layer_to_circuit(layer.weight, layer.bias, x)
-
-# 3. Simulate (SPICE or algebraic solver)
 from spice.fallback_solver import FallbackNodalSolver
+from validation.metrics import compute_metrics
+
+# 1. Create a differentiable analog layer
+layer = AnalogLinear(64, 10, config={
+    'noise_sigma': 0.03,           # Weight noise
+    'resistor_mismatch': 0.01,      # Pelgrom mismatch
+    'saturation_vmax': 2.5,         # Supply rail
+    'opamp_offset': 0.002,          # Input offset
+    'quantization_bits': 8,         # ADC/DAC resolution
+})
+
+# 2. Forward pass (differentiable! gradients flow through non-idealities)
+x = torch.randn(32, 64)
+y_ideal = torch.randn(32, 10)
+y_analog = layer(x)                  # Includes all non-idealities
+loss = torch.nn.functional.mse_loss(y_analog, y_ideal)
+loss.backward()                      # Works because all ops are reparameterized
+
+# 3. Map trained weights to physical circuit
+circuit = map_layer_to_circuit(layer.weight.detach(), layer.bias.detach(), x[0])
+
+# 4. Simulate using SPICE-level solver (matches ngspice at 1e-4)
 y_spice = FallbackNodalSolver.solve_closed_form(
-    layer.weight, layer.bias, x, config
+    layer.weight.detach(), layer.bias.detach(), x, {
+        'resistor_mismatch': 0.01, 'opamp_offset': 0.002,
+        'saturation_vmax': 2.5, 'enable_mismatch': True,
+        'enable_offset': True, 'enable_saturation': True
+    }
 )
 
-# 4. Calibrate
+# 5. Calibrate out systematic errors
 cal = AffineCalibrator()
-cal.fit(y_spice, y_ideal)
-y_cal = cal.calibrate(y_spice)
+cal.fit(y_spice, y_analog)
+y_calibrated = cal.calibrate(y_spice)
 
-# 5. Validate
-from validation.metrics import compute_metrics
-metrics = compute_metrics(y_ideal, y_spice, y_cal, labels)
+# 6. Validate
+metrics = compute_metrics(y_analog, y_spice, y_calibrated, labels)
+print(f"RMSE reduction: {metrics['rmse_reduction_pct']:.1f}%")
 ```
 
-## Key Results
+## 🧩 Features
 
-### 🏆 SOTA Benchmark (Fashion-MNIST)
+### Non-Idealities (7 types)
+| Type | Class | Effect |
+|------|-------|--------|
+| Weight noise | `noise_models.py` | Temporal Gaussian fluctuation |
+| Resistor mismatch | `mismatch.py` | Pelgrom σ_R up to 5% |
+| Op-amp offset | `analog_linear.py` | Amplified by noise gain (1+∑\|w\|) |
+| Quantization | `quantization.py` | 4–16 bit ADC/DAC |
+| Saturation | `saturation.py` | Supply rail clamping ±V_max |
+| TCR drift | `temperature_dependence.py` | Polysilicon: 4.80% over 60°C |
+| Thermal noise | `thermal_noise.py` | Johnson-Nyquist: ~0.04% at 300K |
 
-| Method | Digital Acc | Analog Acc | Chip Std | Source |
-|--------|:-----------:|:----------:|:--------:|:------:|
-| Standard Deploy | 75.42% | 70.66% | 2.77% | Baseline |
-| Nature Comms 2026 | 68.02% | **12.14%** | 1.36% | [Joshi et al.](https://nature.com) |
-| **DifferentiableAnalogMLP** | — | **77.58%** | **0.09%** | **Ours** |
-| + Affine Calibration | — | **77.87%** | 0.16% | **Ours** |
+### Calibrators (6 methods)
+| Method | RMSE ↓ | Accuracy | Best For |
+|--------|:------:|:--------:|----------|
+| Affine (OLS) | 32.2% | **77.87%** | Classification |
+| Polynomial | — | — | Mild non-linearity |
+| Bayesian GP | **62.0%** | 73.87% | Regression + uncertainty |
+| HMAC | 58.7% | 77.58% | Physics-aware correction |
+| Learned MLP | 56.9% | — | Non-linear patterns |
+| Ensemble | 53.7% | 75.40% | Balanced trade-off |
 
-### 📐 Scaling Law (R² = 0.9385)
+### Datasets (7)
+XOR, Iris, MNIST, Fashion-MNIST, CIFAR-10, SVHN, California Housing
 
-$$\text{drop} = 0.130 \times D^{0.26} \times W^{0.18} \times N^{0.86} \times \exp(-0.35 \cdot \log D \cdot \log N)$$
+### SPICE Infrastructure
+- **SPICE Autograd** — `torch.autograd.Function` wrapping ngspice with analytical backward
+- **Fallback Solver** — algebraic KCL solution, 1000× faster, matches ngspice at 10⁻⁴
+- **Exporters** — ngspice + LTspice netlist generation
+- **Multi-layer validation** — 2-layer (42/42) and 3-layer cascade (78/102, first documented intermediate saturation)
 
-### 🔬 SPICE Validation
+### Novel Contributions
+- Hardware Variation Dataset (100-chip Pelgrom population)
+- Scaling-law-guided Neural Architecture Search
+- Physics-based Energy Model (28nm/14nm/7nm)
+- Temperature-aware training (4.80% TCR robustness)
+- SPICE Autograd for end-to-end differentiable circuit optimization
 
-**42/42 outputs match ngspice at 10⁻⁴** (2-layer MLP, 16→32→10).
-3-layer cascade (102 op-amps) reveals first documented intermediate saturation effect.
-
-### ⚡ Energy-Accuracy Pareto
-
-D=1, W=32 is optimal across 28nm–7nm. **8980 acc/µJ at 7nm** — all architectures <10 µJ.
-
-### 📊 Six Calibration Methods
-
-| Method | RMSE ↓ | Accuracy |
-|--------|:------:|:--------:|
-| Affine (OLS) | 32.2% | **77.87%** |
-| Bayesian GP | **62.0%** | 73.87% |
-| HMAC | 58.7% | 77.58% |
-| Learned MLP | 56.9% | — |
-| Ensemble | 53.7% | 75.40% |
-| Polynomial | — | — |
-
-## Features
-
-- **7 non-ideality types**: noise, mismatch, offset, drift, quantization, saturation, TCR
-- **6 calibrators**: affine, polynomial, Bayesian GP, ensemble, HMAC, learned MLP
-- **7 datasets**: XOR, Iris, MNIST, Fashion-MNIST, CIFAR-10, SVHN, California Housing
-- **SPICE Autograd**: Differentiable through ngspice (gradient flow for circuit optimization)
-- **Hardware Variation Dataset**: 100-chip Pelgrom population with realistic mismatch
-- **Scaling Law NAS**: Architecture search guided by empirical analog scaling laws
-- **Energy Model**: Physics-based energy benchmarking (28nm/14nm/7nm)
-- **Interactive Demo**: Streamlit app with real-time visualization
-
-## Interactive Demo
+## 🎮 Interactive Demo
 
 ```bash
 pip install open-analog-nn streamlit
 streamlit run app.py
 ```
 
-Or try it on [HuggingFace Spaces](https://huggingface.co/spaces) (deploy config in `app_deploy/`).
+Explore 7 datasets, 6 architectures, all calibrators in real-time. Deploy config at `app_deploy/` for HuggingFace Spaces.
 
-## Project Structure
+## 📦 Install
 
-```
-├── analog_layers/      # Differentiable non-ideality layers
-├── calibration/        # 6 calibration methods + HMAC
-├── circuit_ir/         # Circuit IR + SPICE exporters
-├── spice/              # SPICE runner + autograd + fallback solver
-├── datasets/           # 7 dataset loaders
-├── validation/         # Metrics, parity plots, residual analysis
-├── experiments/        # Training pipelines + sweeps
-├── training/           # Advanced: adversarial, temperature-aware
-├── nas/                # Analog-aware architecture search
-├── energy/             # Physics-based energy modeling
-├── benchmarks/         # Full benchmark suite
-├── figures/            # Publication-ready figures
-├── reports/            # Auto-generated paper + reports
-└── tests/              # 37 tests (37 pass)
+```bash
+pip install open-analog-nn
 ```
 
-## Citation
+Requires Python 3.10+ and PyTorch 2.0+.
+
+## 📁 Structure
+
+```
+analog_layers/      # Differentiable non-ideality layers (7 types)
+circuit_ir/         # Circuit IR → SPICE exporters (ngspice, LTspice)
+spice/              # Runner, autograd, fallback solver, waveform parser
+calibration/        # 6 methods: affine, polynomial, Bayesian GP, HMAC, learned, ensemble
+validation/         # Metrics, parity plots, residual analysis, statistical tests
+datasets/           # 7 dataset loaders with procedural generators
+experiments/        # Training pipelines, sweeps, config loader
+training/           # Advanced: adversarial, temperature-aware, distributional
+nas/                # Analog-aware Neural Architecture Search
+energy/             # Physics-based energy efficiency model (28nm–7nm)
+huggingface/        # HuggingFace transformer integration (GPT-2, BERT)
+benchmarks/         # Full benchmark suite
+reports/            # arXiv paper + auto-generated figures
+tests/              # 37 tests (37 pass, 2 skipped for HF network access)
+```
+
+## 📄 Paper
+
+Full paper at [`reports/arxiv_submission/main.tex`](reports/arxiv_submission/main.tex) with 8 figures, 8 tables, 13 sections.
 
 ```bibtex
 @software{opennnalog2026,
-  title  = {OpenAnalogNN: Differentiable Analog Neural Network Simulation},
-  author = {OpenAnalogNN Research Group},
+  title  = {OpenAnalogNN: Differentiable Analog Neural Network Simulation,
+            Calibration, and SPICE Validation},
+  author = {Varshini C B and OpenAnalogNN Research Group},
   year   = {2026},
-  url    = {https://github.com/anomalyco/AnalogNN}
+  url    = {https://github.com/varshinicb1/AnalogNN},
+  doi    = {10.5281/zenodo.XXXXXXX}
 }
 ```
 
+## 🤝 Contributing
+
+PRs welcome! See [Discussions](https://github.com/varshinicb1/AnalogNN/discussions) for roadmap and ideas.
+
 ---
 
-<div align="center">
-⭐ If you find this useful, star the repo — it helps others discover it!<br>
-Built with ❤️ for the analog ML community
-</div>
+<p align="center">
+  ⭐ <b>Star this repo</b> — it helps researchers discover analog ML tools!<br>
+  <sub>Built with ❤️ for the neuromorphic computing community</sub>
+</p>
